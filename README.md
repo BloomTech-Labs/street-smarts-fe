@@ -1,101 +1,93 @@
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
 
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
+🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by. Make sure to delete the numbers by the end of Labs.
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
-# 1️⃣ Title of project goes here
+# Street Smarts
 
 1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
 
-## 4️⃣ Contributors
+## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                       [Brian Wardwell](https://github.com/b-dubz79)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+| [Brian Wardwell](https://github.com/b-dubz79)                                                                                 | [Hysen Sisco](https://github.com/hsisco)                                                                                                                         | [Issac Moreno](https://github.com/issac909)                                                                                                                       | [LeRoyce Pearson](https://github.com/leroycep)                                                                                                                   | [Gunnar Arnporsson](https://github.com/gunnarthorson)                                                                                    | [Steven Wang](https://github.com/stevenwang2060)                                                                                      |
+|-------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| [<img src="https://ca.slack-edge.com/ESZCHB482-W0138D8NFJL-e114f1c5d1c3-512" width = "150" />](https://github.com/b-dubz79)   | [<img src= "https://avatars1.githubusercontent.com/u/53796411?s=460&u=e79e83f36867f4ed187d711ab1b9eb6f89dda91a&v=4" width = "150" />](https://github.com/hsisco) | [<img src="https://avatars1.githubusercontent.com/u/55899345?s=460&u=6a13a00a824fb58a2e48478e9988a195f1bf5d07&v=4" width = "150" />](https://github.com/issac909) | [<img src="https://avatars2.githubusercontent.com/u/2229184?s=460&u=7f43cd85a4da972dacc5b0fcb4f62816b96d771d&v=4" width = "150" />](https://github.com/leroycep) | [<img src="https://ca.slack-edge.com/ESZCHB482-W012JQ3C81H-4a18f12203a6-512" width = "150" />](https://github.com/gunnarthorson)         | [<img src="https://ca.slack-edge.com/ESZCHB482-W012BRSJU5C-48385005a92c-512" width = "150" />](https://github.com/stevenwang2060)     |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/b-dubz79)                                         | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/hsisco)                                                                              | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/issac909)                                                                             | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/leroycep)                                                                            | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/gunnarthorson)                                               | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/stevenwang2060)                                           |
+| [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brianwardwell/) | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hysensisco/)                                       | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/issac-moreno-7a9116121/)                            | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/leroyce-pearson)                                   | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/gunnar-thorson-5a74341a9/) | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/steven-wang-75a3091a3/) |
 
 <br>
 <br>
 
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+[Trello Board](https://trello.com/b/B5GkoOPo/labs-24-street-smarts)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+[Product Canvas](https://www.notion.so/Street-Smarts-Automotive-Data-5450e77cf0c44a218a4aa6d67ce889eb)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
+[UX Design files](https://www.figma.com/file/ecy8WiINQoYzjhkueSwa2a/Street-Smarts%2C-Cornelius?node-id=210%3A0)
 
-🚫 Replace lorem ipsum with a description of your project
+StreetSmarts (name might change in production) is a tool to impartially compare the overall cost and emissions during ownership across the spectrum of internal combustion engines to electric vehicles. We make our calculations using the industry standard set by the EPA. Users can search cars by make, model, year and trim package to determine which car is best for their next purchase based on their needs.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+### Key Features
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- feature one: Allow customer to search for details on a single car
+- feature two: Provides more information about enviromental impact of cars than competitors
+- feature three: Customer can compare up to 3 vehicles
+- feature four: 
+- feature five
 
-
-### 4️⃣ Key Features
-
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
-
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+- It has extensive features and the ability to work with other technologies
 
--    point one
--    point two
--    point three
--    point four
+#### Ant Design
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+- This robust library saves time and is easy to manipulate, rather than a different library because it is widely trusted and the UX team preferred it
 
-#### Front end deployed to `🚫insert service here`
+#### Styled Components
 
-#### [Back end](🚫link to back end repo here) built using:
+- So that the styling stays within each component to simplify alterations, instead of surrendering that organization if we were to use a different system
 
-#### 🚫 back end framework goes here
+#### chart library
 
--    point one
--    point two
--    point three
+- a chart library to render data visually—which my team has yet to select, but we have created a list of viable options
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### Context API
+
+- It reates a light, scalable state management, as opposed to Redux which is more complex and requires more maintenance
+
+#### Front end deployed to AWS Amplify
+
+#### [Back end](https://github.com/Lambda-School-Labs/street-smarts-be) built using:
+
+#### Heroku PostgreSQL
+
+- Maintains a robust, relational database
+
+#### NodeJS, Express, and knex
+
+- The industry standard combination of technologies that defines HTTP servers and connects to Postgres databases
+
+#### RESTful API
+- It interacts with the server simply and safely
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication API here
 
-🚫Replace text below with a description of the API
+- We will not be using Authentication
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+## Payment API here
 
-## 2️⃣ Payment API here
+- We will not be accepting payments on this site
 
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## 3️⃣ Misc API here
+## 3️⃣ Misc API here **************
 
 🚫Replace text below with a description of the API
 
@@ -107,13 +99,8 @@ You can do anything your heart can imagine. In life you need colors. This is whe
 
 When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
 
-## 3️⃣ Misc API here
 
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
+# 3️⃣ Environment Variables ************
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -141,20 +128,18 @@ In order for the app to function correctly, the user must set up their own envir
 
 # 4️⃣ Testing
 
-🚫Document what you used for testing and why
+Using Jest for testing due to familiarity and because it's the default choice for Create React App.
 
 # 4️⃣ Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+Create React App installs several dependencies by default.  We then installed npm using "npm i" along with npm i react-router-dom, axios, styled components, Antd
 
 ## Other Scripts
 
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
 
 # Contributing
 
@@ -163,12 +148,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
@@ -194,4 +180,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](🚫*link to your backend readme here*) for details on the backend of our project.
