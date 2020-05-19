@@ -14,6 +14,9 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0"
   },
+  "devDependencies": {
+    "react-query-devtools": "^1.1.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
