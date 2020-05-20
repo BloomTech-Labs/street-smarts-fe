@@ -30,7 +30,7 @@ const Results = () => {
 
   <List
     grid={{ gutter: 16, column: 4 }}
-    dataSource={data}
+    dataSource={make}
     renderItem={item => (
       <List.Item>
         <Card title={item.title}>Card content</Card>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import { CarContext } from '../../contexts/CarContext';
 
 import "antd/dist/antd.css";
 import { Select } from "antd";
@@ -75,7 +74,6 @@ const Dropdown = () => {
   // }, [])
 
   return (
-    <CarContext.Provider value={carMakes, carModels}>
     <>
       <Select
         defaultValue="Make"
@@ -110,7 +108,6 @@ const Dropdown = () => {
           ))}
       </Select> */}
     </>
-    </CarContext.Provider>
   );
 };
 
