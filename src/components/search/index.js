@@ -33,18 +33,18 @@ const Dropdown = () => {
     e.preventDefault();
   }
 
-  // const handleChangeMake = e => {
-  //   setMake(e.target);
-  //   console.log('EVENT', e.target)
+  const handleChangeMake = e => {
+    setMake(e.target);
+    console.log('EVENT', e.target)
+  }
 
-
-  // const handleChangeModel = e => {
-  //   setModel(e.target.value);
-  // }
+  const handleChangeModel = e => {
+    setModel(e.target.value);
+  }
   
-  // const handleChangeYear = e => {
-  //   setYear(e.target.value);
-  // }
+  const handleChangeYear = e => {
+    setYear(e.target.value);
+  }
 
   return (
     <>
