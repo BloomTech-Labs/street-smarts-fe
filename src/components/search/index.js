@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
 import "antd/dist/antd.css";
 import { Select } from "antd";
 const { Option } = Select;
-
-
 
 const fetchModelData = async (selection) => {
   return await axios.get(
@@ -18,13 +17,13 @@ const fetchModelData = async (selection) => {
 //     `https://streetsmarts-labs24.herokuapp.com/api/year?model=${selection}`
 //   );
 // };
-
+  
 const Dropdown = () => {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
   const [carModels, setCarModels] = useState([]);
-  // const [modelSelected, setModelSelected] = useState("");
+  const [modelSelected, setModelSelected] = useState("");
 
   // const [carYears, setCarYears] = useState([]);
   // const [yearSelected, setYearSelected] = useState('');
@@ -40,6 +39,7 @@ const Dropdown = () => {
 
   const handleModelChanges = (modelSelect) => {
     console.log(modelSelect);
+    setModelSelected(modelSelect);
   };
 
   useEffect(() => {
@@ -68,10 +68,11 @@ const Dropdown = () => {
   }, [makeSelected]);
 
   // useEffect(async() => {
-  //   const response = await fetch(`https://streetsmarts-labs24.herokuapp.com/api/year?model=${makeSelected}`);
+  //   const response = await fetch(`https://streetsmarts-labs24.herokuapp.com/api/year?model=${modelSelected}`);
   //   const data = await response.json();
   //   console.log('data');
   // }, [])
+
   return (
     <>
       <Select
@@ -84,15 +85,20 @@ const Dropdown = () => {
       </Select>
 
       <Select
-
         defaultValue="Model"
-        style={{ width: 120 }}
+        style={{ width: 250 }}
         onSelect={handleModelChanges}>
           {carModels.map((modeler) => (
             <Option key={modeler.model} value={modeler.model}>{modeler.model}</Option>
           ))}
       </Select>
 
+      <div class = 'button'>
+        <Link to = {`/${makeSelected}/${modelSelected}`}>
+            <p>Submit</p>
+        </Link>
+      </div>
+      
       {/* <Select
         defaultValue="Year"
         style={{ width: 120 }}
