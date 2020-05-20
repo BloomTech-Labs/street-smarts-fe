@@ -1,10 +1,14 @@
 
 import React, { useEffect } from "react";
+
 import axios from 'axios';
+import { CarContext } from '../../contexts/CarContext';
 
 import { useParams } from "react-router";
 
 const Results = () => {
+  const car = useContext(CarContext);
+
   const { make, model } = useParams();
 
   const fetchSelectedCarData = async () => {
@@ -30,5 +34,6 @@ const Results = () => {
     </div>
   );
 };
+
 
 export default Results;
