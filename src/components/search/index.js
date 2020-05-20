@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { CarContext } from '../../contexts/CarContext';
 
 import "antd/dist/antd.css";
 import { Select } from "antd";
@@ -73,6 +74,7 @@ const Dropdown = () => {
   //   console.log('data');
   // }, [])
   return (
+    <CarContext.Provider value={carMakes, carModels}>
     <>
       <Select
         defaultValue="Make"
@@ -102,6 +104,7 @@ const Dropdown = () => {
           ))}
       </Select> */}
     </>
+    </CarContext.Provider>
   );
 };
 
