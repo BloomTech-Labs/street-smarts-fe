@@ -1,13 +1,9 @@
-
 import React, { useEffect } from "react";
-
 import axios from 'axios';
-import { CarContext } from '../../contexts/CarContext';
-
 import { useParams } from "react-router";
+import { List, Card } from 'antd';
 
 const Results = () => {
-  const car = useContext(CarContext);
 
   const { make, model } = useParams();
 
@@ -31,6 +27,16 @@ const Results = () => {
     <div>
       <p>{make}</p>
       <p>{model}</p>
+
+  <List
+    grid={{ gutter: 16, column: 4 }}
+    dataSource={data}
+    renderItem={item => (
+      <List.Item>
+        <Card title={item.title}>Card content</Card>
+      </List.Item>
+    )}
+  />,
     </div>
   );
 };
