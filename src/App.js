@@ -12,6 +12,6 @@ function App() {
       <Route path = '/:make/:model' component = {Results} />
     </div>
   );
-}
+};
 
 export default App;
