@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 // Refactored this data fetching function into its own folder
 import { fetchMakeData, fetchModelData } from "../../hooks/dataFetching";
 
