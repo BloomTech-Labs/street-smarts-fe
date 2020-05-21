@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
 import { useParams } from "react-router";
+import { List, Card } from 'antd';
 
 const Results = () => {
+
   const { make, model } = useParams();
 
   const [results, setResults] = useState([]);
@@ -32,19 +33,21 @@ const Results = () => {
 
   return (
     <div>
-    <h4>Your search: {make} {model}</h4>
-    <h1>Results:</h1>
-    { results.map(car => {
-        return (
-            <div>
-                <h2 onClick = {handleMoreDetails}> {car.year} {car.make} {car.model} </h2>
+      <p>{make}</p>
+      <p>{model}</p>
 
-                <button>Compare</button>
-            </div>
-        )
-    })}
+  <List
+    grid={{ gutter: 16, column: 4 }}
+    dataSource={data}
+    renderItem={item => (
+      <List.Item>
+        <Card title={item.title}>Card content</Card>
+      </List.Item>
+    )}
+  />,
     </div>
   );
 };
+
 
 export default Results;
