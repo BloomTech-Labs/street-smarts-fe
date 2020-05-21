@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { List, Card } from "antd";
-
 import { Link } from 'react-router-dom';
-
 // Refactored this data fetching function into its own folder
 import { fetchSelectedCarData } from '../../hooks/dataFetching';
 
@@ -41,7 +39,7 @@ const Results = () => {
                 className="resultsCard"
                 title={`${car.year} ${car.make} ${car.model}`}
               >
-                <p>
+                {/* <p>
                   <b>Fuel Type:</b> {car.fueltype1}
                 </p>
                 <p>
@@ -55,13 +53,12 @@ const Results = () => {
                 </p>
                 <p>
                   <b>Highway MPG:</b> {car.highway08}
-                </p>
+                </p> */}
               </Card>
             </Link>
           </List.Item>
         )}
       />
-      ,
     </div>
   );
 };
