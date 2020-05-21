@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router";
 import { List, Card } from "antd";
 
 import { Link } from 'react-router-dom';
 
-  const fetchSelectedCarData = async (make, model) => {
-    return await axios.get(
-      `https://streetsmarts-labs24.herokuapp.com/api/cars/?make=${make}&model=${model}`
-    );
-  };
+// Refactored this data fetching function into its own folder
+import { fetchSelectedCarData } from '../../hooks/dataFetching';
 
 const Results = () => {
   const { make, model } = useParams();

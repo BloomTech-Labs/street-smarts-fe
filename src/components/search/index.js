@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
+// Refactored this data fetching function into its own folder
+import { fetchMakeData, fetchModelData } from "../../hooks/dataFetching";
 
 import "antd/dist/antd.css";
+
 import { Select } from "antd";
 const { Option } = Select;
-
-const fetchModelData = async (selection) => {
-  return await axios.get(
-    `https://streetsmarts-labs24.herokuapp.com/api/model?make=${selection}`
-  );
-};
 
 const Dropdown = () => {
   const [carMakes, setCarMakes] = useState([]);
@@ -32,8 +29,7 @@ const Dropdown = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`https://streetsmarts-labs24.herokuapp.com/api/make`)
+    fetchMakeData()
       .then((res) => {
         setCarMakes(res.data);
       })
@@ -96,7 +92,7 @@ const Dropdown = () => {
         ))}
       </Select>
 
-      <Link to={`/${makeSelected}/${modelSelected}`} >
+      <Link to={`/${makeSelected}/${modelSelected}`}>
         <div className="button">
           <p>Submit</p>
         </div>

@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router";
 
-const fetchCarDetails = async (id) => {
-  return await axios.get(
-    `https://streetsmarts-labs24.herokuapp.com/api/cars/${id}`
-  );
-};
+// Refactored this data fetching function into its own folder
+import { fetchCarDetails } from '../../hooks/dataFetching';
 
 const CarDetails = () => {
   const { id } = useParams();
