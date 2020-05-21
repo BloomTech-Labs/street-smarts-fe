@@ -1,45 +1,68 @@
-import React, { useEffect } from "react";
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { List, Card } from 'antd';
+import { List, Card } from "antd";
+
+import { Link } from 'react-router-dom';
+
+// Refactored this data fetching function into its own folder
+import { fetchSelectedCarData } from '../../hooks/dataFetching';
 
 const Results = () => {
-
   const { make, model } = useParams();
 
-  const fetchSelectedCarData = async () => {
-    return await axios.get(
-      `https://streetsmarts-labs24.herokuapp.com/api/cars/?make=${make}&model=${model}`
-    );
-  };
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
-    fetchSelectedCarData()
+    fetchSelectedCarData(make, model)
       .then((res) => {
-        console.log("This is response of selected car data", res);
+        console.log('This is data from Dropdown search results', res.data);
+        setResults(res.data);
       })
       .catch((err) => {
         console.log("Error in response of selected car data", err);
       });
-  });
+  }, [make, model]);
 
   return (
     <div>
-      <p>{make}</p>
-      <p>{model}</p>
-
-  <List
-    grid={{ gutter: 16, column: 4 }}
-    dataSource={make}
-    renderItem={item => (
-      <List.Item>
-        <Card title={item.title}>Card content</Card>
-      </List.Item>
-    )}
-  />,
+      <div>
+        <h4>
+          Your search: {make} {model}
+        </h4>
+      </div>
+      <List
+        grid={{ gutter: 16, column: 4 }}
+        dataSource={results}
+        renderItem={(car) => (
+          <List.Item>
+            <Link to={`/details/${car.make}/${car.model}/${car.id}`}>
+              <Card
+                id={car.id}
+                className="resultsCard"
+                title={`${car.year} ${car.make} ${car.model}`}
+              >
+                <p>
+                  <b>Fuel Type:</b> {car.fueltype1}
+                </p>
+                <p>
+                  <b>Transmission:</b> {car.trany}
+                </p>
+                <p>
+                  <b>Cyclinders:</b> {car.cylinders}
+                </p>
+                <p>
+                  <b>City MPG:</b> {car.city08}
+                </p>
+                <p>
+                  <b>Highway MPG:</b> {car.highway08}
+                </p>
+              </Card>
+            </Link>
+          </List.Item>
+        )}
+      />
     </div>
   );
 };
-
 
 export default Results;
