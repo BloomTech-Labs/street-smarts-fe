@@ -1,20 +1,22 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 
-import CarDetails from './components/details';
-import Dropdown from './components/search';
-import Results from './components/results';
+import CarDetails from "./components/details";
+import Dropdown from "./components/search";
+import Results from "./components/results";
 
 function App() {
   return (
     <div className="App">
-      <Dropdown />
-      <Route exact path = '/:make/:model' component = {Results} />
-      <Route exact path = '/details/:make/:model/:id' component = {CarDetails} />
+      <Router>
+        <Dropdown />
+        <Route exact path="/:make/:model" component={Results} />
+        <Route exact path="/details/:make/:model/:id" component={CarDetails} />
+      </Router>
     </div>
   );
-};
+}
 
 export default App;
