@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { countDown } from '../buttons/submitSingleCarResults';
+import { countDown } from './submitSingleCarResults';
 
 function SingleCarSearch({ yearSelected, makeSelected, modelSelected }){ 
   return(
