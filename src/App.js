@@ -9,13 +9,14 @@ import Results from "./components/results";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <Dropdown />
         <Route exact path="/:make/:model" component={Results} />
+        <Route exact path="/:make/:model/:year" component={Results} />
         <Route exact path="/details/:make/:model/:id" component={CarDetails} />
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 

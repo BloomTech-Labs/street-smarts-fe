@@ -3,10 +3,10 @@ import { useParams } from "react-router";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
 // Refactored this data fetching function into its own folder
-import { fetchSelectedCarData } from '../../hooks/dataFetching';
+import { fetchSelectedCarData, fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 
 const Results = () => {
-  const { make, model } = useParams();
+  const { make, model, year } = useParams();
 
   const [results, setResults] = useState([]);
 
@@ -20,6 +20,17 @@ const Results = () => {
         console.log("Error in response of selected car data", err);
       });
   }, [make, model]);
+
+  useEffect(() => {
+    fetchSelectedCarDataByYear(make, model, year)
+      .then((res) => {
+        console.log('This is data from Dropdown search results', res.data);
+        setResults(res.data);
+      })
+      .catch((err) => {
+        console.log("Error in response of selected car data", err);
+      });
+  }, [make, model, year]);
 
   return (
     <div>
@@ -39,7 +50,7 @@ const Results = () => {
                 className="resultsCard"
                 title={`${car.year} ${car.make} ${car.model}`}
               >
-                {/* <p>
+                <p>
                   <b>Fuel Type:</b> {car.fueltype1}
                 </p>
                 <p>
@@ -53,7 +64,7 @@ const Results = () => {
                 </p>
                 <p>
                   <b>Highway MPG:</b> {car.highway08}
-                </p> */}
+                </p>
               </Card>
             </Link>
           </List.Item>
