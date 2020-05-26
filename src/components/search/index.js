@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 // Refactored this data fetching function into its own folder
-import { fetchMakeData, fetchModelData } from "../../hooks/dataFetching";
-
-import "antd/dist/antd.css";
-
-import { Select } from "antd";
-const { Option } = Select;
+import { fetchMakeData, fetchModelData, fetchYearData } from "../../hooks/dataFetching";
+import Selection from '../dropdown';
+import SingleCarSearch from "../singleCarSearch";
 
 const Dropdown = () => {
   const [carMakes, setCarMakes] = useState([]);
@@ -14,17 +10,44 @@ const Dropdown = () => {
 
   const [carModels, setCarModels] = useState([]);
   const [modelSelected, setModelSelected] = useState("");
+  console.log(modelSelected)
 
-  const handleMakeChanges = (selected) => {
-    setMakeSelected(selected);
+  const [carYears, setCarYears] = useState([]);
+  const [yearSelected, setYearSelected] = useState("");
+
+  const [modelDisabled, setModelDisabled] = useState(true);
+  const [yearDisabled, setYearDisabled] = useState(true);
+
+  const handleMakeChanges = (makeSelected) => {
+    setMakeSelected(makeSelected);
+    setModelDisabled(false);
+    setYearSelected('');
+    setYearDisabled(true);
   };
 
   const handleModelChanges = (modelSelect) => {
     setModelSelected(modelSelect);
+    setYearDisabled(false);
+    setYearSelected('');
   };
 
-  const onSearch = (userInput) => {
-    return userInput;
+  const handleYearChanges = (yearSelect) => {
+    setYearSelected(yearSelect);
+  };
+
+  const handleClear = () => {
+    setYearSelected('');
+  };
+
+  const disableOtherDropdown = () => {
+    setModelDisabled(false)
+    setYearDisabled(false)
+    // setModelSelected('')
+  };
+
+  const disableYearDropdown = () => {
+    setYearDisabled(false)
+    setYearSelected('')
   };
 
   useEffect(() => {
@@ -49,54 +72,41 @@ const Dropdown = () => {
     }
   }, [makeSelected]);
 
+  useEffect(() => {
+    if (makeSelected && modelSelected !== "") {
+      fetchYearData(makeSelected, modelSelected)
+        .then((res) => {
+          setCarYears(res.data);
+        })
+        .catch((err) => {
+          console.log("This is error in useEffect for years", err);
+        });
+    }
+  }, [makeSelected, modelSelected]);
+  
   return (
-    <>
-      <Select
+    <div id='dropdownForm'>
+      <Selection 
         showSearch
-        defaultValue="Make"
-        style={{ width: 120 }}
         onSelect={handleMakeChanges}
-        onSearch={onSearch}
-        optionFilterProp="children"
-        filterOption={(input, option) => {
-          return (
-            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-          );
-        }}
-      >
-        {carMakes.map((maker) => (
-          <Option key={maker.make} value={maker.make}>
-            {maker.make}
-          </Option>
-        ))}
-      </Select>
-
-      <Select
+        onFocus={disableOtherDropdown}
+        data={carMakes}/>
+      <Selection 
         showSearch
-        defaultValue="Model"
-        style={{ width: 250 }}
+        disabled={modelDisabled}
         onSelect={handleModelChanges}
-        onSearch={onSearch}
-        optionFilterProp="children"
-        filterOption={(input, option) => {
-          return (
-            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-          );
-        }}
-      >
-        {carModels.map((modeler) => (
-          <Option key={modeler.model} value={modeler.model}>
-            {modeler.model}
-          </Option>
-        ))}
-      </Select>
+        onFocus={disableYearDropdown}
+        data={carModels}/>
+      <Selection 
+        allowClear
+        disabled={yearDisabled}
+        onSelect={handleYearChanges}
+        onFocus={disableOtherDropdown}
+        onChange={handleClear}
+        data={carYears}/>
 
-      <Link to={`/${makeSelected}/${modelSelected}`}>
-        <div className="button">
-          <p>Submit</p>
-        </div>
-      </Link>
-    </>
+      <SingleCarSearch yearSelected={yearSelected} makeSelected={makeSelected} modelSelected={modelSelected} />
+    </div>
   );
 };
 
