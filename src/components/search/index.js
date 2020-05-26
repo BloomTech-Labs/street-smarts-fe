@@ -5,7 +5,7 @@ import { handleMakeChanges, handleModelChanges, handleYearChanges, handleClear, 
 import Selection from '../dropdown';
 import SingleCarSearch from "../buttons/singleCarSearch";
 
-const Dropdown = () => {
+export default function Dropdown()  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -58,5 +58,3 @@ const Dropdown = () => {
     </div>
   );
 };
-
-export default Dropdown;
