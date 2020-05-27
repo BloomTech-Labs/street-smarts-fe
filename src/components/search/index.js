@@ -18,16 +18,21 @@ export default function Dropdown()  {
   const [modelDisabled, setModelDisabled] = useState(true);
   const [yearDisabled, setYearDisabled] = useState(true);
 
+// WHAT LIST IS SHOWING
+// Handles Make Dropdown state
   useEffect(() => {
     fetchMakeData(setCarMakes);
   }, []);
 
+// Handles Model Dropdown state
   useEffect(() => {
     if (makeSelected !== "") {
       fetchModelData(makeSelected, setCarModels)
     }
   }, [makeSelected]);
 
+  
+// Handles Year Dropdown state
   useEffect(() => {
     if (makeSelected && modelSelected !== "") {
       fetchYearData(makeSelected, modelSelected, setCarYears)

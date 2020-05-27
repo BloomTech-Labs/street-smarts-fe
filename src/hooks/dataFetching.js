@@ -32,19 +32,36 @@ export const fetchYearData = async (make, model, setCarYears) => {
     });
 }
 
-export const fetchSelectedCarDataByYear = async (make, model, year) => {
+export const fetchSelectedCarDataByYear = async (make, model, year, setResults) => {
   return await axios
     .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/?year=${year}&make=${make}&model=${model}`)
+    .then((res) => {
+      setResults(res.data);
+    })
+    .catch((err) => {
+      return err.message;
+    });
 };
 
-export const fetchSelectedCarData = async (make, model) => {
-  return await axios.get(
-    `https://streetsmarts-labs24.herokuapp.com/api/cars/?make=${make}&model=${model}`
-  );
+export const fetchSelectedCarData = async (make, model, setResults) => {
+  return await axios
+    .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/?make=${make}&model=${model}`)
+    .then((res) => {
+      setResults(res.data);
+    })
+    .catch((err) => {
+      return err.message;
+    });
 };
 
-export const fetchCarDetails = async (id) => {
-  return await axios.get(
-    `https://streetsmarts-labs24.herokuapp.com/api/cars/${id}`
-  );
+export const fetchCarDetails = async (id, setCar) => {
+  return await axios
+    .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/${id}`)
+    .then((res) => {
+      console.log(`This is response for fetchCarDetails of ${res.data.year} ${res.data.make} ${res.data.model}`, res);
+      setCar(res.data);
+    })
+    .catch((err) => {
+      return err.message;
+    });
 };

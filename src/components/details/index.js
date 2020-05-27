@@ -9,14 +9,7 @@ const CarDetails = () => {
   const [car, setCar] = useState({});
 
   useEffect(() => {
-    fetchCarDetails(id)
-      .then((res) => {
-        console.log(`This is response for fetchCarDetails of ${res.data.year} ${res.data.make} ${res.data.model}`, res);
-        setCar(res.data);
-      })
-      .catch((err) => {
-        console.log("Error in fetchCarDetails useEffect", err.message);
-      });
+    fetchCarDetails(id, setCar)
   }, [id]);
   return (
     <>
