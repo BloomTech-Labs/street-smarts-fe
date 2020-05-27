@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { fetchMakeData, fetchModelData, fetchYearData } from "../../hooks/dataFetching";
 import { handleMakeChanges, handleModelChanges, handleYearChanges, handleClear, disableOtherDropdown, disableYearDropdown } from '../../hooks/dropdownFunctions';
+import styled from 'styled-components';
 
 import Selection from '../dropdown';
 import SingleCarSearch from "../buttons/singleCarSearch";
+
+const Wrapper = styled.div`
+  background-color: green;
+  `;
 
 export default function Dropdown()  {
   const [carMakes, setCarMakes] = useState([]);
@@ -40,20 +45,24 @@ export default function Dropdown()  {
   }, [makeSelected, modelSelected]);
   
   return (
+    <Wrapper>
     <div id='dropdownForm'>
       <Selection 
         showSearch
+        defaultValue='Make'
         onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
         onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
         data={carMakes}/>
       <Selection 
         showSearch
+        defaultValue='Model'
         disabled={modelDisabled}
         onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
         onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
         data={carModels}/>
       <Selection 
         allowClear
+        defaultValue='Year'
         disabled={yearDisabled}
         onSelect={(selected) => handleYearChanges(selected, setYearSelected)}
         onChange={() => handleClear(setYearSelected)}
@@ -61,5 +70,6 @@ export default function Dropdown()  {
 
       <SingleCarSearch yearSelected={yearSelected} makeSelected={makeSelected} modelSelected={modelSelected} />
     </div>
+    </Wrapper>
   );
 };

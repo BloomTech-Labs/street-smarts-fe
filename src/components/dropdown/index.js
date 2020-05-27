@@ -4,7 +4,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFocus, data }) => {
+const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFocus, data, defaultValue }) => {
   const search = userInput => {
     return userInput;
   }
@@ -15,6 +15,7 @@ const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFoc
 
   return (
     <Select
+      defaultValue={defaultValue}
       showSearch={showSearch}
       allowClear={allowClear}
       disabled={disabled}
