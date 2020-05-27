@@ -17,11 +17,12 @@ const Results = () => {
         setResults(res.data);
       })
       .catch((err) => {
-        console.log("Error in response of selected car data", err);
+        console.log("Error indsdasdsadas  response of selected car data", err);
       });
   }, [make, model]);
 
   useEffect(() => {
+    if(year) {
     fetchSelectedCarDataByYear(make, model, year)
       .then((res) => {
         console.log('This is data from Dropdown search results', res.data);
@@ -30,6 +31,7 @@ const Results = () => {
       .catch((err) => {
         console.log("Error in response of selected car data", err);
       });
+    }
   }, [make, model, year]);
 
   return (
@@ -51,7 +53,7 @@ const Results = () => {
                 title={`${car.year} ${car.make} ${car.model}`}
               >
                 <p>
-                  <b>Fuel Type:</b> {car.fueltype1}
+                  <b>Engine ID:</b> {car.co2tailpipegpm}
                 </p>
                 <p>
                   <b>Transmission:</b> {car.trany}
