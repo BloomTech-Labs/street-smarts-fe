@@ -3,7 +3,6 @@ import { fetchMakeData, fetchModelData, fetchYearData } from "../../hooks/dataFe
 import { handleMakeChanges, handleModelChanges, handleYearChanges, handleSubModelClick,handleClear, disableOtherDropdown, disableYearDropdown } from '../../hooks/dropdownFunctions';
 
 import Selection from '../dropdown';
-import SingleCarSearch from "../buttons/singleCarSearch";
 import Results from '../results';
 
 export default function Dropdown()  {
@@ -58,7 +57,6 @@ export default function Dropdown()  {
         onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
         data={carModels}/>
       <Selection 
-        allowClear
         disabled={yearDisabled}
         onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
         onChange={() => handleClear(setYearSelected)}
@@ -74,8 +72,6 @@ export default function Dropdown()  {
       ) : (
         <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
       )}
-
-      <SingleCarSearch yearSelected={yearSelected} makeSelected={makeSelected} modelSelected={modelSelected} />
     </div>
   );
 };

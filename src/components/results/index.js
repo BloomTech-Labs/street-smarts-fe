@@ -36,7 +36,7 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
                 title={`${car.year} ${car.make} ${car.model}`}
               >
                 <p>
-                  <b>Engine ID:</b> {car.co2tailpipegpm}
+                  <b>Engine ID:</b> {car.engid}
                 </p>
                 <p>
                   <b>Transmission:</b> {car.trany}
