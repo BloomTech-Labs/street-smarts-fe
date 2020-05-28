@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { Card, Divider } from 'antd';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import { Card, Divider } from "antd";
+import HorizontalGauge from 'react-horizontal-gauge';
 import { fetchCarDetails } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
@@ -8,6 +9,11 @@ const CarDetails = () => {
   const { id } = useParams();
 
   const [car, setCar] = useState({});
+
+const gaugeTicks = [ 
+  // Need car c02 emission prediction
+  {label: 'C02', value: 7.2 /*<-- Prediction here*/}
+]
 
   useEffect(() => {
     fetchCarDetails(id, setCar)
@@ -42,6 +48,8 @@ const CarDetails = () => {
           <Divider className='divider' />
             <h3>HIGHWAY MPG</h3>
             <p>{car.highway08}</p>
+          <Divider />
+            <HorizontalGauge ticks={gaugeTicks} height={70} width={500} min={0} max={10} value={7.3}/>
         </Card>
 
         <Card

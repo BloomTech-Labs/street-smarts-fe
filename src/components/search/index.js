@@ -91,7 +91,6 @@ export default function Dropdown()  {
         ) : (
           <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
         )}
-
       </div>
       </div>
     </SearchStyled>
