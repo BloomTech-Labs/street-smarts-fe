@@ -42,8 +42,10 @@ function App() {
 
           <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
             <div className="AppMain" style={{ padding: 24, minHeight: 380 }}>
-              <Dropdown />
-              <Route exact path="/:make/:model" component={Results} />
+        <Route exact path = '/' component = {Dropdown} />
+        <Route exact path="/details/:make/:model/:id" component={CarDetails} />
+    <Route exact path="/:make/:model" component={Results} />
+    
               <Route exact path="/:make/:model/:year" component={Results} />
               <Route exact path="/details/:make/:model/:id" component={CarDetails} />
             </div>
@@ -55,6 +57,7 @@ function App() {
         
         </Layout>
       </AppStyle>
+
     </Router>
   );
 }

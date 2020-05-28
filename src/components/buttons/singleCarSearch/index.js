@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { singleCarSubmitError } from './modal';
 import { countDown } from './submitSingleCarResults';
 import styled from 'styled-components'
 
@@ -20,7 +21,6 @@ const ButtonWrapper = styled.div`
   }
 `
 
-
 function SingleCarSearch({ yearSelected, makeSelected, modelSelected }){ 
   return(
     <ButtonWrapper>
@@ -38,8 +38,8 @@ function SingleCarSearch({ yearSelected, makeSelected, modelSelected }){
         </Link>
       ) : (
         <div className="button">
-          <a href='#dropdownForm' onClick={countDown}>
-            <p className="buttonText">Submit</p>
+          <a href='#dropdownForm' onClick={singleCarSubmitError}>
+            <p>Submit</p>
           </a>
         </div>)
       }

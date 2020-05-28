@@ -11,9 +11,7 @@ const Dropdown = styled(Select)`
     border: solid black 1px;
    `;
 
-
-
-const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFocus, data, defaultValue }) => {
+const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDropdownVisibleChange, onFocus, data, defaultValue }) => {
   const search = userInput => {
     return userInput;
   }
@@ -32,6 +30,7 @@ const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFoc
       style={{width: 200}}
       onSelect={onSelect}
       onChange={onChange}
+      onDropdownVisibleChange={onDropdownVisibleChange}
       onFocus={onFocus}
       onSearch={search}
       optionFilterProp='children'

@@ -13,10 +13,14 @@ export const handleModelChanges = (selected, setModelSelected, setYearDisabled, 
 };
 
 // Will set state for selected Year
-export const handleYearChanges = (selected, setYearSelected) => {
+export const handleYearChanges = (selected, setYearSelected, setIsSubModelSelected) => {
     setYearSelected(selected);
+    setIsSubModelSelected(false);
 };
 
+export const handleSubModelClick = (setIsSubModelSelected) => {
+    setIsSubModelSelected(false);
+}
 // Will reset year and take it out of URL params
 export const handleClear = (setYearSelected) => {
     setYearSelected('');

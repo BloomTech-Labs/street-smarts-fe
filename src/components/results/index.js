@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
-import { fetchSelectedCarData, fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
-// import styled from 'styled-components';
 
-// const SearchResults = styled.div`
-// .results {}
-// `;
+import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 
-const Results = () => {
-  const { make, model, year } = useParams();
-
+const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    fetchSelectedCarData(make, model, setResults)
-  }, [make, model]);
+  const handleSubModelChanges = (id) => {
+    setSubModel(id);
+    setIsSubModelSelected(true);
+  };
 
   useEffect(() => {
     if(year) {
@@ -36,14 +30,14 @@ const Results = () => {
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
-            <Link to={`/details/${car.make}/${car.model}/${car.id}`}>
+            <Link to={`/details/${car.make}/${car.model}/${car.id}`} onClick={() => handleSubModelChanges(car.id)}>
               <Card
                 id={car.id}
                 className="resultsCard"
                 title={`${car.year} ${car.make} ${car.model}`}
               >
                 <p>
-                  <b>Engine ID:</b> {car.co2tailpipegpm}
+                  <b>Engine ID:</b> {car.engid}
                 </p>
                 <p>
                   <b>Transmission:</b> {car.trany}

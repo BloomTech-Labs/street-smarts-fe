@@ -43,17 +43,6 @@ export const fetchSelectedCarDataByYear = async (make, model, year, setResults) 
     });
 };
 
-export const fetchSelectedCarData = async (make, model, setResults) => {
-  return await axios
-    .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/?make=${make}&model=${model}`)
-    .then((res) => {
-      setResults(res.data);
-    })
-    .catch((err) => {
-      return err.message;
-    });
-};
-
 export const fetchCarDetails = async (id, setCar) => {
   return await axios
     .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/${id}`)
