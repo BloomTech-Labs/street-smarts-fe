@@ -8,6 +8,10 @@ test("Render text",  () => {
   render ("Hello");
 });
 
+test("renders App without crashing", () => {
+  render(<App />);
+});
+
 test("App renders without crashing",  () => {
   const {getByText} = render (<App/>);
   const carMake = getByText(/make/i);
@@ -21,13 +25,11 @@ test("renders message header", () => {
 
 });
 
-test("renders App without crashing", () => {
-  render(<App />);
-});
 
-test('Renders data from /make endpoint', () => {
-  const {getByText} = render(<App><Dropdown /></App>)
-  const makeName = getByText(/make/i);
-  expect(makeName).toBeInTheDocument()
-  })
+
+// test('Renders data from /make endpoint', () => {
+//   const {getByText} = render(<App><Dropdown /></App>)
+//   const makeName = getByText(/make/i);
+//   expect(makeName).toBeInTheDocument()
+//   })
 
