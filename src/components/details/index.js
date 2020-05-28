@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Card, Divider } from "antd";
 import HorizontalGauge from 'react-horizontal-gauge';
-import { fetchCarDetails, fetchPredictionCarbonEmissions } from '../../hooks/dataFetching';
+import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
 const MAX_CARBON_EMISSIONS = 1400;
@@ -12,6 +12,7 @@ const CarDetails = () => {
 
   const [car, setCar] = useState({});
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
+  const [predictedPrice, setPredictedPrice] = useState(null);
 
   const gaugeTicks = []; // Empty for now
 
@@ -19,6 +20,9 @@ const CarDetails = () => {
     fetchCarDetails(id, setCar)
     fetchPredictionCarbonEmissions(id, (obj) => {
       setPredictedCarbonEmissions(obj.predicted_carbon_emissions);
+    });
+    fetchPredictionPrice(id, (obj) => {
+      setPredictedPrice(obj.predicted_price);
     });
   }, [id]);
 
