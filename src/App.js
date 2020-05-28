@@ -11,8 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Dropdown />
-        <Route exact path="/:make/:model" component={Results} />
+        <Route exact path = '/' component = {Dropdown} />
         <Route exact path="/:make/:model/:year" component={Results} />
         <Route exact path="/details/:make/:model/:id" component={CarDetails} />
       </div>
