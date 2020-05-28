@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
-import Dropdown from './components/search'
+
 
 
 test("Render text",  () => {
@@ -16,7 +16,7 @@ test("App renders without crashing",  () => {
 
 test("renders message header", () => {
   const { getByText } = render(<App />);
-  const submit = getByText(/submit/i)
+  const submit = getByText(/home/i)
   expect(submit).toBeInTheDocument()
 
 });
@@ -26,8 +26,8 @@ test("renders App without crashing", () => {
 });
 
 test('Renders data from /make endpoint', () => {
-const {getByText} = render(<App><Dropdown /></App>)
-const makeName = getByText(/make/i);
-expect(makeName).toBeInTheDocument()
-})
+  const {getByText} = render(<App><Dropdown /></App>)
+  const makeName = getByText(/make/i);
+  expect(makeName).toBeInTheDocument()
+  })
 
