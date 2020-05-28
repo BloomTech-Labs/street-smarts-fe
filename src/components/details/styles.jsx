@@ -9,7 +9,7 @@ const CarDetailsStyles = styled.div`
     border: none;
 
     .carText {
-      width: 30%;
+      width: 35%;
       background-color: rgba(0,0,0,0);
       border: none;
 
@@ -22,6 +22,15 @@ const CarDetailsStyles = styled.div`
       width: 50%;
       background-color: rgba(0,0,0,0);
       border: none;
+      svg {
+        width: 100%;
+      }
+      rect {
+        width: 100%
+      }
+      // .gauge {
+      //   width: 50%;
+      // }
     }
   }
 `;

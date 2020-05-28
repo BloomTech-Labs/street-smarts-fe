@@ -12,7 +12,6 @@ const SearchStyled = styled.div`
 
     .heroText {
       background-color: rgba(0,0,0,0);
-
     }
 
     .dropdownForm {
