@@ -9,7 +9,7 @@ const Dropdown = styled(Select)`
     display: flex;
     width: 400px;
     border: solid black 1px;
-   `;
+`;
 
 const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDropdownVisibleChange, onFocus, data, defaultValue }) => {
   const search = userInput => {
@@ -21,7 +21,6 @@ const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDro
   }
 
   return (
-    
     <Dropdown 
       defaultValue={defaultValue}
       showSearch={showSearch}

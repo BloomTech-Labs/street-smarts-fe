@@ -29,7 +29,7 @@ function App() {
               <Menu.Item key="1">Home</Menu.Item>
               <Menu.Item key="2">Search</Menu.Item>
               <Menu.Item key="3">What is CO2</Menu.Item>
-              <Menu.Item key="3">Contact</Menu.Item>
+              <Menu.Item key="4">Contact</Menu.Item>
             </Menu>
           </Header>
 
