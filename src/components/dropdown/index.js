@@ -4,7 +4,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFocus, data }) => {
+const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDropdownVisibleChange, onFocus, data }) => {
   const search = userInput => {
     return userInput;
   }
@@ -21,6 +21,7 @@ const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onFoc
       style={{width: 200}}
       onSelect={onSelect}
       onChange={onChange}
+      onDropdownVisibleChange={onDropdownVisibleChange}
       onFocus={onFocus}
       onSearch={search}
       optionFilterProp='children'

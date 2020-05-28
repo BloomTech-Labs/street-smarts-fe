@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 
-export function countDown() {
+export function singleCarSubmitError() {
   let secondsToGo = 5;
   const modal = Modal.success({
     title: 'This is a notification message',

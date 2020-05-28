@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchMakeData, fetchModelData, fetchYearData } from "../../hooks/dataFetching";
-import { handleMakeChanges, handleModelChanges, handleYearChanges, handleClear, disableOtherDropdown, disableYearDropdown } from '../../hooks/dropdownFunctions';
+import { handleMakeChanges, handleModelChanges, handleYearChanges, handleSubModelClick,handleClear, disableOtherDropdown, disableYearDropdown } from '../../hooks/dropdownFunctions';
 
 import Selection from '../dropdown';
-import SingleCarSearch from "../buttons/singleCarSearch";
+import Results from '../results';
 
 export default function Dropdown()  {
   const [carMakes, setCarMakes] = useState([]);
@@ -17,6 +17,10 @@ export default function Dropdown()  {
 
   const [modelDisabled, setModelDisabled] = useState(true);
   const [yearDisabled, setYearDisabled] = useState(true);
+
+  const [subModel, setSubModel] = useState("");
+  const [subModelDisabled, setSubModelDisabled] = useState(true);
+  const [isSubModelSelected, setIsSubModelSelected] = useState(true);
 
 // WHAT LIST IS SHOWING
 // Handles Make Dropdown state
@@ -53,13 +57,21 @@ export default function Dropdown()  {
         onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
         data={carModels}/>
       <Selection 
-        allowClear
         disabled={yearDisabled}
-        onSelect={(selected) => handleYearChanges(selected, setYearSelected)}
+        onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
         onChange={() => handleClear(setYearSelected)}
         data={carYears}/>
 
-      <SingleCarSearch yearSelected={yearSelected} makeSelected={makeSelected} modelSelected={modelSelected} />
+      {isSubModelSelected ? (
+        <Selection
+          disabled={subModelDisabled}
+          value={subModel}
+          onDropdownVisibleChange={() => handleSubModelClick(setIsSubModelSelected)}
+          data={carYears}
+        />
+      ) : (
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
+      )}
     </div>
   );
 };
