@@ -3,6 +3,11 @@ import { useParams } from "react-router";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
 import { fetchSelectedCarData, fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
+// import styled from 'styled-components';
+
+// const SearchResults = styled.div`
+// .results {}
+// `;
 
 const Results = () => {
   const { make, model, year } = useParams();
@@ -20,12 +25,12 @@ const Results = () => {
   }, [make, model, year]);
 
   return (
+    // <SearchResults>
     <div>
-      <div>
         <h4>
           Your search: {year} {make} {model}
         </h4>
-      </div>
+      {/* </div> */}
       <List
         grid={{ gutter: 16, column: 4 }}
         dataSource={results}

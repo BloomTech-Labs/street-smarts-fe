@@ -6,9 +6,17 @@ import styled from 'styled-components';
 import Selection from '../dropdown';
 import SingleCarSearch from "../buttons/singleCarSearch";
 
-const Wrapper = styled.div`
-  background-color: green;
-  `;
+const Menu = styled.div`
+  .dropdownForm{
+    width: 400px;
+    margin-top: 2%;
+    margin-left: 20%;
+   }`;
+ 
+const Title = styled.h1`
+    margin-top: 10%;
+    margin-left: 20%;
+`
 
 export default function Dropdown()  {
   const [carMakes, setCarMakes] = useState([]);
@@ -45,14 +53,18 @@ export default function Dropdown()  {
   }, [makeSelected, modelSelected]);
   
   return (
-    <Wrapper>
-    <div id='dropdownForm'>
-      <Selection 
+    <Menu>
+      <Title>What car will you drive next?</Title>
+    <div className='dropdownForm'>
+      
+      <Selection
         showSearch
         defaultValue='Make'
         onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
         onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
         data={carMakes}/>
+        
+        
       <Selection 
         showSearch
         defaultValue='Model'
@@ -60,6 +72,8 @@ export default function Dropdown()  {
         onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
         onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
         data={carModels}/>
+        
+        
       <Selection 
         allowClear
         defaultValue='Year'
@@ -67,9 +81,9 @@ export default function Dropdown()  {
         onSelect={(selected) => handleYearChanges(selected, setYearSelected)}
         onChange={() => handleClear(setYearSelected)}
         data={carYears}/>
-
+        
       <SingleCarSearch yearSelected={yearSelected} makeSelected={makeSelected} modelSelected={modelSelected} />
     </div>
-    </Wrapper>
+    </Menu>
   );
 };
