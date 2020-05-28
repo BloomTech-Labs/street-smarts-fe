@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SearchStyled = styled.div`
-  .hero {
+  main {
     background-image: url("https://unsplash.com/photos/5FGqfV6UjzI");  
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    // position: relative;
-
+  }
+  .hero {
     .heroText {
       margin-top: 40%;
       background-color: rgba(0,0,0,0);
