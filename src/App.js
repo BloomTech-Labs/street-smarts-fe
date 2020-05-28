@@ -32,6 +32,7 @@ function App() {
             <p>Streetsmarts ©2020</p>
           </Footer>
         
+
         </Layout>
       </AppStyle>
     </Router>

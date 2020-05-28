@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchMakeData, fetchModelData, fetchYearData } from "../../hooks/dataFetching";
 import styled from 'styled-components';
-import { handleMakeChanges, handleModelChanges, handleYearChanges, handleSubModelClick, handleClear, disableOtherDropdown, disableYearDropdown } from '../../hooks/dropdownFunctions';
+import { handleMakeChanges, handleModelChanges, handleYearChanges, handleSubModelClick, handleClear, disableOtherDropdown, disableYearDropdown, disableSubModel } from '../../hooks/dropdownFunctions';
 
 import Selection from '../dropdown';
 import Results from '../results';
@@ -65,7 +65,7 @@ export default function Dropdown()  {
         showSearch
         defaultValue='Make'
         onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
-        onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
+        onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected)}
         data={carMakes}/>
         
         
@@ -74,16 +74,16 @@ export default function Dropdown()  {
         defaultValue='Model'
         disabled={modelDisabled}
         onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
-        onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
+        onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected)}
         data={carModels}/>
         
         
       <Selection 
-        allowClear
         defaultValue='Year'
         disabled={yearDisabled}
         onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
         onChange={() => handleClear(setYearSelected)}
+        onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
         data={carYears}/>
           
       {isSubModelSelected ? (
