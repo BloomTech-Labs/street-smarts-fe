@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
+
 import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 
 const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
@@ -18,12 +19,12 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
   }, [make, model, year]);
 
   return (
+    // <SearchResults>
     <div>
-      <div>
         <h4>
           Your search: {year} {make} {model}
         </h4>
-      </div>
+      {/* </div> */}
       <List
         grid={{ gutter: 16, column: 4 }}
         dataSource={results}

@@ -1,10 +1,17 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
+import styled from 'styled-components';
 
 const { Option } = Select;
 
-const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDropdownVisibleChange, onFocus, data }) => {
+const Dropdown = styled(Select)`
+    display: flex;
+    width: 400px;
+    border: solid black 1px;
+   `;
+
+const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDropdownVisibleChange, onFocus, data, defaultValue }) => {
   const search = userInput => {
     return userInput;
   }
@@ -14,7 +21,9 @@ const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDro
   }
 
   return (
-    <Select
+    
+    <Dropdown 
+      defaultValue={defaultValue}
       showSearch={showSearch}
       allowClear={allowClear}
       disabled={disabled}
@@ -33,7 +42,8 @@ const Selection = ({ showSearch, allowClear, disabled, onSelect, onChange, onDro
         : data.year ? (<Option key={data.year} value={data.year}>{data.year}</Option>)
         : (<></>)
       })}
-    </Select>
+    </Dropdown>
+   
   )
 };
 
