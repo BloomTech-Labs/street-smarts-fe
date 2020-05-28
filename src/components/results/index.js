@@ -1,45 +1,63 @@
-import React, { useEffect } from "react";
-import axios from 'axios';
-import { useParams } from "react-router";
-import { List, Card } from 'antd';
+import React, { useState, useEffect } from "react";
+import { List, Card } from "antd";
+import { Link } from 'react-router-dom';
 
-const Results = () => {
+import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 
-  const { make, model } = useParams();
+const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
+  const [results, setResults] = useState([]);
 
-  const fetchSelectedCarData = async () => {
-    return await axios.get(
-      `https://streetsmarts-labs24.herokuapp.com/api/cars/?make=${make}&model=${model}`
-    );
+  const handleSubModelChanges = (id) => {
+    setSubModel(id);
+    setIsSubModelSelected(true);
   };
 
   useEffect(() => {
-    fetchSelectedCarData()
-      .then((res) => {
-        console.log("This is response of selected car data", res);
-      })
-      .catch((err) => {
-        console.log("Error in response of selected car data", err);
-      });
-  });
+    if(year) {
+    fetchSelectedCarDataByYear(make, model, year, setResults)
+    }
+  }, [make, model, year]);
 
   return (
+    // <SearchResults>
     <div>
-      <p>{make}</p>
-      <p>{model}</p>
-
-  <List
-    grid={{ gutter: 16, column: 4 }}
-    dataSource={data}
-    renderItem={item => (
-      <List.Item>
-        <Card title={item.title}>Card content</Card>
-      </List.Item>
-    )}
-  />,
+        <h4>
+          Your search: {year} {make} {model}
+        </h4>
+      {/* </div> */}
+      <List
+        grid={{ gutter: 16, column: 4 }}
+        dataSource={results}
+        renderItem={(car) => (
+          <List.Item>
+            <Link to={`/details/${car.make}/${car.model}/${car.id}`} onClick={() => handleSubModelChanges(car.id)}>
+              <Card
+                id={car.id}
+                className="resultsCard"
+                title={`${car.year} ${car.make} ${car.model}`}
+              >
+                <p>
+                  <b>Engine ID:</b> {car.engid}
+                </p>
+                <p>
+                  <b>Transmission:</b> {car.trany}
+                </p>
+                <p>
+                  <b>Cyclinders:</b> {car.cylinders}
+                </p>
+                <p>
+                  <b>City MPG:</b> {car.city08}
+                </p>
+                <p>
+                  <b>Highway MPG:</b> {car.highway08}
+                </p>
+              </Card>
+            </Link>
+          </List.Item>
+        )}
+      />
     </div>
   );
 };
-
 
 export default Results;

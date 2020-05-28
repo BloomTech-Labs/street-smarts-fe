@@ -1,116 +1,98 @@
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../hooks/dataFetching';
+import { handleMakeChanges, 
+        handleModelChanges, 
+        handleYearChanges, 
+        handleSubModelClick, 
+        handleClear, 
+        disableOtherDropdown, 
+        disableYearDropdown, 
+        disableSubModel } from '../../hooks/dropdownFunctions';
+import Selection from '../dropdown';
+import Results from '../results';
+import SearchStyled from './styles';
 
-import "antd/dist/antd.css";
-import { Select } from "antd";
-const { Option } = Select;
-
-const fetchModelData = async (selection) => {
-  return await axios.get(
-    `https://streetsmarts-labs24.herokuapp.com/api/model?make=${selection}`
-  );
-};
-
-// const fetchYearData = async (selection) => {
-//   await axios.get(
-//     `https://streetsmarts-labs24.herokuapp.com/api/year?model=${selection}`
-//   );
-// };
-  
-const Dropdown = () => {
+export default function Dropdown()  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
   const [carModels, setCarModels] = useState([]);
   const [modelSelected, setModelSelected] = useState("");
 
-  // const [carYears, setCarYears] = useState([]);
-  // const [yearSelected, setYearSelected] = useState('');
+  const [carYears, setCarYears] = useState([]);
+  const [yearSelected, setYearSelected] = useState("");
 
-  console.log("This is carMakes state", carMakes);
-  console.log("This is carModels state", carModels);
-  // console.log("this is carYears state", carYears);
+  const [modelDisabled, setModelDisabled] = useState(true);
+  const [yearDisabled, setYearDisabled] = useState(true);
 
-  const handleMakeChanges = (selected) => {
-    console.log("makeSelect", selected);
-    setMakeSelected(selected);
-  };
+  const [subModel, setSubModel] = useState("");
+  const [subModelDisabled, setSubModelDisabled] = useState(true);
+  const [isSubModelSelected, setIsSubModelSelected] = useState(true);
 
-  const handleModelChanges = (modelSelect) => {
-    console.log(modelSelect);
-    setModelSelected(modelSelect);
-  };
-
+// WHAT LIST IS SHOWING
+// Handles Make Dropdown state
   useEffect(() => {
-    axios
-      .get(`https://streetsmarts-labs24.herokuapp.com/api/make`)
-      .then((res) => {
-        console.log("useEffect res for makes", res);
-        setCarMakes(res.data);
-      })
-      .catch((err) => {
-        console.log("This is error in useEffect for makes", err);
-      });
+    fetchMakeData(setCarMakes);
   }, []);
 
+// Handles Model Dropdown state
   useEffect(() => {
     if (makeSelected !== "") {
-      fetchModelData(makeSelected)
-        .then((res) => {
-          console.log("useEffect response for models", res);
-          setCarModels(res.data);
-        })
-        .catch((err) => {
-          console.log("This is error in useEffect for models", err);
-        });
+      fetchModelData(makeSelected, setCarModels)
     }
   }, [makeSelected]);
-
-  // useEffect(async() => {
-  //   const response = await fetch(`https://streetsmarts-labs24.herokuapp.com/api/year?model=${modelSelected}`);
-  //   const data = await response.json();
-  //   console.log('data');
-  // }, [])
-
-  return (
-    
-    <>
-      <Select
-        defaultValue="Make"
-        style={{ width: 120 }}
-        onSelect={handleMakeChanges}>
-          {carMakes.map((maker) => (
-            <Option key={maker.make} value={maker.make}>{maker.make}</Option>
-          ))}
-      </Select>
-
-      <Select
-        defaultValue="Model"
-        style={{ width: 250 }}
-        onSelect={handleModelChanges}>
-          {carModels.map((modeler) => (
-            <Option key={modeler.model} value={modeler.model}>{modeler.model}</Option>
-          ))}
-      </Select>
-
-      <div class = 'button'>
-        <Link to = {`/${makeSelected}/${modelSelected}`}>
-            <p>Submit</p>
-        </Link>
-      </div>
-      
-      {/* <Select
-        defaultValue="Year"
-        style={{ width: 120 }}
-        onSelect={handleChangeYear}>
-          {yearS.map((yearer) => (
-            <Option key={yearer.year} value={yearer.year}>{yearer.year}</Option>
-          ))}
-      </Select> */}
-    </>
   
+// Handles Year Dropdown state
+  useEffect(() => {
+    if (makeSelected && modelSelected !== "") {
+      fetchYearData(makeSelected, modelSelected, setCarYears)
+    }
+  }, [makeSelected, modelSelected]);
+  
+  return (
+    <SearchStyled>
+      <div className='hero'>
+        <div className='heroText'>
+          <h1>What car will you drive next?</h1>
+          <p>Compare cost, features and CO<sub>2</sub> emissions—all in one place.</p>
+        </div>
+      <div className='dropdownForm'>
+        <p>Start your search</p>
+        <Selection
+          showSearch
+          defaultValue='Make'
+          onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
+          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected)}
+          data={carMakes}/>
+          
+        <Selection 
+          showSearch
+          defaultValue='Model'
+          disabled={modelDisabled}
+          onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
+          onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected)}
+          data={carModels}/>
+          
+        <Selection 
+          defaultValue='Year'
+          disabled={yearDisabled}
+          onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
+          onChange={() => handleClear(setYearSelected)}
+          onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
+          data={carYears}/>
+            
+        {isSubModelSelected ? (
+          <Selection
+            disabled={subModelDisabled}
+            value={subModel}
+            onDropdownVisibleChange={() => handleSubModelClick(setIsSubModelSelected)}
+            data={carYears}
+          />
+        ) : (
+          <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
+        )}
+      </div>
+      </div>
+    </SearchStyled>
   );
 };
-
-export default Dropdown;
