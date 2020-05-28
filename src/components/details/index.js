@@ -57,7 +57,16 @@ const gaugeTicks = [
           id={car.id}
           cover={<img alt={`${car.year} ${car.make} ${car.model}`} src="https://live.staticflickr.com/7836/47492196641_8228341865_b.jpg" />}>
             <h3>CO<sub>2</sub> EMISSIONS</h3>
-            <p>{car.highway08}</p>
+            <HorizontalGauge
+              className='gauge'
+              ticks={gaugeTicks} 
+              min={0} max={10} 
+              value={7.3}/>
+            <h3>Cost of Ownership (5 years)</h3>
+            <div>
+              <h1>~ Put a thing here!! ~</h1>
+              <h2>Yeah, right here.</h2>
+            </div>
         </Card>
       </div>
     </CarDetailsStyles>
