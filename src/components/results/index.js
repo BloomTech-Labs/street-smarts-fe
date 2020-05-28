@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
-import { fetchSelectedCarData, fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
+import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 
-const Results = () => {
-  const { make, model, year } = useParams();
-
+const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    fetchSelectedCarData(make, model, setResults)
-  }, [make, model]);
+  const handleSubModelChanges = (year) => {
+    setSubModel(year);
+    setIsSubModelSelected(true);
+  }
 
   useEffect(() => {
     if(year) {
@@ -31,7 +29,7 @@ const Results = () => {
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
-            <Link to={`/details/${car.make}/${car.model}/${car.id}`}>
+            <Link to={`/details/${car.make}/${car.model}/${car.id}`} onClick={() => handleSubModelChanges(car.year)}>
               <Card
                 id={car.id}
                 className="resultsCard"

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { countDown } from './submitSingleCarResults';
+import { singleCarSubmitError } from './modal';
 
 function SingleCarSearch({ yearSelected, makeSelected, modelSelected }){ 
   return(
@@ -11,15 +11,9 @@ function SingleCarSearch({ yearSelected, makeSelected, modelSelected }){
             <p>Submit</p>
           </div>
         </Link>
-      ) : modelSelected ? (
-        <Link to={`/${makeSelected}/${modelSelected}`}>
-          <div className="button">
-            <p>Submit</p>
-          </div>
-        </Link>
       ) : (
         <div className="button">
-          <a href='#dropdownForm' onClick={countDown}>
+          <a href='#dropdownForm' onClick={singleCarSubmitError}>
             <p>Submit</p>
           </a>
         </div>)
