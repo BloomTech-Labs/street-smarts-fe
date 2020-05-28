@@ -14,7 +14,7 @@ function App() {
         <Layout className='layout'>
 
           <Header className='header'>
-            <div className='logo' />
+            <h2 className='logo'>StreetSmarts</h2>
             <Menu className='menu' mode='horizontal'>
               <Menu.Item key='1'>
                 <a href='https://www.streetsmarts.online/'>

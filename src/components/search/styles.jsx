@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const SearchStyled = styled.div`
   .hero {
-    height: 100%;
     background-image: url("https://unsplash.com/photos/5FGqfV6UjzI");  
     background-position: center;
     background-repeat: no-repeat;
@@ -11,14 +10,15 @@ const SearchStyled = styled.div`
     // position: relative;
 
     .heroText {
+      margin-top: 40%;
       background-color: rgba(0,0,0,0);
     }
 
-    .dropdownForm {
+    div.dropdownForm {
       width: 70%;
       background-color: rgba(0,0,0,0);
       justify-content: flex-start;
-      margin: 10%, 0;
+      margin-top: 10vh;
     }
   }
 `;

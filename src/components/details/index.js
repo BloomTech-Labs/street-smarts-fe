@@ -52,7 +52,6 @@ const CarDetails = () => {
             <h3>HIGHWAY MPG</h3>
             <p>{car.highway08}</p>
           <Divider />
-            <HorizontalGauge ticks={gaugeTicks} height={70} width={500} min={0} max={MAX_CARBON_EMISSIONS} value={predictedCarbonEmissions}/>
         </Card>
 
         <Card
