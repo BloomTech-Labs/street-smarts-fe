@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { fetchMakeData, fetchModelData, fetchYearData } from "../../hooks/dataFetching";
-import styled from 'styled-components';
-import { handleMakeChanges, handleModelChanges, handleYearChanges, handleSubModelClick, handleClear, disableOtherDropdown, disableYearDropdown, disableSubModel } from '../../hooks/dropdownFunctions';
-
+import React, { useState, useEffect } from 'react';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../hooks/dataFetching';
+import { handleMakeChanges, 
+        handleModelChanges, 
+        handleYearChanges, 
+        handleSubModelClick, 
+        handleClear, 
+        disableOtherDropdown, 
+        disableYearDropdown, 
+        disableSubModel } from '../../hooks/dropdownFunctions';
 import Selection from '../dropdown';
 import Results from '../results';
-
-const Menu = styled.div`
-  .dropdownForm{
-    width: 400px;
-    margin-top: 2%;
-    margin-left: 20%;
-   }`;
- 
-const Title = styled.h1`
-    margin-top: 10%;
-    margin-left: 20%;
-`
+import SearchStyled from './styles';
 
 export default function Dropdown()  {
   const [carMakes, setCarMakes] = useState([]);
@@ -47,7 +41,6 @@ export default function Dropdown()  {
       fetchModelData(makeSelected, setCarModels)
     }
   }, [makeSelected]);
-
   
 // Handles Year Dropdown state
   useEffect(() => {
@@ -57,46 +50,50 @@ export default function Dropdown()  {
   }, [makeSelected, modelSelected]);
   
   return (
-    <Menu>
-      <Title>What car will you drive next?</Title>
-    <div className='dropdownForm'>
-      
-      <Selection
-        showSearch
-        defaultValue='Make'
-        onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
-        onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected)}
-        data={carMakes}/>
-        
-        
-      <Selection 
-        showSearch
-        defaultValue='Model'
-        disabled={modelDisabled}
-        onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
-        onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected)}
-        data={carModels}/>
-        
-        
-      <Selection 
-        defaultValue='Year'
-        disabled={yearDisabled}
-        onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
-        onChange={() => handleClear(setYearSelected)}
-        onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
-        data={carYears}/>
-          
-      {isSubModelSelected ? (
+    <SearchStyled>
+      <div className='hero'>
+        <div className='heroText'>
+          <h1>What car will you drive next?</h1>
+          <p>Compare cost, features and CO<sub>2</sub> emissions—all in one place.</p>
+        </div>
+      <div className='dropdownForm'>
+        <p>Start your search</p>
         <Selection
-          disabled={subModelDisabled}
-          value={subModel}
-          onDropdownVisibleChange={() => handleSubModelClick(setIsSubModelSelected)}
-          data={carYears}
-        />
-      ) : (
-        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
-      )}
-    </div>
-    </Menu>
+          showSearch
+          defaultValue='Make'
+          onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
+          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected)}
+          data={carMakes}/>
+          
+        <Selection 
+          showSearch
+          defaultValue='Model'
+          disabled={modelDisabled}
+          onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
+          onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected)}
+          data={carModels}/>
+          
+        <Selection 
+          defaultValue='Year'
+          disabled={yearDisabled}
+          onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
+          onChange={() => handleClear(setYearSelected)}
+          onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
+          data={carYears}/>
+            
+        {isSubModelSelected ? (
+          <Selection
+            disabled={subModelDisabled}
+            value={subModel}
+            onDropdownVisibleChange={() => handleSubModelClick(setIsSubModelSelected)}
+            data={carYears}
+          />
+        ) : (
+          <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
+        )}
+
+      </div>
+      </div>
+    </SearchStyled>
   );
 };
