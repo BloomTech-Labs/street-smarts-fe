@@ -60,14 +60,21 @@ const AppStyle = styled.div`
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 1.875rem;
+    text-transform: uppercase;
   }
   h2 {
     font-weight: bold;
     font-size: 1.25rem;
     line-height: 1.3rem;
+    text-transform: uppercase;
   }
   h3 {
     font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.15rem;
+    text-transform: uppercase;
+  }
+  p {
     font-size: 1rem;
     line-height: 1.15rem;
   }
