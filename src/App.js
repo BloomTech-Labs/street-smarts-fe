@@ -16,7 +16,10 @@ function App() {
           <Header className='header'>
             <div className='logo' />
             <Menu className='menu' mode='horizontal'>
-              <Menu.Item key='1'>HOME</Menu.Item>
+              <Menu.Item key='1'>
+                <a href='https://www.streetsmarts.online/'>
+                HOME
+                </a></Menu.Item>
               <Menu.Item key='2'>SEARCH</Menu.Item>
               <Menu.Item key='3'>WHAT IS CO<sub>2</sub></Menu.Item>
               <Menu.Item key='4'>CONTACT</Menu.Item>
