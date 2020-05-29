@@ -1,8 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App from './App';
+import Dropdown from './components/search'
 
 
+
+test("verify dropdown populates", () => {
+  const { getByText } = render(<App/>)
+  const makeId = getByText(/make/i)
+  expect(makeId).toBeInTheDocument()
+})
 
 test("Render text",  () => {
   render ("Hello");
@@ -24,6 +31,16 @@ test("renders message header", () => {
   expect(submit).toBeInTheDocument()
 
 });
+
+test('make dropdown expands when clicked', () => {
+  const { getByText, debug } = render(<App/>);
+  const makeId = getByText(/make/i)
+  debug(makeId)
+  fireEvent.change(makeId, { target: { value: 'Ford' } })
+  
+
+  expect(makeId.value).toInclude('Ford')
+})
 
 
 
