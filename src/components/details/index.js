@@ -70,8 +70,7 @@ const CarDetails = () => {
               value={predictedCarbonEmissions}/>
             <h3>Cost of Ownership (5 years)</h3>
             <div>
-              <h1>~ Put a thing here!! ~</h1>
-              <h2>Yeah, right here.</h2>
+              <h1 className='cto'>${predictedPrice}</h1>
             </div>
         </Card>
       </div>

@@ -31,6 +31,7 @@ p {
 }
 a {
   text-decoration: none!important;
+  color: #FFFFFF;
 }
 
   .layout {
@@ -42,7 +43,7 @@ a {
     align-items: center
     margin: auto;
     background-color: rgb(0,0,0);
-    color: white;
+    color: #FFFFFF;
     border: none;
 
     .header {
@@ -76,7 +77,7 @@ a {
       display: flex;
       justify-content: space-evenly;
       background-color: rgba(0,0,0,0);
-      color: white;
+      color: #FFFFFF;
       border: none;
       margin: auto;
     }
@@ -89,7 +90,7 @@ a {
       bottom: 0px;
       z-index: 1;
       textAlign: center;
-      color: white;
+      color: #FFFFFF;
       background-color: rgb(0,0,0);
       p {
         font-size: .8rem

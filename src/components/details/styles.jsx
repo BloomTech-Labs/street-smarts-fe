@@ -39,6 +39,10 @@ const CarDetailsStyles = styled.div`
       // .gauge {
       //   width: 50%;
       // }
+      .cto {
+        font-size: 2rem;
+
+      }
     }
   }
 `;

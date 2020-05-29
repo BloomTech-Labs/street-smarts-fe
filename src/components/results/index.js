@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
-
 import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
+import ResultsStyled from './styles';
 
 const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
   const [results, setResults] = useState([]);
@@ -19,8 +19,7 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
   }, [make, model, year]);
 
   return (
-    // <SearchResults>
-    <div>
+    <ResultsStyled>
         <h4>
           Your search: {year} {make} {model}
         </h4>
@@ -56,7 +55,7 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
           </List.Item>
         )}
       />
-    </div>
+    </ResultsStyled>
   );
 };
 
