@@ -32,21 +32,21 @@ test("renders message header", () => {
 
 });
 
-test('make dropdown expands when clicked', () => {
-  const { getByText, debug } = render(<App/>);
-  const makeId = getByText(/make/i)
-  debug(makeId)
-  fireEvent.change(makeId, { target: { value: 'Ford' } })
-  
+test('test if dropdown is enabled', () => {
 
-  expect(makeId.value).toInclude('Ford')
 })
 
+// test('make dropdown expands when clicked', () => {
+//   const { getByText, debug } = render(<App/>);
+//   const makeId = getByText(/make/i)
+//   debug(makeId)
+//   fireEvent.change(makeId, { target: { value: 'Ford' } })
+  
+
+//   expect(makeId.value).toInclude('Ford')
+// })
 
 
-// test('Renders data from /make endpoint', () => {
-//   const {getByText} = render(<App><Dropdown /></App>)
-//   const makeName = getByText(/make/i);
-//   expect(makeName).toBeInTheDocument()
-//   })
+
+
 
