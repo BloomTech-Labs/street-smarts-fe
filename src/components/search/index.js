@@ -8,11 +8,11 @@ import { handleMakeChanges,
         disableOtherDropdown, 
         disableYearDropdown, 
         disableSubModel } from '../../hooks/dropdownFunctions';
-import Selection from '../dropdown';
+import Dropdown from '../dropdown';
 import Results from '../results';
 import SearchStyled from './styles';
 
-export default function Dropdown()  {
+export default function Search()  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -58,14 +58,14 @@ export default function Dropdown()  {
         </div>
       <div className='dropdownForm'>
         <p>Start your search</p>
-        <Selection 
+        <Dropdown
           showSearch
           defaultValue='Make'
           onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
           onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected)}
           data={carMakes}/>
           
-        <Selection 
+        <Dropdown 
           showSearch
           defaultValue='Model'
           disabled={modelDisabled}
@@ -73,7 +73,7 @@ export default function Dropdown()  {
           onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected)}
           data={carModels}/>
           
-        <Selection 
+        <Dropdown 
           defaultValue='Year'
           disabled={yearDisabled}
           onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
@@ -82,7 +82,7 @@ export default function Dropdown()  {
           data={carYears}/>
             
         {isSubModelSelected ? (
-          <Selection
+          <Dropdown
             disabled={subModelDisabled}
             value={subModel}
             onDropdownVisibleChange={() => handleSubModelClick(setIsSubModelSelected)}

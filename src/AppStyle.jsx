@@ -31,9 +31,11 @@ p {
 }
 a {
   text-decoration: none!important;
+  color: #FFFFFF;
 }
 
   .layout {
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     display: flex;
@@ -41,7 +43,7 @@ a {
     align-items: center
     margin: auto;
     background-color: rgb(0,0,0);
-    color: white;
+    color: #FFFFFF;
     border: none;
 
     .header {
@@ -49,24 +51,33 @@ a {
       display: flex;
       position: sticky;
       top: 0px;
+      padding-left: 15%;
+      padding-right: 15%;
       z-index: 1;
-      justify-content: flex-end;
-      background-color: rgba(0,0,0,0);
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(0,0,0);
       color: white;
   
       .menu {
         background-color: rgba(0,0,0,0);
         color: white;
         border: none;
+        li {
+          padding: 0;
+          margin-left: 3vw;
+        }
       }
     }
-
+    main {
+      min-height: 90vh;
+    }
     .content {
       width: 70%;
       display: flex;
       justify-content: space-evenly;
       background-color: rgba(0,0,0,0);
-      color: white;
+      color: #FFFFFF;
       border: none;
       margin: auto;
     }
@@ -79,8 +90,8 @@ a {
       bottom: 0px;
       z-index: 1;
       textAlign: center;
-      color: white;
-      background-color: rgba(0,0,0,0);
+      color: #FFFFFF;
+      background-color: rgb(0,0,0);
       p {
         font-size: .8rem
       }

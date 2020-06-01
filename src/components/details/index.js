@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Card, Divider } from "antd";
 import HorizontalGauge from 'react-horizontal-gauge';
-import { fetchCarDetails, fetchPredictionCarbonEmissions } from '../../hooks/dataFetching';
+import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
 const MAX_CARBON_EMISSIONS = 1400;
@@ -12,6 +12,7 @@ const CarDetails = () => {
 
   const [car, setCar] = useState({});
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
+  const [predictedPrice, setPredictedPrice] = useState(null);
 
   const gaugeTicks = []; // Empty for now
 
@@ -19,6 +20,9 @@ const CarDetails = () => {
     fetchCarDetails(id, setCar)
     fetchPredictionCarbonEmissions(id, (obj) => {
       setPredictedCarbonEmissions(obj.predicted_carbon_emissions);
+    });
+    fetchPredictionPrice(id, (obj) => {
+      setPredictedPrice(obj.predicted_price);
     });
   }, [id]);
 
@@ -52,7 +56,6 @@ const CarDetails = () => {
             <h3>HIGHWAY MPG</h3>
             <p>{car.highway08}</p>
           <Divider />
-            <HorizontalGauge ticks={gaugeTicks} height={70} width={500} min={0} max={MAX_CARBON_EMISSIONS} value={predictedCarbonEmissions}/>
         </Card>
 
         <Card
@@ -67,8 +70,7 @@ const CarDetails = () => {
               value={predictedCarbonEmissions}/>
             <h3>Cost of Ownership (5 years)</h3>
             <div>
-              <h1>~ Put a thing here!! ~</h1>
-              <h2>Yeah, right here.</h2>
+              <h1 className='cto'>${predictedPrice}</h1>
             </div>
         </Card>
       </div>

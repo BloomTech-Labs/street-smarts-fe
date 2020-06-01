@@ -7,6 +7,11 @@ const CarDetailsStyles = styled.div`
     justify-content: space-between;
     background-color: rgb(0,0,0);
     border: none;
+    .ant-card-body {
+      padding: 0;
+      margin-top: 10vh;
+      margin-bottom: 10vh;
+    }
 
     .carText {
       width: 35%;
@@ -14,7 +19,8 @@ const CarDetailsStyles = styled.div`
       border: none;
 
       .divider {
-        margin: 10px, 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
     }
 
@@ -22,6 +28,8 @@ const CarDetailsStyles = styled.div`
       width: 50%;
       background-color: rgba(0,0,0,0);
       border: none;
+      padding: 0px;
+
       svg {
         width: 100%;
       }
@@ -31,6 +39,10 @@ const CarDetailsStyles = styled.div`
       // .gauge {
       //   width: 50%;
       // }
+      .cto {
+        font-size: 2rem;
+
+      }
     }
   }
 `;
