@@ -80,10 +80,11 @@ export default function Search()  {
           onChange={() => handleClear(setYearSelected)}
           onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
           data={carYears}/>
-            
-          <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
       </div>
       </div>
+      { modelSelected ?(
+      <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />)
+      : <></>}
     </SearchStyled>
   );
 };
