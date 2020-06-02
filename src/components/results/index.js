@@ -4,18 +4,11 @@ import { Link } from 'react-router-dom';
 import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 import ResultsStyled from './styles';
 
-const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
+const Results = ({ make, model, year, }) => {
   const [results, setResults] = useState([]);
 
-  const handleSubModelChanges = (id) => {
-    setSubModel(id);
-    setIsSubModelSelected(true);
-  };
-
   useEffect(() => {
-    if(year) {
     fetchSelectedCarDataByYear(make, model, year, setResults)
-    }
   }, [make, model, year]);
 
   return (
@@ -29,27 +22,29 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
-            <Link to={`/details/${car.make}/${car.model}/${car.id}`} onClick={() => handleSubModelChanges(car.id)}>
+            <Link to={`/details/${car.make}/${car.model}/${car.id}`}>
               <Card
                 id={car.id}
                 className="resultsCard"
                 title={`${car.year} ${car.make} ${car.model}`}
               >
-                <p>
+              <ul>
+                <li>
                   <b>Engine ID:</b> {car.engid}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>Transmission:</b> {car.trany}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>Cyclinders:</b> {car.cylinders}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>City MPG:</b> {car.city08}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>Highway MPG:</b> {car.highway08}
-                </p>
+                </li>
+              </ul>
               </Card>
             </Link>
           </List.Item>

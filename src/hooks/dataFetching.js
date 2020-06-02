@@ -33,8 +33,25 @@ export const fetchYearData = async (make, model, setCarYears) => {
 }
 
 export const fetchSelectedCarDataByYear = async (make, model, year, setResults) => {
+  let query_params = [];
+  if (make) {
+      query_params.push(`make=${make}`);
+  }
+  if (model) {
+      query_params.push(`model=${model}`);
+  }
+  if (year) {
+      query_params.push(`year=${year}`);
+  }
+  let query = "";
+  for (let p of query_params) {
+      if (query !== "") {
+          query += "&";
+      }
+      query += p;
+  }
   return await axios
-    .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/?year=${year}&make=${make}&model=${model}`)
+    .get(`https://streetsmarts-labs24.herokuapp.com/api/cars/?${query}`)
     .then((res) => {
       setResults(res.data);
     })
