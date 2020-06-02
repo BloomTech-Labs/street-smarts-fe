@@ -48,7 +48,7 @@ export default function Search()  {
       fetchYearData(makeSelected, modelSelected, setCarYears)
     }
   }, [makeSelected, modelSelected]);
-  
+
   return (
     <SearchStyled>
       <div className='hero'>
@@ -81,16 +81,7 @@ export default function Search()  {
           onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
           data={carYears}/>
             
-        {isSubModelSelected ? (
-          <Dropdown
-            disabled={subModelDisabled}
-            value={subModel}
-            onDropdownVisibleChange={() => handleSubModelClick(setIsSubModelSelected)}
-            data={carYears}
-          />
-        ) : (
           <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />
-        )}
       </div>
       </div>
     </SearchStyled>

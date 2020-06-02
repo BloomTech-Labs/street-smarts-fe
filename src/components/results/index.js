@@ -13,9 +13,7 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
   };
 
   useEffect(() => {
-    if(year) {
     fetchSelectedCarDataByYear(make, model, year, setResults)
-    }
   }, [make, model, year]);
 
   return (
