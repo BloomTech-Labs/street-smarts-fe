@@ -4,13 +4,8 @@ import { Link } from 'react-router-dom';
 import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 import ResultsStyled from './styles';
 
-const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
+const Results = ({ make, model, year, }) => {
   const [results, setResults] = useState([]);
-
-  const handleSubModelChanges = (id) => {
-    setSubModel(id);
-    setIsSubModelSelected(true);
-  };
 
   useEffect(() => {
     fetchSelectedCarDataByYear(make, model, year, setResults)
@@ -27,7 +22,7 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
-            <Link to={`/details/${car.make}/${car.model}/${car.id}`} onClick={() => handleSubModelChanges(car.id)}>
+            <Link to={`/details/${car.make}/${car.model}/${car.id}`}>
               <Card
                 id={car.id}
                 className="resultsCard"
