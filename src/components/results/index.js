@@ -33,21 +33,23 @@ const Results = ({ make, model, year, setSubModel, setIsSubModelSelected }) => {
                 className="resultsCard"
                 title={`${car.year} ${car.make} ${car.model}`}
               >
-                <p>
+              <ul>
+                <li>
                   <b>Engine ID:</b> {car.engid}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>Transmission:</b> {car.trany}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>Cyclinders:</b> {car.cylinders}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>City MPG:</b> {car.city08}
-                </p>
-                <p>
+                </li>
+                <li>
                   <b>Highway MPG:</b> {car.highway08}
-                </p>
+                </li>
+              </ul>
               </Card>
             </Link>
           </List.Item>
