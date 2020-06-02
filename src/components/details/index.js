@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Card, Divider } from "antd";
-import HorizontalGauge from 'react-horizontal-gauge';
+import HorizontalGauge from '../gauge';
 import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
