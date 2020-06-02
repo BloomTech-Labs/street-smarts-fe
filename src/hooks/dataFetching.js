@@ -89,7 +89,7 @@ export const fetchPredictionCarbonEmissions = async (id, setPredictionValue) => 
 
 export const fetchPredictionPrice = async (id, setPredictionValue) => {
   return await axios
-    .post(`${API}/predict/price/${id}`)
+    .post(`${API}/predict/${id}`)
     .then((res) => {
       console.log(`This is response for fetchPredictionPrice of ${id}`, res.data);
       setPredictionValue(res.data);
