@@ -22,7 +22,7 @@ const CarDetails = () => {
       setPredictedCarbonEmissions(obj.predicted_carbon_emissions);
     });
     fetchPredictionPrice(id, (obj) => {
-      setPredictedPrice(obj.predicted_price);
+      setPredictedPrice(obj.five_year_cost_to_own);
     });
   }, [id]);
 
