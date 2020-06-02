@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from 'react-router-dom';
 import { Card, Divider } from "antd";
 import HorizontalGauge from 'react-horizontal-gauge';
 import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
+
+import CostToOwn from '../5-year-cost';
+import { Cheveron } from '../../assets/images/cheveron.png';
 
 const MAX_CARBON_EMISSIONS = 1400;
 
@@ -14,6 +18,10 @@ const CarDetails = () => {
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [predictedPrice, setPredictedPrice] = useState(null);
 
+  const [viewingCostBreakdown, setViewingCostBreakdown] = useState(false);
+  const [gasCosts, setGasCosts] = useState(0.0);
+  const [maintenanceCosts, setMaintenanceCosts] = useState(0.0)
+
   const gaugeTicks = []; // Empty for now
 
   useEffect(() => {
@@ -22,6 +30,7 @@ const CarDetails = () => {
       setPredictedCarbonEmissions(obj.predicted_carbon_emissions);
     });
     fetchPredictionPrice(id, (obj) => {
+      console.log('this is "obj" in fetchPredictionPrice get request', obj)
       setPredictedPrice(obj.predicted_price);
     });
   }, [id]);
@@ -73,7 +82,16 @@ const CarDetails = () => {
               <h1 className='cto'>${predictedPrice}</h1>
             </div>
         </Card>
-      </div>
+      </div>        
+      { viewingCostBreakdown ? (
+          <CostToOwn  />
+        ) : (
+        <div className = 'cheveron-down'>
+          <p>5 Year Cost Breakdown</p>
+          <img src={Cheveron} onClick={() => {setViewingCostBreakdown(!viewingCostBreakdown)}} />  
+        </div>
+        )
+        }
     </CarDetailsStyles>
   );
 };
