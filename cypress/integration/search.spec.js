@@ -1,45 +1,18 @@
 describe("Dropdown Test Suite", () => {
-  it("Loads URL succesfully", () => {
-    // Testing your local server
+  it("User can navigate through dropdowns", () => {
     cy.visit("http://www.streetsmarts.online/");
-  });
-  it("Found Make Dropdown", () => {
-    cy.contains("Make");
-  });
 
-  it("Make Dropdown shows Makes on click", () => {
-    // User can see possible Make values
+    cy.contains(/make/i).click();
+    cy.get('.ant-select-item-option-content').contains(/acura/i).click();
 
-    const MakeDropdown = cy.contains("Make");
-    MakeDropdown.click();
+    cy.contains(/model/i).click();
+    cy.get('.ant-select-item-option-content').contains(/mdx/i).click();
+
+    cy.contains(/year/i).click();
+    cy.get('.ant-select-item-option-content').contains(/2001/i).click();
+    //resultsCard:first uses the CSS selector to pick the first result of user's search
+    cy.get('.resultsCard:first').click();
+    cy.url().should('include', '/details')
   });
-
-  it("Make list is visible", () => {
-    // User can select Make value
-    cy.contains("Acura");
-    const makeChoice = cy.get(
-      ".ant-select-item-option-active > .ant-select-item-option-content"
-    );
-    makeChoice.click();
-  });
-
-  describe("Model dropdown functions", () => {
-    it("Model dropdown is clickable", () => {
-      const ModelDropdown = cy.contains("Model");
-      ModelDropdown.click();
-      const ModelSelect = cy.contains("MDX");
-      ModelSelect.click();
-
-      //   const selectModel = cy.get('.ant-select-item-option-selected > .ant-select-item-option-content');
-      //   selectModel.click();
-    });
-  });
-
-  describe("Year dropdown functions", () => {
-    it("year dropdown is clickable", () => {
-      const YearDropdown = cy.contains(/year/i);
-      YearDropdown.click();
-      const YearSelect = cy.contains(2001 && 2002);
-    });
-  });
+  
 });
