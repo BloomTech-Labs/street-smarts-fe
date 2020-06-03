@@ -6,9 +6,9 @@ import { Layout, Menu } from 'antd';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-import CarDetails from '../details';
-import Search from '../search';
-import CostToOwn from '../5-year-cost';
+import CarDetails from './components/details';
+import Search from './components/search';
+import CostToOwn from './components/5-year-cost';
 // import AppContent from '../src/components/app-content'
 
 const { Header, Content, Footer } = Layout;
