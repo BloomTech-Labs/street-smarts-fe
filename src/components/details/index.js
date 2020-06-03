@@ -19,7 +19,6 @@ const CarDetails = () => {
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [predictedPrice, setPredictedPrice] = useState(null);
 
-
   const gaugeTicks = []; // Empty for now
 
   useEffect(() => {
@@ -61,6 +60,19 @@ const CarDetails = () => {
                 </Link>
             </div>
             <Divider className='divider' />
+              <h3>CITY MPG</h3>
+              <p>{car.city08}</p>
+            <Divider className='divider' />
+              <h3>HIGHWAY MPG</h3>
+              <p>{car.highway08}</p>
+            <Divider />
+          </Card>
+
+          <Card
+            className='carImg'
+            id={car.id}
+            cover={<img alt={`${car.year} ${car.make} ${car.model}`} src="https://live.staticflickr.com/7836/47492196641_8228341865_b.jpg" />}>
+            <Divider className='divider' />
               <h3>CLASS</h3>
               <p>{car.vclass}</p>
             <Divider className='divider' />
@@ -75,20 +87,7 @@ const CarDetails = () => {
             <Divider className='divider' />
               <h3>FUEL</h3>
               <p>{car.fueltype1}</p>
-            <Divider className='divider' />
-              <h3>CITY MPG</h3>
-              <p>{car.city08}</p>
-            <Divider className='divider' />
-              <h3>HIGHWAY MPG</h3>
-              <p>{car.highway08}</p>
             <Divider />
-          </Card>
-
-          <Card
-            className='carImg'
-            id={car.id}
-            cover={<img alt={`${car.year} ${car.make} ${car.model}`} src="https://live.staticflickr.com/7836/47492196641_8228341865_b.jpg" />}>
-
           </Card>
         </div>        
 
