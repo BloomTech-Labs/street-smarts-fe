@@ -1,11 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import cheveronUp from "../assets/images/cheveron-up.png";
+import chevronUp from "../assets/images/chevron-up.png";
 
 export default withRouter(({ history }) => {
   return (
-    <div className = 'cheveron' onClick={() => history.goBack()}>
-      <img src={cheveronUp} alt="Back to car details" />
+    <div className='chevron' onClick={() => history.goBack()}>
+      <img src={chevronUp} alt="Back to car details" />
     </div>
   );
 });
