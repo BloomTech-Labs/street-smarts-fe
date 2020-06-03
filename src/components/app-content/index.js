@@ -7,7 +7,7 @@ import Home from '../home';
 import CostToOwn from '../5-year-cost';
 
 const AppContent = () => {
-    let location = useLocation();
+  let location = useLocation();
 
     return (
         <AnimatePresence exitBeforeEnter location={location} key={location.pathname}> 
