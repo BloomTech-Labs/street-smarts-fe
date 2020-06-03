@@ -1,6 +1,6 @@
 describe("Dropdown Test Suite", () => {
   it("User can navigate through dropdowns", () => {
-    cy.visit("http://www.streetsmarts.online/");
+    cy.visit("");
 
     cy.contains(/make/i).click();
     cy.get('.ant-select-item-option-content').contains(/acura/i).click();
