@@ -48,10 +48,10 @@ export default (props) => {
         </linearGradient>
       </defs>
       <g transform={`translate(10, 0)`}>
-        // wedge
-        <polygon points="0,75, 470,75, 470,35" fill="url(#gradient)" />
+        {/* wedge */}
+        <polygon points={"0,75, 470,75, 470,35"} fill={"url(#gradient)"} />
 
-        // value indicator
+        {/* value indicator */}
         <g transform={`translate(${calcAxisPos(props.value)}, 0)`} fill="white">
           <text textAnchor="middle" x={0} y={props.axis.y1} fontSize="12">
             {props.value}

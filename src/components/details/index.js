@@ -8,7 +8,7 @@ import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice }
 import CarDetailsStyles from './styles';
 
 import { detailsTransition } from '../../hooks/pageTransitions';
-import cheveron from '../../assets/images/cheveron.png';
+import chevron from '../../assets/images/chevron.png';
 
 const MAX_CARBON_EMISSIONS = 1400;
 
@@ -43,6 +43,24 @@ const CarDetails = () => {
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
+              <h3>CO<sub>2</sub> EMISSIONS</h3>
+              <HorizontalGauge
+                className='gauge'
+                ticks={gaugeTicks} 
+                min={0} max={MAX_CARBON_EMISSIONS}
+                value={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2})}/>
+            <Divider className='divider' />
+              <h3>Cost of Ownership (5 years)</h3>
+              <div>
+                <h1 className='cto'>${predictedPrice}</h1>
+              </div>
+              <div className ='chevron-down'>
+                <p>5 Year Cost Breakdown</p>
+                <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
+                  <img src={chevron} alt= 'View cost to own' />  
+                </Link>
+            </div>
+            <Divider className='divider' />
               <h3>CLASS</h3>
               <p>{car.vclass}</p>
             <Divider className='divider' />
@@ -70,24 +88,10 @@ const CarDetails = () => {
             className='carImg'
             id={car.id}
             cover={<img alt={`${car.year} ${car.make} ${car.model}`} src="https://live.staticflickr.com/7836/47492196641_8228341865_b.jpg" />}>
-              <h3>CO<sub>2</sub> EMISSIONS</h3>
-              <HorizontalGauge
-                className='gauge'
-                ticks={gaugeTicks} 
-                min={0} max={MAX_CARBON_EMISSIONS}
-                value={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2})}/>
-              <h3>Cost of Ownership (5 years)</h3>
-              <div>
-                <h1 className='cto'>${predictedPrice}</h1>
-              </div>
+
           </Card>
         </div>        
-          <div className = 'cheveron down'>
-            <p>5 Year Cost Breakdown</p>
-            <Link to = {`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
-              <img src={cheveron} alt= 'View cost to own' />  
-            </Link>
-          </div>
+
       </CarDetailsStyles>
     </motion.div>
   );

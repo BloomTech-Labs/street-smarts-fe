@@ -36,7 +36,7 @@ const Results = ({ make, model, year, }) => {
                   <b>Transmission:</b> {car.trany}
                 </li>
                 <li>
-                  <b>Cyclinders:</b> {car.cylinders}
+                  <b>Cylinders:</b> {car.cylinders}
                 </li>
                 <li>
                   <b>City MPG:</b> {car.city08}
