@@ -96,6 +96,10 @@ a {
         font-size: .8rem
       }
     }
+
+    .handOnHover {
+      cursor: pointer;
+    }
   }  
 `;
 

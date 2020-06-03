@@ -58,6 +58,11 @@ const CostToOwn = () => {
                         <p>${yearlyMaintenanceCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
                     </div>
                 </div>
+                <div>
+                    <div className='handOnHover'>
+                        <p>Compare</p>
+                    </div>
+                </div>
             </div>
         </motion.div>
     );
