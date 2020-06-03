@@ -9,6 +9,7 @@ describe("Dropdown Test Suite", () => {
 
   it("Make Dropdown shows Makes on click", () => {
     // User can see possible Make values
+    
     const MakeDropdown = cy.contains("Make");
     MakeDropdown.click();
   });
@@ -20,6 +21,13 @@ describe("Dropdown Test Suite", () => {
       ".ant-select-item-option-active > .ant-select-item-option-content"
     );
     makeChoice.click();
+  });
+
+  describe("Model dropdown functions", () => {
+      it('Model dropdown is clickable', () => {
+          const ModelDropdown = cy.contains('Model');
+          ModelDropdown.click();
+      });
   });
 
   //   describe('Can choose a make and then view model', () => {
