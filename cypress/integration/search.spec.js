@@ -1,18 +1,45 @@
+describe("Dropdown Test Suite", () => {
+  it("Loads URL succesfully", () => {
+    // Testing your local server
+    cy.visit("http://www.streetsmarts.online/");
+  });
+  it("Found Make Dropdown", () => {
+    cy.contains("Make");
+  });
 
+  it("Make Dropdown shows Makes on click", () => {
+    // User can see possible Make values
+    const MakeDropdown = cy.contains("Make");
+    MakeDropdown.click();
+  });
 
-describe('Dropdown Tests', () => {
-    it('loading the URL', () => {
-        cy.visit('http://streetsmarts.online')
-    });
+  it("Make list is visible", () => {
+    // User can select Make value
+    cy.contains("Acura");
+    const makeChoice = cy.get(
+      ".ant-select-item-option-active > .ant-select-item-option-content"
+    );
+    makeChoice.click();
+  });
 
-     it('clicks on make', () => {
-        const MakeDropdown = cy.contains('Make');
+  //   describe('Can choose a make and then view model', () => {
 
-        MakeDropdown.click()
-    })
-    it('models dropdown populates', () => {
-        const ModelDropdown = cy.contains('Ford')
-        
-        ModelDropdwon.click();
-    })
+  //       it('Can chooose a specific Make', () => {
+  //           const makeChoice = cy.contains('Ford')
+  //           makeChoice.click();
+  //         })
+  //     })
+  //user can choose a specific make
+
+  //   describe("Model Dropdown", () => {
+  //     it("Model Dropdown is clickable and selectable ", () => {
+  //       const ModelDropdown = cy.contains("Model");
+  //       ModelDropdown.click();
+  //     });
+  //     it("User can select Model", () => {
+  //       // User can select Make value
+  //       const Option = cy.contains("Escape FWD");
+  //       Option.click();
+  //     });
+  //   });
 });
