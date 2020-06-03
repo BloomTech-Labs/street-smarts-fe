@@ -7,8 +7,7 @@ import HorizontalGauge from '../gauge';
 import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
-import { pageTransition } from '../../App';
-import CostToOwn from '../5-year-cost';
+import { detailsTransition } from '../../hooks/pageTransitions';
 import cheveron from '../../assets/images/cheveron.png';
 
 const MAX_CARBON_EMISSIONS = 1400;
@@ -20,10 +19,6 @@ const CarDetails = () => {
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [predictedPrice, setPredictedPrice] = useState(null);
 
-  const [viewingCostBreakdown, setViewingCostBreakdown] = useState(false);
-  const [purchasePrice, setPurchasePrice] = useState(0.0)
-  const [gasCosts, setGasCosts] = useState(0.0);
-  const [maintenanceCosts, setMaintenanceCosts] = useState(0.0)
 
   const gaugeTicks = []; // Empty for now
 
@@ -34,16 +29,13 @@ const CarDetails = () => {
     });
     fetchPredictionPrice(id, (obj) => {
       console.log('This is response from fetchPredictionPrice', obj);
-      setPredictedPrice(obj.five_year_cost_to_own);
-      setPurchasePrice(obj.predicted_price);
-      setGasCosts(obj.fuel_cost);
-      setMaintenanceCosts(obj.maintenance_cost);
+      setPredictedPrice(obj.five_year_cost_to_own.toLocaleString(undefined, {maximumFractionDigits: 2}));
     });
   }, [id]);
 
   return (
-    <motion.div variants={pageTransition} initial='out' animate='in' exit='out'>
-      <CarDetailsStyles>
+    <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
+      <CarDetailsStyles className = 'detailsContainer'>
         <div className='carDetails'>
           <Card
             className='carText'
@@ -90,17 +82,12 @@ const CarDetails = () => {
               </div>
           </Card>
         </div>        
-        { viewingCostBreakdown ? (
-            <CostToOwn purchasePrice={purchasePrice} gasPrice={gasCosts} maintenancePrice={maintenanceCosts} totalCost={predictedPrice} />
-          ) : (
-          <div className = 'cheveron-down'>
+          <div className = 'cheveron down'>
             <p>5 Year Cost Breakdown</p>
-            <Link to = '/details/:make/:model/:id/cost-to-own'>
+            <Link to = {`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
               <img src={cheveron} alt= 'View cost to own' />  
             </Link>
           </div>
-          )
-          }
       </CarDetailsStyles>
     </motion.div>
   );

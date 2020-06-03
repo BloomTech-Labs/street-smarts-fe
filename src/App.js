@@ -1,33 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter as Router } from 'react-router-dom';
 import AppStyle from './AppStyle';
-import CarDetails from './components/details';
-import Dropdown from './components/search';
 import { Layout, Menu } from 'antd';
-import CostToOwn from './components/5-year-cost';
+
+import AppContent from '../src/components/app-content'
 
 const { Header, Content, Footer } = Layout;
 
-
-export const pageTransition = {
-  in: {
-    opacity: 1,
-    y:0
-  },
-  out: {
-    opacity: 0,
-    y: "-100vh"
-  }
-}
-
 function App() {
-  let location = useLocation();
-  
   return (
     <Router>
       <AppStyle>
-        <Layout className='layout'>
+        <Layout className='layout home'>
 
           <Header className='header'>
             <h2 className='logo'>StreetSmarts</h2>
@@ -43,13 +27,7 @@ function App() {
           </Header>
 
           <Content className='content'>            
-            <AnimatePresence exitBeforeEnter location={location} key={location.pathname}> 
-              <Switch>
-                <Route exact path = '/' component = {Dropdown} />
-                <Route exact path='/details/:make/:model/:id' component={CarDetails} />
-                <Route exact path='/details/:make/:model/:id/cost-to-own' component = {CostToOwn} />
-              </Switch>
-            </AnimatePresence>
+            <AppContent />
           </Content>
 
           <Footer className='footer'>
