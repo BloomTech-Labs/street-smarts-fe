@@ -9,7 +9,7 @@ describe("Dropdown Test Suite", () => {
 
   it("Make Dropdown shows Makes on click", () => {
     // User can see possible Make values
-    
+
     const MakeDropdown = cy.contains("Make");
     MakeDropdown.click();
   });
@@ -24,10 +24,15 @@ describe("Dropdown Test Suite", () => {
   });
 
   describe("Model dropdown functions", () => {
-      it('Model dropdown is clickable', () => {
-          const ModelDropdown = cy.contains('Model');
-          ModelDropdown.click();
-      });
+    it("Model dropdown is clickable", () => {
+      const ModelDropdown = cy.contains("Model");
+      ModelDropdown.click();
+      const ModelSelect = cy.contains("MDX");
+      ModelSelect.click();
+
+      //   const selectModel = cy.get('.ant-select-item-option-selected > .ant-select-item-option-content');
+      //   selectModel.click();
+    });
   });
 
   //   describe('Can choose a make and then view model', () => {
