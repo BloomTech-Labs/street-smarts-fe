@@ -4,6 +4,7 @@ describe("Dropdown Test Suite", () => {
     cy.visit("http://www.streetsmarts.online/");
   });
   it("Found Make Dropdown", () => {
+      
     cy.contains("Make");
   });
 
@@ -34,6 +35,15 @@ describe("Dropdown Test Suite", () => {
       //   selectModel.click();
     });
   });
+
+    describe('Year dropdown functions', () => {
+        it('year dropdown is clickable', () => {
+            const YearDropdown = cy.contains(/year/i);
+            YearDropdown.click();
+            const YearSelect = cy.contains('2002');
+            YearSelect.click();
+        })
+    })
 
   //   describe('Can choose a make and then view model', () => {
 
