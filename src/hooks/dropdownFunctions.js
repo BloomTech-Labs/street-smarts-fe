@@ -13,14 +13,10 @@ export const handleModelChanges = (selected, setModelSelected, setYearDisabled, 
 };
 
 // Will set state for selected Year
-export const handleYearChanges = (selected, setYearSelected, setSubModelDisabled) => {
+export const handleYearChanges = (selected, setYearSelected ) => {
     setYearSelected(selected);
-    setSubModelDisabled(false);
 };
 
-export const handleSubModelClick = (setIsSubModelSelected) => {
-    setIsSubModelSelected(false);
-}
 // Will reset year and take it out of URL params
 export const handleClear = (setYearSelected) => {
     setYearSelected('');
@@ -28,23 +24,14 @@ export const handleClear = (setYearSelected) => {
 
 // WHEN LIST IS SHOWING 
 // When the Make dropdown is clicked and being viewed, it will reset Model along with making them(&Year) unclickable until a Make is chosen
-export const disableOtherDropdown = (setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected) => {
+export const disableOtherDropdown = (setModelDisabled, setModelSelected, setYearDisabled,  ) => {
     setModelDisabled(true);
     setModelSelected('');
     setYearDisabled(true);
-    setSubModelDisabled(true);
-    setIsSubModelSelected(true);
 };
 
 // When the Model dropdown is clicked and being viewed, it will reset Year along with making it unclickable until Model is chosen
-export const disableYearDropdown = (setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected) => {
+export const disableYearDropdown = (setYearDisabled, setYearSelected) => {
     setYearDisabled(true);
     setYearSelected('');
-    setSubModelDisabled(true);
-    setIsSubModelSelected(true);
 };
-
-export const disableSubModel = (setIsSubModelSelected, setSubModelDisabled) => {
-    setIsSubModelSelected(true);
-    setSubModelDisabled(true);
-}

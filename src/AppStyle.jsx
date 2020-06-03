@@ -40,7 +40,7 @@ a {
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
     margin: auto;
     background-color: rgb(0,0,0);
     color: #FFFFFF;
@@ -89,7 +89,7 @@ a {
       position: sticky;
       bottom: 0px;
       z-index: 1;
-      textAlign: center;
+      text-align: center;
       color: #FFFFFF;
       background-color: rgb(0,0,0);
       p {

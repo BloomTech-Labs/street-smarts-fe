@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import AppStyle from './AppStyle';
-import CarDetails from './components/details';
-import Dropdown from './components/search';
 import { Layout, Menu } from 'antd';
+
+import AppContent from '../src/components/app-content'
 
 const { Header, Content, Footer } = Layout;
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <AppStyle>
-        <Layout className='layout'>
+        <Layout className='layout home'>
 
           <Header className='header'>
             <h2 className='logo'>StreetSmarts</h2>
@@ -26,9 +26,8 @@ function App() {
             </Menu>
           </Header>
 
-          <Content className='content'>
-            <Route exact path = '/' component = {Dropdown} />
-            <Route exact path='/details/:make/:model/:id' component={CarDetails} />
+          <Content className='content'>            
+            <AppContent />
           </Content>
 
           <Footer className='footer'>

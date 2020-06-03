@@ -3,11 +3,10 @@ import { fetchMakeData, fetchModelData, fetchYearData } from '../../hooks/dataFe
 import { handleMakeChanges, 
         handleModelChanges, 
         handleYearChanges, 
-        handleSubModelClick, 
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-        disableSubModel } from '../../hooks/dropdownFunctions';
+      } from '../../hooks/dropdownFunctions';
 import Dropdown from '../dropdown';
 import Results from '../results';
 import SearchStyled from './styles';
@@ -24,10 +23,6 @@ export default function Search()  {
 
   const [modelDisabled, setModelDisabled] = useState(true);
   const [yearDisabled, setYearDisabled] = useState(true);
-
-  const [subModel, setSubModel] = useState("");
-  const [subModelDisabled, setSubModelDisabled] = useState(true);
-  const [isSubModelSelected, setIsSubModelSelected] = useState(true);
 
 // WHAT LIST IS SHOWING
 // Handles Make Dropdown state
@@ -62,7 +57,7 @@ export default function Search()  {
           showSearch
           defaultValue='Make'
           onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
-          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setSubModelDisabled, setIsSubModelSelected)}
+          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
           data={carMakes}/>
           
         <Dropdown 
@@ -70,20 +65,19 @@ export default function Search()  {
           defaultValue='Model'
           disabled={modelDisabled}
           onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
-          onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected, setSubModelDisabled, setIsSubModelSelected)}
+          onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
           data={carModels}/>
           
         <Dropdown 
           defaultValue='Year'
           disabled={yearDisabled}
-          onSelect={(selected) => handleYearChanges(selected, setYearSelected, setSubModelDisabled)}
+          onSelect={(selected) => handleYearChanges(selected, setYearSelected, )}
           onChange={() => handleClear(setYearSelected)}
-          onFocus={() => disableSubModel(setIsSubModelSelected, setSubModelDisabled)}
           data={carYears}/>
       </div>
       </div>
       { modelSelected ?(
-      <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} setSubModel = {setSubModel} setIsSubModelSelected={setIsSubModelSelected} />)
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : <></>}
     </SearchStyled>
   );
