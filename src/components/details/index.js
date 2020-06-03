@@ -75,7 +75,7 @@ const CarDetails = () => {
                 className='gauge'
                 ticks={gaugeTicks} 
                 min={0} max={MAX_CARBON_EMISSIONS}
-                value={predictedCarbonEmissions}/>
+                value={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2})}/>
               <h3>Cost of Ownership (5 years)</h3>
               <div>
                 <h1 className='cto'>${predictedPrice}</h1>
