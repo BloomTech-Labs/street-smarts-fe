@@ -9,9 +9,9 @@ import { handleMakeChanges,
       } from '../../hooks/dropdownFunctions';
 import Dropdown from '../dropdown';
 import Results from '../results';
-import SearchStyled from './styles';
 
-export default function Search()  {
+
+export default function Search({ searchTitle })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -45,14 +45,9 @@ export default function Search()  {
   }, [makeSelected, modelSelected]);
 
   return (
-    <SearchStyled>
-      <div className='hero'>
-        <div className='heroText'>
-          <h1>What car will you drive next?</h1>
-          <p>Compare cost, features and CO<sub>2</sub> emissions—all in one place.</p>
-        </div>
+    <>
       <div className='dropdownForm'>
-        <p>Start your search</p>
+        <p>{searchTitle ? searchTitle : 'Start your search'}</p>
         <Dropdown
           showSearch
           defaultValue='Make'
@@ -75,10 +70,9 @@ export default function Search()  {
           onChange={() => handleClear(setYearSelected)}
           data={carYears}/>
       </div>
-      </div>
       { modelSelected ?(
         <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : <></>}
-    </SearchStyled>
+    </>
   );
 };
