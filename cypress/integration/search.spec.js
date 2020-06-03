@@ -4,7 +4,6 @@ describe("Dropdown Test Suite", () => {
     cy.visit("http://www.streetsmarts.online/");
   });
   it("Found Make Dropdown", () => {
-      
     cy.contains("Make");
   });
 
@@ -36,33 +35,11 @@ describe("Dropdown Test Suite", () => {
     });
   });
 
-    describe('Year dropdown functions', () => {
-        it('year dropdown is clickable', () => {
-            const YearDropdown = cy.contains(/year/i);
-            YearDropdown.click();
-            const YearSelect = cy.contains('2002');
-            YearSelect.click();
-        })
-    })
-
-  //   describe('Can choose a make and then view model', () => {
-
-  //       it('Can chooose a specific Make', () => {
-  //           const makeChoice = cy.contains('Ford')
-  //           makeChoice.click();
-  //         })
-  //     })
-  //user can choose a specific make
-
-  //   describe("Model Dropdown", () => {
-  //     it("Model Dropdown is clickable and selectable ", () => {
-  //       const ModelDropdown = cy.contains("Model");
-  //       ModelDropdown.click();
-  //     });
-  //     it("User can select Model", () => {
-  //       // User can select Make value
-  //       const Option = cy.contains("Escape FWD");
-  //       Option.click();
-  //     });
-  //   });
+  describe("Year dropdown functions", () => {
+    it("year dropdown is clickable", () => {
+      const YearDropdown = cy.contains(/year/i);
+      YearDropdown.click();
+      const YearSelect = cy.contains(2001 && 2002);
+    });
+  });
 });
