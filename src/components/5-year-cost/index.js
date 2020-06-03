@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { breakdownTransition } from '../../hooks/pageTransitions';
 import { fetchPredictionPrice } from '../../hooks/dataFetching';
 
-import WithRouter from '../../hooks/prevPage';
+import PrevPage from '../../hooks/prevPage';
 
 const CostToOwn = () => {
     const { id } = useParams();
@@ -29,7 +29,7 @@ const CostToOwn = () => {
     return (
         <motion.div variants={breakdownTransition} initial='out' animate='in' exit='out'>
             <div>
-                <WithRouter />
+                <PrevPage />
                 <p>Back to details</p>
             </div>
             <div className = 'mainContainer'>
@@ -56,6 +56,11 @@ const CostToOwn = () => {
                     <div className = 'text-block'>
                         <h3>Cost of Maintenance per year</h3>
                         <p>${yearlyMaintenanceCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
+                    </div>
+                </div>
+                <div>
+                    <div className='handOnHover'>
+                        <p>Compare</p>
                     </div>
                 </div>
             </div>
