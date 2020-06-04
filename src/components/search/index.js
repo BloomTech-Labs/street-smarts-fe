@@ -74,8 +74,17 @@ export default function Search ({ searchTitle, Results, id })  {
 
       <div className='results'>
         { Results ?
-        (<Results id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : modelSelected ? (<HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
+        (<Results 
+          id={id} 
+          make = {makeSelected} 
+          model = {modelSelected} 
+          year = {yearSelected} />)
+      : modelSelected ? 
+      (<HomeResults
+        className='home-results'
+        make = {makeSelected} 
+        model = {modelSelected} 
+        year = {yearSelected} />)
       : (<></>)}
       </div>
     </>
