@@ -43,10 +43,11 @@ const CarDetails = () => {
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
             <h3>CO<sub>2</sub> EMISSIONS</h3>
-            <HorizontalGauge
-              className='gauge'
-              min={0} max={MAX_CARBON_EMISSIONS}
-              value={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2})}/>
+              <HorizontalGauge
+                className='gauge'
+                width={100} height={20}
+                min={0} max={MAX_CARBON_EMISSIONS}
+                value={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2})}/>
             <Divider className='divider' />             
             <h3>Cost of Ownership (5 years)</h3>
             <div>
@@ -59,18 +60,18 @@ const CarDetails = () => {
               </Link>
             </div>
             <Divider className='divider' />
-              <h3>CITY MPG</h3>
-              <p>{car.city08}</p>
-            <Divider className='divider' />
-              <h3>HIGHWAY MPG</h3>
-              <p>{car.highway08}</p>
-          </Card>
-
-          <Card
-            className='carImg'
-            id={car.id}
-          >
-            <CarGallery images = {carImages} />
+              <h3>MPG</h3>
+              <div className='mpg'>
+                <div>
+                  <h3>City</h3>
+                  <p>{car.city08}</p>
+                </div>
+                <vl />
+                <div>
+                  <h3>hwy</h3>
+                  <p>{car.highway08}</p>
+                </div>
+              </div>
             <Divider className='divider' />
               <h3>CLASS</h3>
               <p>{car.vclass}</p>
@@ -86,7 +87,12 @@ const CarDetails = () => {
             <Divider className='divider' />
               <h3>FUEL</h3>
               <p>{car.fueltype1}</p>
-            <Divider />
+            <Divider />          </Card>
+
+          <Card
+            className='carImg'
+            id={car.id}>
+            <CarGallery images = {carImages} />
           </Card>
         </div>        
 

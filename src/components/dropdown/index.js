@@ -10,7 +10,11 @@ const Dropdown = ({ showSearch, allowClear, disabled, onSelect, onChange, onDrop
   }
 
   const filterOption = (input, option) => {
-    return option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+    let s = option.value;
+    if (typeof s === "number") {
+        s = "" + s;
+    }
+    return s.toLowerCase().indexOf(input.toLowerCase()) >= 0;
   }
 
   return (
