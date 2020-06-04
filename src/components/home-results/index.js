@@ -13,12 +13,22 @@ const HomeResults = ({ make, model, year, }) => {
 
   return (
     <ResultsStyled>
-        <h4>
+      <div>
+        <h3 className='home-results-title'>
           Your search: {year} {make} {model}
-        </h4>
+        </h3>
+      </div>
+
       {/* </div> */}
       <List
-        grid={{ gutter: 16, column: 4 }}
+        grid={{ 
+          gutter: 16,
+          xs: 1,
+          sm: 2,
+          md: 3,
+          lg: 3,
+          xl: 4,
+          xxl: 5, }}
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
@@ -26,23 +36,17 @@ const HomeResults = ({ make, model, year, }) => {
               <Card
                 id={car.id}
                 className="resultsCard"
-                title={`${car.year} ${car.make} ${car.model}`}
+                title={`${car.make} ${car.model}`}
               >
               <ul>
-                <li>
-                  <b>Engine ID:</b> {car.engid}
+                <li className='year'>
+                  <b>{car.year}</b>
                 </li>
-                <li>
-                  <b>Transmission:</b> {car.trany}
+                <li className='trany'>
+                  <b>{car.trany}</b>
                 </li>
-                <li>
-                  <b>Cylinders:</b> {car.cylinders}
-                </li>
-                <li>
-                  <b>City MPG:</b> {car.city08}
-                </li>
-                <li>
-                  <b>Highway MPG:</b> {car.highway08}
+                <li className='cylinders'>
+                  <b>{car.cylinders} Cylinders</b>
                 </li>
               </ul>
               </Card>
