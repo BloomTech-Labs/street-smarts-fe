@@ -8,10 +8,8 @@ import { handleMakeChanges,
         disableYearDropdown, 
       } from '../../hooks/dropdownFunctions';
 import Dropdown from '../dropdown';
-import Results from '../results';
 
-
-export default function Search({ searchTitle })  {
+export default function Search({ searchTitle, Results })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 

@@ -9,9 +9,14 @@ import PrevPage from '../../hooks/prevPage';
 import CompareButton from '../buttons/compare';
 import Breakdown from '../breakdown';
 import Search from '../search';
+import CompareResults from '../compare-results';
 
 const CostToOwn = () => {
     const [isComparing, setIsComparing] = useState(false);
+    
+    const handleCompare = () => {
+        return 
+    };
 
     const { id } = useParams();
 
@@ -44,7 +49,7 @@ const CostToOwn = () => {
                     <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                 </div>
                 {isComparing ? (
-                    <Search searchTitle='Choose car to compare' />
+                    <Search searchTitle='Choose car to compare' Results = {CompareResults} onClick={handleCompare}/>
                 ) : (
                     <></>
                 )
