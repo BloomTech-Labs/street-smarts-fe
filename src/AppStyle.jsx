@@ -100,6 +100,23 @@ a {
     .handOnHover {
       cursor: pointer;
     }
+
+    .image-gallery {
+      height: auto;
+    }
+
+    .image-gallery-image {
+      width: 100%;
+      height: 65%;
+    }
+
+    .fullscreen-button-container {
+       position: absolute;
+       z-index: 100;
+       left: 87%;
+        top: 9em;
+    }
+
   }  
 `;
 
