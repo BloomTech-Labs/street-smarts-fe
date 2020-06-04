@@ -37,9 +37,7 @@ const CarDetailsStyles = styled.div`
       rect {
         width: 100%
       }
-      // .gauge {
-      //   width: 50%;
-      // }
+
       .cto {
         font-size: 2rem;
       }
