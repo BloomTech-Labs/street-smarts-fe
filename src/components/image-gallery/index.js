@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 
-import { Fullscreen, LeftNav, RightNav } from "./styles";
+
+import { Fullscreen, LeftNav, RightNav, ImageGalleryStyled } from "./styles";
 import fullscreenIcon from "../../assets/images/fullscreen-icon.png";
 import exitFullscreen from "../../assets/images/exit-fullscreen.png";
 
@@ -51,17 +52,20 @@ const CarGallery = ({ images }) => {
     });
     
   }, [images]);
+
   return (
-    <ImageGallery
-      startIndex={0}
-      additionalClass='image-gallery-container'
-      showThumbnails={false}
-      items={items}
-      renderFullscreenButton={renderFullScreenButton}
-      renderLeftNav={renderLeftNav}
-      renderRightNav={renderRightNav}
-      showPlayButton={false}
-    />
+    <ImageGalleryStyled>
+      <ImageGallery
+        startIndex={0}
+        additionalClass='image-gallery-container'
+        showThumbnails={false}
+        items={items}
+        renderFullscreenButton={renderFullScreenButton}
+        renderLeftNav={renderLeftNav}
+        renderRightNav={renderRightNav}
+        showPlayButton={false}
+      />
+    </ImageGalleryStyled>
   );
 };
 
