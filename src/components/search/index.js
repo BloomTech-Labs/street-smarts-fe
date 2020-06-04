@@ -10,16 +10,11 @@ import { handleMakeChanges,
 import Dropdown from '../dropdown';
 import HomeResults from '../results/home-results';
 
-export default function Search ({ searchTitle, Results, id })  {
+export default function Search ({ searchTitle, Results, id, setMake, setModel, setYear, make, model, year })  {
 
   const [carMakes, setCarMakes] = useState([]);
-  const [makeSelected, setMakeSelected] = useState("");
-
   const [carModels, setCarModels] = useState([]);
-  const [modelSelected, setModelSelected] = useState("");
-
   const [carYears, setCarYears] = useState([]);
-  const [yearSelected, setYearSelected] = useState("");
 
   const [modelDisabled, setModelDisabled] = useState(true);
   const [yearDisabled, setYearDisabled] = useState(true);
@@ -32,17 +27,17 @@ export default function Search ({ searchTitle, Results, id })  {
 
 // Handles Model Dropdown state
   useEffect(() => {
-    if (makeSelected !== "") {
-      fetchModelData(makeSelected, setCarModels)
+    if (make !== "") {
+      fetchModelData(make, setCarModels)
     }
-  }, [makeSelected]);
+  }, [make]);
   
 // Handles Year Dropdown state
   useEffect(() => {
-    if (makeSelected && modelSelected !== "") {
-      fetchYearData(makeSelected, modelSelected, setCarYears)
+    if (make && model !== "") {
+      fetchYearData(make, model, setCarYears)
     }
-  }, [makeSelected, modelSelected]);
+  }, [make, model]);
 
   return (
     <>
@@ -51,32 +46,25 @@ export default function Search ({ searchTitle, Results, id })  {
         <Dropdown
           showSearch
           defaultValue='Make'
-          onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
-          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
+          onSelect={(selected) => handleMakeChanges(selected, setMake, setModelDisabled, setYear)}
+          onFocus={() => disableOtherDropdown(setModelDisabled, setModel, setYearDisabled)}
           data={carMakes}/>
           
         <Dropdown 
           showSearch
           defaultValue='Model'
           disabled={modelDisabled}
-          onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
-          onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
+          onSelect={(selected) => handleModelChanges(selected, setModel, setYearDisabled, setYear)}
+          onFocus={() => disableYearDropdown(setYearDisabled, setYear)}
           data={carModels}/>
           
         <Dropdown
           showSearch
           defaultValue='Year'
           disabled={yearDisabled}
-          onSelect={(selected) => handleYearChanges(selected, setYearSelected, )}
-          onChange={() => handleClear(setYearSelected)}
+          onSelect={(selected) => handleYearChanges(selected, setYear, )}
+          onChange={() => handleClear(setYear)}
           data={carYears}/>
-      </div>
-
-      <div className='results'>
-        { Results ?
-        (<Results id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : modelSelected ? (<HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : (<></>)}
       </div>
     </>
   );
