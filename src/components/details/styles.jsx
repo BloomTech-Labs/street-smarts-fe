@@ -15,7 +15,7 @@ const CarDetailsStyles = styled.div`
     }
 
     .carText {
-      width: 48%;
+      width: 45%;
       background-color: rgba(0,0,0,0);
       border: none;
 
@@ -26,7 +26,7 @@ const CarDetailsStyles = styled.div`
     }
 
     .carImg {
-      width: 48%;
+      width: 45%;
       background-color: rgba(0,0,0,0);
       border: none;
       padding: 0px;
