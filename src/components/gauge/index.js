@@ -51,7 +51,7 @@ export default (props) => {
         preserveAspectRatio="xMidYMid meet"
         width="10%"
         height="30%"
-        x={calcAxisPos(props.value)}
+        x={calcAxisPos(props.value) + "%"}
       >
         <g fill="white">
           <text 
@@ -60,7 +60,6 @@ export default (props) => {
             textAnchor="middle"
             x="0"
             y="0"
-            // fontSize="1em"
           >
             {props.value}
           </text>
