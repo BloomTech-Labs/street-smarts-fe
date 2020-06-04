@@ -58,6 +58,13 @@ a {
       align-items: center;
       background-color: rgb(0,0,0);
       color: white;
+
+      .navlink {
+        text-decoration: none!important;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-weight: bold
+      }
   
       .menu {
         background-color: rgba(0,0,0,0);
