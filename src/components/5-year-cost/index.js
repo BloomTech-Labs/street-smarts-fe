@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { breakdownTransition } from '../../hooks/pageTransitions';
 import { fetchPredictionPrice } from '../../hooks/dataFetching';
@@ -8,17 +9,10 @@ import PrevPage from '../../hooks/prevPage';
 
 import CompareButton from '../buttons/compare';
 import Breakdown from '../breakdown';
-import Search from '../search';
-import CompareResults from '../compare-results';
 
 const CostToOwn = () => {
-    const [isComparing, setIsComparing] = useState(false);
-    
-    const handleCompare = () => {
-        return 
-    };
-
     const { id } = useParams();
+    const [comparing, setComparing] = useState(false);
 
     const [totalCost, setTotalCost] = useState(0);
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -39,29 +33,27 @@ const CostToOwn = () => {
 
     return (
         <motion.div variants={breakdownTransition} initial='out' animate='in' exit='out'>
-            <div>
+            <div className = 'prev-page-container'>
                 <PrevPage />
-                <p>Back to details</p>
             </div>
             <div className = 'mainContainer'>
-                <h1>Cost Breakdown</h1>
-                <div id='original-search'>
-                    <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
+                <h1>Cost Breakdown</h1>                
+                <div className = 'compare-cars-container'>
+                    <div id='original-search' className = 'breakdown-container'>
+                        <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
+                    </div>          
                 </div>
-                {isComparing ? (
-                    <Search searchTitle='Choose car to compare' Results = {CompareResults} onClick={handleCompare}/>
-                ) : (
-                    <></>
-                )
+                { comparing ? (
+                    <div className = 'compare-button-container'>
+                        <Link to = {`/compare/${id}`} onClick={() => setComparing(!comparing)}>
+                            <CompareButton />
+                        </Link>
+                    </div>
+                    ) : (
+                        <></>
+                    )
                 }
-                <div>
-                {isComparing ? (
-                    <></>
-                ) : (
-                    <CompareButton onClick={() => setIsComparing(!isComparing)}/>
-                )
-                }
-                </div>
+
             </div>
         </motion.div>
     );

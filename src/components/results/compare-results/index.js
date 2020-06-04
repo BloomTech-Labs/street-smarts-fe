@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { List, Card } from "antd";
-import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
+import { fetchSelectedCarDataByYear } from '../../../hooks/dataFetching';
+
+//
 import ResultsStyled from '../home-results/styles';
 
-const CompareResults = ({ make, model, year, onClick }) => {
+const CompareResults = ({ make, model, year, id, onClick }) => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const CompareResults = ({ make, model, year, onClick }) => {
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
-            <div className='handOnHover' onClick={onClick}>
+            <Link to={`/compare/${id}/to/${make}/${model}`} onClick={onClick}>
               <Card
                 id={car.id}
                 className="resultsCard"
@@ -45,7 +48,7 @@ const CompareResults = ({ make, model, year, onClick }) => {
                 </li>
               </ul>
               </Card>
-            </div>
+            </Link>
           </List.Item>
         )}
       />

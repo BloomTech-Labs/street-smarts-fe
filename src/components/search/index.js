@@ -8,6 +8,7 @@ import { handleMakeChanges,
         disableYearDropdown, 
       } from '../../hooks/dropdownFunctions';
 import Dropdown from '../dropdown';
+import HomeResults from '../results/home-results';
 
 export default function Search({ searchTitle, Results })  {
   const [carMakes, setCarMakes] = useState([]);
@@ -68,9 +69,12 @@ export default function Search({ searchTitle, Results })  {
           onChange={() => handleClear(setYearSelected)}
           data={carYears}/>
       </div>
-      { modelSelected ?(
+      { modelSelected && Results ? (
         <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : <></>}
+      : modelSelected ? (
+        <HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />
+      )
+      : (<></>)}
     </>
   );
 };
