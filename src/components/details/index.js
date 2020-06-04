@@ -53,9 +53,9 @@ const CarDetails = () => {
             <div>
               <h1 className='cto'>${predictedPrice}</h1>
             </div>
-            <div className ='chevron-down'>
-              <p>5 Year Cost Breakdown</p>
+            <div className ='chevron-down'>              
               <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
+                <p>5 Year Cost Breakdown</p>
                 <img src={chevron} alt= 'View cost to own' />  
               </Link>
             </div>

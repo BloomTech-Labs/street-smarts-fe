@@ -8,9 +8,9 @@ import { handleMakeChanges,
         disableYearDropdown, 
       } from '../../hooks/dropdownFunctions';
 import Dropdown from '../dropdown';
-import HomeResults from '../home-results';
+import HomeResults from '../results/home-results';
 
-export default function Search ({ searchTitle, Results })  {
+export default function Search ({ searchTitle, Results, id })  {
 
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
@@ -73,8 +73,8 @@ export default function Search ({ searchTitle, Results })  {
       </div>
 
       <div className='results'>
-        { modelSelected && Results ?
-        (<Results make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
+        { Results ?
+        (<Results id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : modelSelected ? (<HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : (<></>)}
       </div>

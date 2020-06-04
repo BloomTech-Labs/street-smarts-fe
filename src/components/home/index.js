@@ -3,7 +3,6 @@ import React from "react";
 import Search from "../search";
 
 import HomeStyled from "./styles";
-import HomeResults from '../home-results'
 
 const Home = () => {
   return (
@@ -11,11 +10,10 @@ const Home = () => {
       <section className="hero">
         <h1>What car will you drive next?</h1>
         <p>Compare cost, features and CO<sub>2</sub> emissions—all in one place.</p>
-        <Search />
+        <div className="home-results">
+          <Search />
+        </div>
       </section>
-      <div className="home-results">
-        <HomeResults />
-      </div>
     </HomeStyled>
   );
 };
