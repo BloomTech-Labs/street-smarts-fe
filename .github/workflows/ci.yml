@@ -1,0 +1,29 @@
+name: End-to-end tests
+on: [push]
+jobs:
+  cypress-run-chrome:
+    runs-on: ubuntu-16.04
+    name: Chrome
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          start: npm start
+          browser: chrome
+  cypress-run-firefox:
+    runs-on: ubuntu-16.04
+    name: Firefox
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          start: npm start
+          browser: firefox
