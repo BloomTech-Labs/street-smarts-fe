@@ -12,6 +12,7 @@ const HomeResults = ({ make, model, year }) => {
   }, [make, model, year]);
 
   return (
+    <div className="home-results">
     <ResultsStyled>
       <div>
         <h3 className='home-results-title'>
@@ -55,6 +56,7 @@ const HomeResults = ({ make, model, year }) => {
         )}
       />
     </ResultsStyled>
+    </div>
   );
 };
 

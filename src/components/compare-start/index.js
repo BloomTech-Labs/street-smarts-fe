@@ -56,18 +56,11 @@ const CompareStart = () => {
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                     </div>          
                 </div>
-                {!isCarSelected ? (
+
                     <div>
-                        <Search Results = {() => {return (<CompareResults id={mainCar.id} make={mainCar.make} model={mainCar.model} year={mainCar.year} onClick={() => setIsCarSelected(!isCarSelected)} />)  }} />
+                        <Search searchTitle='Choose a car' Results = {() => {return (<CompareResults id={id} onClick={setIsCarSelected(!isCarSelected)}/>)  }} />
                     </div>
-                ) : (
-                    <div className = 'compare-cars-container'>
-                        <div id='compare-car-1' className = 'breakdown-container'>
-                            <Breakdown purchasePrice={comparedPurchasePrice} yearlyTotalCost={comparedYearlyTotalCost} totalCost={comparedTotalCost} yearlyGasSpend={comparedYearlyGasSpend} yearlyMaintenanceCost={comparedYearlyMaintenanceCost} />
-                        </div>
-                    </div>
-                )
-                }
+
             </div>
         </motion.div>
     );

@@ -14,7 +14,6 @@ const CompareResults = ({ make, model, year, id, onClick }) => {
   }, [make, model, year]);
 
   return (
-    <div className="home-results">
       <ResultsStyled>
           <h4>
             Your search: {year} {make} {model}
@@ -30,6 +29,7 @@ const CompareResults = ({ make, model, year, id, onClick }) => {
                   id={car.id}
                   className="resultsCard"
                   title={`${car.year} ${car.make} ${car.model}`}
+                  onClick={setResults([])}
                 >
                 <ul>
                   <li>
@@ -54,7 +54,6 @@ const CompareResults = ({ make, model, year, id, onClick }) => {
           )}
         />
       </ResultsStyled>
-    </div>
   );
 };
 
