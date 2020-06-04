@@ -43,7 +43,7 @@ const CostToOwn = () => {
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                     </div>          
                 </div>
-                { comparing ? (
+                { !comparing ? (
                     <div className = 'compare-button-container'>
                         <Link to = {`/compare/${id}`} onClick={() => setComparing(!comparing)}>
                             <CompareButton />
