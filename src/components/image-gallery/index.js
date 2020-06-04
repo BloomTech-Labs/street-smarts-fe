@@ -15,7 +15,7 @@ const CarGallery = ({ images }) => {
           className={`image-gallery-fullscreen-button${isFullscreen ? "active" : ""} handOnHover`}
           onClick={onClick}
         >
-          <img src={fullscreen ? exitFullscreen : fullscreenIcon} alt="View photo fullscreen" onClick={() => setFullscreen(!fullscreen)}/>
+          <img src={fullscreen ? exitFullscreen : fullscreenIcon} alt="View fullscreen" onClick={() => setFullscreen(!fullscreen)}/>
         </Fullscreen>
       </div>
     );

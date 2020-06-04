@@ -54,12 +54,13 @@ export default (props) => {
         x={calcAxisPos(props.value)}
       >
         <g fill="white">
-          <text
+          <text 
+            className='co2-text'
             id="indicatorText"
             textAnchor="middle"
             x="0"
             y="0"
-            fontSize="1em"
+            // fontSize="1em"
           >
             {props.value}
           </text>
