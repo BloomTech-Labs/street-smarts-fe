@@ -19,3 +19,15 @@ export const breakdownTransition = {
     y: "100vh",
   },
 };
+
+export const compareTransition = {
+  in: {
+    opacity: 1,
+    x: 0,
+  },
+
+  out: {
+    opacity: 0,
+    x: '-100vw'
+  }
+}

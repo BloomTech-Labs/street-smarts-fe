@@ -6,6 +6,7 @@ export default prevPage(({ history }) => {
   return (
     <div className='handOnHover chevron' onClick={() => history.goBack()}>
       <img src={chevronUp} alt="Back to car details" />
+      <p>Back to details</p>
     </div>
   );
 });

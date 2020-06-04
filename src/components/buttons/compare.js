@@ -2,7 +2,7 @@ import React from 'react';
 
 const CompareButton = ({ onClick }) => {
     return (
-        <div className='handOnHover' onClick={onClick}>
+        <div className='handOnHover compare-button' onClick={onClick}>
             <p>Compare</p>
         </div>
     );
