@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchSelectedCarDataByYear } from '../../hooks/dataFetching';
 import ResultsStyled from './styles';
 
-const Results = ({ make, model, year, }) => {
+const HomeResults = ({ make, model, year, }) => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Results = ({ make, model, year, }) => {
         dataSource={results}
         renderItem={(car) => (
           <List.Item>
-            <Link to={`/details/${car.make}/${car.model}/${car.id}`}>
+            <Link to = {`/details/${car.make}/${car.model}/${car.id}`}>
               <Card
                 id={car.id}
                 className="resultsCard"
@@ -54,4 +54,4 @@ const Results = ({ make, model, year, }) => {
   );
 };
 
-export default Results;
+export default HomeResults;

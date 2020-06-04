@@ -3,6 +3,7 @@ import React from "react";
 import Search from "../search";
 
 import SearchStyled from "./styles";
+import HomeResults from '../home-results'
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
         <div className="heroText">
           <h1>What car will you drive next?</h1>
           <p>Compare cost, features and CO<sub>2</sub> emissions—all in oneplace.</p>
-          <Search />
+          <Search Results = {HomeResults} />
         </div>
       </div>
     </SearchStyled>

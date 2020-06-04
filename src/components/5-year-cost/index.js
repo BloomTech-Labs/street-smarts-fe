@@ -6,7 +6,18 @@ import { fetchPredictionPrice } from '../../hooks/dataFetching';
 
 import PrevPage from '../../hooks/prevPage';
 
+import CompareButton from '../buttons/compare';
+import Breakdown from '../breakdown';
+import Search from '../search';
+import CompareResults from '../compare-results';
+
 const CostToOwn = () => {
+    const [isComparing, setIsComparing] = useState(false);
+    
+    const handleCompare = () => {
+        return 
+    };
+
     const { id } = useParams();
 
     const [totalCost, setTotalCost] = useState(0);
@@ -34,34 +45,22 @@ const CostToOwn = () => {
             </div>
             <div className = 'mainContainer'>
                 <h1>Cost Breakdown</h1>
-                <div className = 'row top'>
-                    <div className = 'text-block'>
-                        <h3>Purchase Price</h3>
-                        <p>${purchasePrice.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-                    </div> 
-                    <div className = 'text-block'>
-                        <h3>Cost per Year</h3>
-                        <p>${yearlyTotalCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p> 
-                    </div>
-                    <div className = 'text-block'>
-                        <h3>5-Year Cost to Own</h3>
-                        <p>${totalCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-                    </div>
+                <div id='original-search'>
+                    <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                 </div>
-                <div className = 'row bottom'>
-                    <div className = 'text-block'>
-                        <h3>Cost of Gas per year</h3>
-                        <p>${yearlyGasSpend.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-                    </div> 
-                    <div className = 'text-block'>
-                        <h3>Cost of Maintenance per year</h3>
-                        <p>${yearlyMaintenanceCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
-                    </div>
-                </div>
+                {isComparing ? (
+                    <Search searchTitle='Choose car to compare' Results = {CompareResults} onClick={handleCompare}/>
+                ) : (
+                    <></>
+                )
+                }
                 <div>
-                    <div className='handOnHover'>
-                        <p>Compare</p>
-                    </div>
+                {isComparing ? (
+                    <></>
+                ) : (
+                    <CompareButton onClick={() => setIsComparing(!isComparing)}/>
+                )
+                }
                 </div>
             </div>
         </motion.div>
