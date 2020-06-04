@@ -63,7 +63,7 @@ a {
         text-decoration: none!important;
         color: #FFFFFF;
         text-transform: uppercase;
-        font-weight: bold
+        font-weight: bold;
       }
   
       .menu {
@@ -118,9 +118,9 @@ a {
     }
 
     .fullscreen-button-container {
-       position: absolute;
-       z-index: 100;
-       left: 87%;
+      position: absolute;
+      z-index: 100;
+      left: 87%;
         top: 9em;
     }
 

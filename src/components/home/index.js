@@ -2,20 +2,21 @@ import React from "react";
 
 import Search from "../search";
 
-import SearchStyled from "./styles";
+import HomeStyled from "./styles";
 import HomeResults from '../home-results'
 
 const Home = () => {
   return (
-    <SearchStyled>
-      <div className="hero">
-        <div className="heroText">
-          <h1>What car will you drive next?</h1>
-          <p>Compare cost, features and CO<sub>2</sub> emissions—all in oneplace.</p>
-          <Search Results = {HomeResults} />
-        </div>
+    <HomeStyled>
+      <section className="hero">
+        <h1>What car will you drive next?</h1>
+        <p>Compare cost, features and CO<sub>2</sub> emissions—all in one place.</p>
+        <Search />
+      </section>
+      <div className="home-results">
+        <HomeResults />
       </div>
-    </SearchStyled>
+    </HomeStyled>
   );
 };
 
