@@ -42,12 +42,6 @@ const CarDetails = () => {
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-              <h3>CITY MPG</h3>
-              <p>{car.city08}</p>
-            <Divider className='divider' />
-              <h3>HIGHWAY MPG</h3>
-              <p>{car.highway08}</p>
-            <Divider className='divider' />
             <h3>CO<sub>2</sub> EMISSIONS</h3>
             <HorizontalGauge
               className='gauge'
@@ -64,6 +58,12 @@ const CarDetails = () => {
                 <img src={chevron} alt= 'View cost to own' />  
               </Link>
             </div>
+            <Divider className='divider' />
+              <h3>CITY MPG</h3>
+              <p>{car.city08}</p>
+            <Divider className='divider' />
+              <h3>HIGHWAY MPG</h3>
+              <p>{car.highway08}</p>
           </Card>
 
           <Card

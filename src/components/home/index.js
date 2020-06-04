@@ -3,7 +3,7 @@ import React from "react";
 import Search from "../search";
 
 import SearchStyled from "./styles";
-import HomeResults from '../results'
+import HomeResults from '../home-results'
 
 const Home = () => {
   return (
