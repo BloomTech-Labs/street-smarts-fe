@@ -44,12 +44,13 @@ const CarGallery = ({ images }) => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
+    if(images) {
     images.map((img, index) => {
       if(index === 0) {
       setItems([...items, {original: img, thumbnail: img}]);
       }
-    });
-    
+    })
+  };  
   }, [images]);
   return (
     <ImageGallery

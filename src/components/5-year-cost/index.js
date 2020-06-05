@@ -12,7 +12,6 @@ import Breakdown from '../breakdown';
 
 const CostToOwn = () => {
     const { id } = useParams();
-    const [comparing, setComparing] = useState(false);
 
     const [totalCost, setTotalCost] = useState(0);
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -43,16 +42,12 @@ const CostToOwn = () => {
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                     </div>          
                 </div>
-                { !comparing ? (
-                    <div className = 'compare-button-container'>
-                        <Link to = {`/compare/${id}`} onClick={() => setComparing(!comparing)}>
-                            <CompareButton />
-                        </Link>
-                    </div>
-                    ) : (
-                        <></>
-                    )
-                }
+
+                <div className = 'compare-button-container'>
+                    <Link to = {`/compare/${id}`} >
+                        <CompareButton />
+                    </Link>
+                </div>
 
             </div>
         </motion.div>

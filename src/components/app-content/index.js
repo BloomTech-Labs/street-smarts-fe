@@ -18,7 +18,7 @@ const AppContent = () => {
                 <Route exact path='/details/:make/:model/:id' component={CarDetails} />
                 <Route exact path='/details/:make/:model/:id/cost-to-own' component = {CostToOwn} />
                 <Route exact path='/compare/:id' component={CompareStart} />
-                <Route exact path='/compare/:id/to/:make/:model' component={Compare}/>
+                <Route exact path='/compare/:id/to/:carID' component={Compare}/>
             </Switch>
       </AnimatePresence>
     )
