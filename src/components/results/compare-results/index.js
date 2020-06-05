@@ -24,7 +24,6 @@ const CompareResults = ({ make, model, year }) => {
   }, [make, model, year]);
 
   return (
-    <div className="home-results">
       <ResultsStyled className='THIS-SHOULD-BE-COMPARE'>
           <h4>
             Your search: {year} {make} {model}
@@ -64,7 +63,6 @@ const CompareResults = ({ make, model, year }) => {
           )}
         />
       </ResultsStyled>
-      </div>
   );
 };
 

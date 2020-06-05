@@ -40,7 +40,7 @@ const CompareStart = () => {
                     </div>          
                 </div>
 
-                <div>
+                <div className="home-results">
                     <CompareSearch id ={id} searchTitle='Choose a car to compare' />
                 </div>
             </div>
