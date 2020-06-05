@@ -39,9 +39,10 @@ const CompareStart = () => {
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                     </div>          
                 </div>
-
-                <div className="home-results">
-                    <CompareSearch id ={id} searchTitle='Choose a car to compare' />
+                <div className = 'search-container'>
+                    <div className="home-results">
+                        <CompareSearch id ={id} searchTitle='Choose a car to compare' />
+                    </div>
                 </div>
             </div>
         </motion.div>
