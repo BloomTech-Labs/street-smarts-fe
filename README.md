@@ -7,8 +7,20 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/731a203f8375d97bc6fe/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/street-smarts-fe/maintainability)
 
 # Street Smarts
+https://www.streetsmarts.online/
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+## Folder Structure: 
+- src > assets = images or other external medias
+
+- src > hooks = reusable functions and custom hooks
+
+- src > render > app-content = The main routes, sets up use of browser history and transition animation controller
+
+- src > components = Everything thats not 'common' or 'sections' folder is essentially a page on our website
+
+- src > components > common** = All the smaller and more reusable parts of our website
+
+- src > components > sections = Parts that take up big portions of our web page and are not as reusable
 
 ## Contributors
 
