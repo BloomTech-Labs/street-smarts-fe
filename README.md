@@ -10,17 +10,21 @@
 https://www.streetsmarts.online/
 
 ## Folder Structure: 
-- src > assets = images or other external medias
+street-smarts-fe {
+    cypress > integration = All our tests
+    
+    src > assets = images or other external medias
 
-- src > hooks = reusable functions and custom hooks
+    src > hooks = reusable functions and custom hooks
 
-- src > render > app-content = The main routes, sets up use of browser history and transition animation controller
+    src > render > app-content = The main routes, sets up use of browser history and transition animation controller
 
-- src > components = Everything thats not 'common' or 'sections' folder is essentially a page on our website
+    src > components = Everything thats not 'common' or 'sections' folder is essentially a page on our website
 
-- src > components > common** = All the smaller and more reusable parts of our website
+    src > components > common** = All the smaller and more reusable parts of our website
 
-- src > components > sections = Parts that take up big portions of our web page and are not as reusable
+    src > components > sections = Parts that take up big portions of our web page and are not as reusable
+}
 
 ## Contributors
 
