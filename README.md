@@ -11,8 +11,9 @@ https://www.streetsmarts.online/
 
 ## Folder Structure: 
 street-smarts-fe {
-    cypress > integration = All our tests
     
+    cypress > integration = All our tests
+
     src > assets = images or other external medias
 
     src > hooks = reusable functions and custom hooks
