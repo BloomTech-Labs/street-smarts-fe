@@ -1,6 +1,6 @@
 import React from "react";
 
-import HomeSearch from "../search/home-search";
+import HomeSearch from "../sections/search/home-search";
 
 import HomeStyled from "./styles";
 

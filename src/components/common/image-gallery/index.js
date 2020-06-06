@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 
 import { Fullscreen, LeftNav, RightNav } from "./styles";
-import fullscreenIcon from "../../assets/images/fullscreen-icon.png";
-import exitFullscreen from "../../assets/images/exit-fullscreen.png";
+import fullscreenIcon from "../../../assets/images/fullscreen-icon.png";
+import exitFullscreen from "../../../assets/images/exit-fullscreen.png";
 
 const CarGallery = ({ images }) => {
   const [fullscreen, setFullscreen] = useState(false);

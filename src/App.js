@@ -4,7 +4,7 @@ import AppStyle from './AppStyle';
 
 import AppContent from '../src/components/app-content'
 
-import Navigation from './components/header';
+import Navigation from './components/sections/header';
 
 import { Layout } from "antd";
 

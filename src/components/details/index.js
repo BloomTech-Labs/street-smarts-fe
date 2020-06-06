@@ -3,13 +3,13 @@ import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
-import HorizontalGauge from '../gauge';
+import HorizontalGauge from '../common/gauge';
 import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
 import { detailsTransition } from '../../hooks/pageTransitions';
 import chevron from '../../assets/images/chevron.png';
-import CarGallery from '../image-gallery';
+import CarGallery from '../common/image-gallery';
 
 const MAX_CARBON_EMISSIONS = 1400;
 
