@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppStyle from './AppStyle';
 
-import AppContent from '../src/components/app-content'
+import AppContent from './render/app-content'
 
 import Navigation from './components/sections/header';
 
