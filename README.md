@@ -11,7 +11,7 @@ https://www.streetsmarts.online/
 
 ## Folder Structure: 
 street-smarts-fe {
-    
+
     cypress > integration = All our tests
 
     src > assets = images or other external medias
@@ -22,7 +22,7 @@ street-smarts-fe {
 
     src > components = Everything thats not 'common' or 'sections' folder is essentially a page on our website
 
-    src > components > common** = All the smaller and more reusable parts of our website
+    src > components > common = All the smaller and more reusable parts of our website
 
     src > components > sections = Parts that take up big portions of our web page and are not as reusable
 }
