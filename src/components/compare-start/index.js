@@ -7,6 +7,8 @@ import { compareTransition } from '../../hooks/pageTransitions';
 import Breakdown from '../common/breakdown';
 import CompareSearch from '../sections/search/compare-search';
 
+import { MainContainer } from './styles';
+
 const CompareStart = () => {
     const { id } = useParams();
 
@@ -30,7 +32,8 @@ const CompareStart = () => {
 
     return (
         <motion.div variants={compareTransition} initial='out' animate='in' exit='out'>
-            <div className = 'mainContainer'>
+        <MainContainer>
+            <div className = 'main-wrapper'>
                 <div className='compare-title'>
                     <h1>Comparing</h1>  
                 </div>              
@@ -45,6 +48,7 @@ const CompareStart = () => {
                     </div>
                 </div>
             </div>
+        </MainContainer>
         </motion.div>
     );
 };
