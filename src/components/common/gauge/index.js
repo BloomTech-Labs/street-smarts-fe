@@ -56,6 +56,7 @@ export default (props) => {
         width="10%"
         height="30%"
         x={calcAxisPos(props.value) + "%"}
+        style={{overflow: "visible"}}
       >
         <g fill="white">
           <text 
