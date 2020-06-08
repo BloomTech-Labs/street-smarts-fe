@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
-import { fetchPredictionPrice } from '../../hooks/dataFetching';
+import { fetchPrediction } from '../../hooks/dataFetching';
 import { compareAfterTransition } from '../../hooks/pageTransitions';
 
 import AddToCompare from '../common/buttons/addToCompare';
@@ -26,7 +26,7 @@ const Compare = () => {
     const [comparedYearlyMaintenanceCost, setComparedYearlyMaintenanceCost] = useState(0);
 
     useEffect(() => {
-        fetchPredictionPrice(id, (obj) => {
+        fetchPrediction(id, (obj) => {
             setMainCar(obj);
             setTotalCost(Math.round(obj.five_year_cost_to_own));            
             setPurchasePrice(obj.predicted_price);
@@ -38,7 +38,7 @@ const Compare = () => {
     }, [id]);
 
     useEffect(() => {
-        fetchPredictionPrice(carID, (obj) => {
+        fetchPrediction(carID, (obj) => {
             setComparedCar(obj);
             setComparedTotalCost(Math.round(obj.five_year_cost_to_own));            
             setComparedPurchasePrice(obj.predicted_price);

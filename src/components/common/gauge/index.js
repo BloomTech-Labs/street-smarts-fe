@@ -15,6 +15,10 @@ export default (props) => {
     ...props,
   };
 
+  if (!props.text) {
+      props.text = "" + props.value;
+  }
+
   // Calculate the value as a percentage from 0 (min) to 100 (max)
   function calcAxisPos(val) {
     const percent = (100 * (val - props.min)) / (props.max - props.min);
@@ -61,7 +65,7 @@ export default (props) => {
             x="0"
             y="0"
           >
-            {props.value}
+            {props.text}
           </text>
           <polygon points="-10,5 0,25 10,5" />
         </g>
