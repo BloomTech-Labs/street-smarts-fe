@@ -2,11 +2,11 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-import CarDetails from '../details';
-import Home from '../home';
-import CostToOwn from '../5-year-cost';
-import CompareStart from '../compare-start';
-import Compare from '../compare';
+import CarDetails from '../../components/details';
+import Home from '../../components/home';
+import CostToOwn from '../../components/5-year-cost';
+import CompareStart from '../../components/compare-start';
+import Compare from '../../components/compare';
 
 const AppContent = () => {
   let location = useLocation();

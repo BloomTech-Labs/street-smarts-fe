@@ -7,8 +7,8 @@ import { fetchPredictionPrice } from '../../hooks/dataFetching';
 
 import PrevPage from '../../hooks/prevPage';
 
-import CompareButton from '../buttons/compare';
-import Breakdown from '../breakdown';
+import CompareButton from '../common/buttons/compare';
+import Breakdown from '../common/breakdown';
 
 const CostToOwn = () => {
     const { id } = useParams();

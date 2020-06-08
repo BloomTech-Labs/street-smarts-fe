@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { fetchPredictionPrice } from '../../hooks/dataFetching';
 import { compareTransition } from '../../hooks/pageTransitions';
 
-import Breakdown from '../breakdown';
-import CompareSearch from '../search/compare-search';
+import Breakdown from '../common/breakdown';
+import CompareSearch from '../sections/search/compare-search';
 
 const CompareStart = () => {
     const { id } = useParams();

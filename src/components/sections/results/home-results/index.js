@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { List, Card } from "antd";
 import { Link } from 'react-router-dom';
-import { fetchSelectedCarDataByYear } from '../../../hooks/dataFetching';
+import { fetchSelectedCarDataByYear } from '../../../../hooks/dataFetching';
 import ResultsStyled from './styles';
 
 const HomeResults = ({ make, model, year }) => {
