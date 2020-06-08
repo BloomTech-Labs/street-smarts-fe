@@ -7,6 +7,7 @@ import setTitle from '../../hooks/setTitle';
 
 import AddToCompare from '../common/buttons/addToCompare';
 import Breakdown from '../common/breakdown';
+import { BreakdownCard, CompareCarsContainer } from "./styles.jsx";
                      
 const Compare = () => {
     const { id, carID } = useParams();
@@ -59,19 +60,16 @@ const Compare = () => {
                     <h1>Comparing {mainCar.year} {mainCar.make} {mainCar.model} to {comparedCar.year} {comparedCar.make} {comparedCar.model} </h1>  
                     {/* <AddToCompare className ='handOnHover'/> */}
                 </div> 
-                <div className = 'compare-cars-container'>
-                    <div id='original-search' className = 'breakdown-container'>
+                <CompareCarsContainer>
+                    <BreakdownCard id='original-search'>
                         <h2>{mainCar.year} {mainCar.make} {mainCar.model}</h2>
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
-                    </div>          
-                </div>
-
-                <div className = 'compare-cars-container'>
-                    <div id='compare-car-1' className = 'breakdown-container'>
-                    <h2>{comparedCar.year} {comparedCar.make} {comparedCar.model}</h2>
+                    </BreakdownCard>
+                    <BreakdownCard id='compare-car-1'>
+                        <h2>{comparedCar.year} {comparedCar.make} {comparedCar.model}</h2>
                         <Breakdown purchasePrice={comparedPurchasePrice} yearlyTotalCost={comparedYearlyTotalCost} totalCost={comparedTotalCost} yearlyGasSpend={comparedYearlyGasSpend} yearlyMaintenanceCost={comparedYearlyMaintenanceCost} />
-                    </div>          
-                </div>
+                    </BreakdownCard>
+                </CompareCarsContainer>
             </div>
         </motion.div>
     );
