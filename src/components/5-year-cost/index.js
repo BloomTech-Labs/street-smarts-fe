@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { breakdownTransition } from '../../hooks/pageTransitions';
 import { fetchPrediction } from '../../hooks/dataFetching';
+import CostBreakdown from './styles'
+import { BreakdownAttributes } from '../common/breakdown/styles'
 
 import PrevPage from '../../hooks/prevPage';
 import setTitle from '../../hooks/setTitle';
@@ -47,26 +49,29 @@ const CostToOwn = () => {
 
 
     return (
+        <CostBreakdown>
         <motion.div variants={breakdownTransition} initial='out' animate='in' exit='out'>
             <div className = 'prev-page-container'>
                 <PrevPage />
             </div>
             <div className = 'mainContainer'>
-                <h1>Cost Breakdown</h1>                
+                <h1 className='costHeader'> What does it cost over 5 years?</h1>                
                 <div className = 'compare-cars-container'>
                     <div id='original-search' className = 'breakdown-container'>
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                     </div>          
                 </div>
-
+                <h3 className='compareHeader'>Compare to other vehicles</h3>
                 <div className = 'compare-button-container'>
                     <Link to = {`/compare/${id}`} >
+                        
                         <CompareButton />
                     </Link>
                 </div>
 
             </div>
         </motion.div>
+        </CostBreakdown>
     );
 };
 

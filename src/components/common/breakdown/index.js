@@ -24,7 +24,7 @@ const Breakdown = ({ className, purchasePrice, yearlyTotalCost, totalCost, yearl
             <p>${totalCost.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
         </div>
     </div>
-    <div className = 'row bottom'>
+    <div className = 'row-bottom'>
         <div className = 'text-block'>
             <h3>Cost of Gas per year</h3>
             <p>${yearlyGasSpend.toLocaleString(undefined, {maximumFractionDigits: 2})}</p>
