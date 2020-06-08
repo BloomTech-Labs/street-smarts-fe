@@ -10,6 +10,7 @@ import CarDetailsStyles from './styles';
 import { detailsTransition } from '../../hooks/pageTransitions';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
+import setTitle from '../../hooks/setTitle';
 
 const MAX_CARBON_EMISSIONS = 83316;
 
@@ -29,6 +30,12 @@ const CarDetails = () => {
       setCarImages(obj.list_of_imgs);
     });
   }, [id]);
+
+  useEffect(() => {
+      if (car.make && car.model) {
+          setTitle(`${car.make} ${car.model}`);
+      }
+  }, [car]);
 
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>

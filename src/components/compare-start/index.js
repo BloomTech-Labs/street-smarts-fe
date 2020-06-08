@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { fetchPrediction } from '../../hooks/dataFetching';
 import { compareTransition } from '../../hooks/pageTransitions';
+import setTitle from '../../hooks/setTitle';
 
 import Breakdown from '../common/breakdown';
 import CompareSearch from '../sections/search/compare-search';
@@ -27,6 +28,8 @@ const CompareStart = () => {
             setYearlyMaintenanceCost(obj.maintenance_cost / 5);
         })
     }, [id]);
+
+    useEffect(() => setTitle(), []);
 
     return (
         <motion.div variants={compareTransition} initial='out' animate='in' exit='out'>

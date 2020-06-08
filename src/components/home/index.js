@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import HomeSearch from "../sections/search/home-search";
 
 import HomeStyled from "./styles";
+import setTitle from '../../hooks/setTitle';
 
 const Home = () => {
+  useEffect(() => setTitle(), []);
+
   return (
     <HomeStyled>
       <section className="hero">
