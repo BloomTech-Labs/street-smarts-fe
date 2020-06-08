@@ -76,20 +76,7 @@ export const fetchCarDetails = async (id, setCar) => {
 
 const API = "https://streetsmarts-labs24.herokuapp.com/api";
 
-export const fetchPredictionCarbonEmissions = async (id, setPredictionValue) => {
-  return await axios
-    .post(`${API}/predict/carbon_emissions/${id}`)
-    .then((res) => {
-      console.log(`This is response for fetchPredictionCarbonEmissions of ${id}`, res.data);
-      setPredictionValue(res.data);
-    })
-    .catch((err) => {
-      console.log(`Error fetching carbon emissions prediction for ${id}: ${err}`);
-      return err.message;
-    });
-};
-
-export const fetchPredictionPrice = async (id, setPredictionValue) => {
+export const fetchPrediction = async (id, setPredictionValue) => {
   return await axios
     .post(`${API}/predict/${id}`)
     .then((res) => {
