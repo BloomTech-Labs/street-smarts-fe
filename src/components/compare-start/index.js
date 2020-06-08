@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
-import { fetchPredictionPrice } from '../../hooks/dataFetching';
+import { fetchPrediction } from '../../hooks/dataFetching';
 import { compareTransition } from '../../hooks/pageTransitions';
 
 import Breakdown from '../common/breakdown';
@@ -20,7 +20,7 @@ const CompareStart = () => {
     const [yearlyMaintenanceCost, setYearlyMaintenanceCost] = useState(0);
                                 
     useEffect(() => {
-        fetchPredictionPrice(id, (obj) => {
+        fetchPrediction(id, (obj) => {
             setTotalCost(Math.round(obj.five_year_cost_to_own));            
             setPurchasePrice(obj.predicted_price);
 

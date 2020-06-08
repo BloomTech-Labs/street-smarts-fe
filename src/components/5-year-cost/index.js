@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { breakdownTransition } from '../../hooks/pageTransitions';
-import { fetchPredictionPrice } from '../../hooks/dataFetching';
+import { fetchPrediction } from '../../hooks/dataFetching';
 
 import PrevPage from '../../hooks/prevPage';
 
@@ -20,7 +20,7 @@ const CostToOwn = () => {
     const [yearlyMaintenanceCost, setYearlyMaintenanceCost] = useState(0);
 
     useEffect(() => {
-        fetchPredictionPrice(id, (obj) => {
+        fetchPrediction(id, (obj) => {
             setTotalCost(Math.round(obj.five_year_cost_to_own));            
             setPurchasePrice(obj.predicted_price);
 
