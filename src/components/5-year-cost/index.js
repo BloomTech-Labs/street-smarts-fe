@@ -6,6 +6,7 @@ import { breakdownTransition } from '../../hooks/pageTransitions';
 import { fetchPredictionPrice } from '../../hooks/dataFetching';
 
 import PrevPage from '../../hooks/prevPage';
+import setTitle from '../../hooks/setTitle';
 
 import CompareButton from '../common/buttons/compare';
 import Breakdown from '../common/breakdown';
@@ -19,6 +20,9 @@ const CostToOwn = () => {
     const [yearlyGasSpend, setYearlyGasSpend] = useState(0);
     const [yearlyMaintenanceCost, setYearlyMaintenanceCost] = useState(0);
 
+    const [carMake, setCarMake] = useState();
+    const [carModel, setCarModel] = useState();
+
     useEffect(() => {
         fetchPredictionPrice(id, (obj) => {
             setTotalCost(Math.round(obj.five_year_cost_to_own));            
@@ -27,8 +31,20 @@ const CostToOwn = () => {
             setYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
             setYearlyGasSpend(obj.fuel_cost / 5);
             setYearlyMaintenanceCost(obj.maintenance_cost / 5);
+
+            setCarMake(obj.make);
+            setCarModel(obj.model);
         })
     }, [id]);
+
+    useEffect(() => {
+      if (carMake && carModel) {
+          setTitle(`${carMake} ${carModel}`);
+      } else {
+          setTitle();
+      }
+    }, [carMake, carModel]);
+
 
     return (
         <motion.div variants={breakdownTransition} initial='out' animate='in' exit='out'>

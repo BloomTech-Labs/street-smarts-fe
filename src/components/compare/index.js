@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { fetchPredictionPrice } from '../../hooks/dataFetching';
 import { compareAfterTransition } from '../../hooks/pageTransitions';
+import setTitle from '../../hooks/setTitle';
 
 import AddToCompare from '../common/buttons/addToCompare';
 import Breakdown from '../common/breakdown';
@@ -49,6 +50,7 @@ const Compare = () => {
         })
     }, [carID]);
     
+    useEffect(() => setTitle(), []);
     
     return (
         <motion.div variants={compareAfterTransition} initial='out' animate='in' exit='out'>
