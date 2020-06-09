@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
+import { ImageGalleryStyled } from './styles';
 
 import { Fullscreen, LeftNav, RightNav } from "./styles";
 
@@ -53,18 +54,20 @@ const CarGallery = ({ images, showFullscreenButton }) => {
     })
   };  
   }, [images]);
+
   return (
-    <ImageGallery
-      startIndex={0}
-      additionalClass='image-gallery-container'
-      showThumbnails={false}
-      items={items}
-      showFullscreenButton={showFullscreenButton}
-      renderFullscreenButton={renderFullScreenButton}
-      renderLeftNav={renderLeftNav}
-      renderRightNav={renderRightNav}
-      showPlayButton={false}
-    />
+    <ImageGalleryStyled>
+      <ImageGallery
+        startIndex={0}
+        additionalClass='image-gallery-container'
+        showThumbnails={false}
+        items={items}
+        renderFullscreenButton={renderFullScreenButton}
+        renderLeftNav={renderLeftNav}
+        renderRightNav={renderRightNav}
+        showPlayButton={false}
+      />
+    </ImageGalleryStyled>
   );
 };
 

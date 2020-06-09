@@ -10,9 +10,15 @@ export const Fullscreen = styled.button`
 export const LeftNav = styled.button`
     width: 3vw;
     height: 8vh;
-`
+`;
 
 export const RightNav = styled.button`
     width: 3vw;
     height: 8vh;
-`
+`;
+
+export const ImageGalleryStyled = styled.div`
+  .image-gallery-container {
+    thumbnailPosition: bottom;
+  }
+`;
