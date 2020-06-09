@@ -86,6 +86,10 @@ a {
       color: #FFFFFF;
       border: none;
       margin: auto;
+
+      * {
+          flex-grow: 1;
+      }
     }
     
     .footer {
