@@ -35,7 +35,7 @@ export const MainContainer = styled.div`
       width: 150%;
       height: 40%;
       .co2-text {
-        font-size: 30px;
+        font-size: 2.5em;
       }
 
     }
