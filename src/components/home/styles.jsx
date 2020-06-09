@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 const HomeStyled = styled.div`
-  main {
-
-  }
   .hero {
-    margin-top: 18vh;
-    background-color: rgba(0,0,0,0);
-    background: url("https://unsplash.com/photos/5FGqfV6UjzI");  
-    background-position: center;
+    border: 5px solid yellow;
+    width: 100vw;
+    background: url(https://unsplash.com/photos/5FGqfV6UjzI);
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+
+    .hero-text {
+      width: 70vw;
+      margin-top: 18vh;
+      margin-bottom: 10vh;
+    }
 
     div.dropdownForm {
       width: 70%;
@@ -19,8 +24,13 @@ const HomeStyled = styled.div`
       margin-top: 10vh;
     }
   }
-  .home-results {
-    margin-top: 10vh;
+
+  .results {
+    margin-top: 5vh;
+
+    .home-results {
+      align-items: stretch;
+    }
   }
 `;
 
