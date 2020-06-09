@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { fetchPrediction } from '../../hooks/dataFetching';
 import { compareTransition } from '../../hooks/pageTransitions';
 import { Divider } from 'antd';
+import setTitle from '../../hooks/setTitle';
 
 import Breakdown from '../common/breakdown';
 import CompareSearch from '../sections/search/compare-search';
@@ -41,6 +42,8 @@ const CompareStart = () => {
             setPredictedCarbonEmissions(obj.co2_five_year_kgs);
         })
     }, [id]);
+
+    useEffect(() => setTitle(), []);
 
     return (
         <motion.div id='compare-start' variants={compareTransition} initial='out' animate='in' exit='out'>
