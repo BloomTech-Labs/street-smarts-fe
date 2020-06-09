@@ -32,9 +32,9 @@ const CarDetails = () => {
   }, [id]);
 
   useEffect(() => {
-      if (car.make && car.model) {
-          setTitle(`${car.make} ${car.model}`);
-      }
+    if (car.make && car.model) {
+      setTitle(`${car.make} ${car.model}`);
+    }
   }, [car]);
 
   return (
@@ -55,16 +55,16 @@ const CarDetails = () => {
                 value={predictedCarbonEmissions}
                 text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}/>
             <Divider className='divider' />             
-            <h3>Cost of Ownership (5 years)</h3>
-            <div>
-              <h1 className='cto'>${predictedPrice}</h1>
-            </div>
-            <div className ='chevron-down'>              
-              <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
-                <p>5 Year Cost Breakdown</p> 
-                <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
-              </Link>
-            </div>
+              <h3>Cost of Ownership (5 years)</h3>
+              <div>
+                <h1 className='cto'>${predictedPrice}</h1>
+              </div>
+              <div className ='chevron-down'>              
+                <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
+                  <p>5 Year Cost Breakdown</p> 
+                  <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
+                </Link>
+              </div>
             <Divider className='divider' />
               <h3>MPG</h3>
               <div className='mpg'>
@@ -93,15 +93,16 @@ const CarDetails = () => {
             <Divider className='divider' />
               <h3>FUEL</h3>
               <p>{car.fueltype1}</p>
-            <Divider />          </Card>
+            <Divider />
+          </Card>
 
           <Card
             className='carImg'
             id={car.id}>
             <CarGallery images = {carImages} />
           </Card>
+        
         </div>        
-
       </CarDetailsStyles>
     </motion.div>
   );
