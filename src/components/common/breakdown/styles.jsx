@@ -9,7 +9,7 @@ export const BreakdownAttributes = styled.div`
     width: 40vw;
     
     .text-block-top {
-        width: 10vw;
+        width: 30%;
     }
 
     .text-block-bottom {
