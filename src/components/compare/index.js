@@ -7,7 +7,13 @@ import setTitle from "../../hooks/setTitle";
 
 import AddToCompare from "../common/buttons/addToCompare";
 import Breakdown from "../common/breakdown";
-import { BreakdownCard, CompareCarsContainer, CarImg } from "./styles.jsx";
+import {
+  BreakdownCard,
+  CompareCarsContainer,
+  CarImg,
+  CarbonGauge,
+} from "./styles.jsx";
+import { MAX_CARBON_EMISSIONS } from "../../constants";
 
 const Compare = () => {
   const { id, carID } = useParams();
@@ -54,6 +60,7 @@ const Compare = () => {
             let yearlyGasSpend = "";
             let yearlyMaintenanceCost = "";
             let five_year_cost_to_own = "";
+            let predictedCarbonEmissions = NaN;
             if (car) {
               image = car.list_of_imgs[0] || image;
               title = `${car.year} ${car.make} ${car.model}`;
@@ -62,6 +69,7 @@ const Compare = () => {
               yearlyGasSpend = car.fuel_cost / 5;
               yearlyMaintenanceCost = car.maintenance_cost;
               yearlyTotalCost = yearlyGasSpend + yearlyMaintenanceCost;
+              predictedCarbonEmissions = car.co2_five_year_kgs;
             }
             return (
               <React.Fragment key={carId}>
@@ -76,6 +84,18 @@ const Compare = () => {
                     yearlyMaintenanceCost={yearlyMaintenanceCost}
                   />
                 </div>
+                <CarbonGauge
+                  width={100}
+                  height={20}
+                  min={0}
+                  max={MAX_CARBON_EMISSIONS}
+                  value={predictedCarbonEmissions}
+                  text={
+                    predictedCarbonEmissions.toLocaleString(undefined, {
+                      maximumFractionDigits: 2,
+                    }) + " kg"
+                  }
+                />
               </React.Fragment>
             );
           })}
