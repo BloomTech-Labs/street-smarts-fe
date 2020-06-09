@@ -3,7 +3,17 @@ import styled from "styled-components";
 export const CompareCarsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 1%;
+  grid-template-rows: 30vh repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 4%;
+  justify-items: center;
 `;
 
-export const BreakdownCard = styled.div``;
+export const BreakdownCard = styled.div`
+  padding: 2%;
+`;
+
+export const CarImg = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`;
