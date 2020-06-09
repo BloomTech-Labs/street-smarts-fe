@@ -10,8 +10,36 @@ export const CompareCarsContainer = styled.div`
   justify-items: center;
 `;
 
-export const BreakdownCard = styled.div`
-  padding: 2%;
+export const BreakdownContainer = styled.div`
+  width: 30vw;
+
+  .text-block-top {
+    width: 30%;
+  }
+
+  h3 {
+    font-size: 0.7rem;
+  }
+
+  .text-block-bottom {
+  }
+
+  .row-top {
+    margin-bottom: 8vh;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .row-bottom {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .vertical-divider-1 {
+    height: 50px;
+  }
 `;
 
 export const CarImg = styled.img`

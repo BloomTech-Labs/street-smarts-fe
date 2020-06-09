@@ -8,7 +8,7 @@ import setTitle from "../../hooks/setTitle";
 import AddToCompare from "../common/buttons/addToCompare";
 import Breakdown from "../common/breakdown";
 import {
-  BreakdownCard,
+  BreakdownContainer,
   CompareCarsContainer,
   CarImg,
   CarbonGauge,
@@ -75,7 +75,7 @@ const Compare = () => {
               <React.Fragment key={carId}>
                 <CarImg src={image} />
                 <h2>{title}</h2>
-                <div>
+                <BreakdownContainer>
                   <Breakdown
                     purchasePrice={predicted_price}
                     yearlyTotalCost={yearlyTotalCost}
@@ -83,7 +83,7 @@ const Compare = () => {
                     yearlyGasSpend={yearlyGasSpend}
                     yearlyMaintenanceCost={yearlyMaintenanceCost}
                   />
-                </div>
+                </BreakdownContainer>
                 <CarbonGauge
                   width={100}
                   height={20}
