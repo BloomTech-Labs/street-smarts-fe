@@ -64,7 +64,7 @@ const Compare = () => {
               yearlyTotalCost = yearlyGasSpend + yearlyMaintenanceCost;
             }
             return (
-              <>
+              <React.Fragment key={carId}>
                 <CarImg src={image} />
                 <h2>{title}</h2>
                 <div>
@@ -76,7 +76,7 @@ const Compare = () => {
                     yearlyMaintenanceCost={yearlyMaintenanceCost}
                   />
                 </div>
-              </>
+              </React.Fragment>
             );
           })}
         </CompareCarsContainer>
