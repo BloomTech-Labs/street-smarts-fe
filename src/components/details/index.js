@@ -61,8 +61,8 @@ const CarDetails = () => {
             </div>
             <div className ='chevron-down'>              
               <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
-                <p>5 Year Cost Breakdown</p>
-                <img src={chevron} alt= 'View cost to own' />  
+                <p>5 Year Cost Breakdown</p> 
+                <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
               </Link>
             </div>
             <Divider className='divider' />

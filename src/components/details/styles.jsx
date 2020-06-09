@@ -65,4 +65,11 @@ const CarDetailsStyles = styled.div`
   }
 `;
 
+export const Fullscreen = styled.button`
+    background: transparent;
+    border: none;
+    width: 22%;
+    height: 16%;
+`;
+
 export default CarDetailsStyles;

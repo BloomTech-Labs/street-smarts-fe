@@ -42,9 +42,6 @@ const CompareResults = ({ make, model, year }) => {
                 >
                 <ul>
                   <li>
-                    <b>Engine ID:</b> {car.engid}
-                  </li>
-                  <li>
                     <b>Transmission:</b> {car.trany}
                   </li>
                   <li>

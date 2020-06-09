@@ -123,6 +123,33 @@ a {
         top: 9em;
     }
 
+    .main-car-bd {
+        display: flex;
+        flex-direction: column;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        align-items: space-between;
+    }
+    .top {
+        width: 200%;
+        margin-bottom: 5%;
+    
+    }
+    .bottom {
+        width: 200%;
+    }
+    .text-block {
+        padding-left: 4%;
+    }
+
+    .vertical-divider-1 {
+        height: 5em;
+        margin-top: 1em;
+    }
+  } 
+
   }  
 `;
 

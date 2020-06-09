@@ -19,3 +19,9 @@ code {
 .cheveron {
   cursor: pointer;
 }
+
+.compare-title >h1 {
+  text-align: center;
+}
+
+
