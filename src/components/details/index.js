@@ -11,8 +11,7 @@ import { detailsTransition } from '../../hooks/pageTransitions';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import setTitle from '../../hooks/setTitle';
-
-const MAX_CARBON_EMISSIONS = 83316;
+import { MAX_CARBON_EMISSIONS } from '../../constants';
 
 const CarDetails = () => {
   const { id } = useParams();
