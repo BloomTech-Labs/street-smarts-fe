@@ -3,15 +3,15 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { breakdownTransition } from "../../hooks/pageTransitions";
-import { fetchPredictionPrice } from "../../hooks/dataFetching";
+import { fetchPrediction } from "../../hooks/dataFetching";
 import CostBreakdown from "./styles";
-import BreakdownAttributes from "../breakdown/styles";
+import { BreakdownAttributes } from "../common/breakdown/styles";
 
 import PrevPage from "../../hooks/prevPage";
 import setTitle from "../../hooks/setTitle";
 
-import CompareButton from "../buttons/compare";
-import Breakdown from "../breakdown";
+import CompareButton from "../common/buttons/compare";
+import Breakdown from "../common/breakdown";
 
 const CostToOwn = () => {
   const { id } = useParams();
@@ -26,7 +26,7 @@ const CostToOwn = () => {
   const [carModel, setCarModel] = useState();
 
   useEffect(() => {
-    fetchPredictionPrice(id, (obj) => {
+    fetchPrediction(id, (obj) => {
       setTotalCost(Math.round(obj.five_year_cost_to_own));
       setPurchasePrice(obj.predicted_price);
 

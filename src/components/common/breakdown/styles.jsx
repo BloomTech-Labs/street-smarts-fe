@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
 
 export const BreakdownAttributes = styled.div`
 
-    width: 30vw;
+    width: 40vw;
     
     .text-block-top {
         width: 10vw;
