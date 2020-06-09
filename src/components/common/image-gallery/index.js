@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 
 import { Fullscreen, LeftNav, RightNav } from "./styles";
+
 import fullscreenIcon from "../../../assets/images/fullscreen-icon.png";
 import exitFullscreen from "../../../assets/images/exit-fullscreen.png";
 
-const CarGallery = ({ images }) => {
-  const [fullscreen, setFullscreen] = useState(false);
+const CarGallery = ({ images, showFullscreenButton }) => {
   const renderFullScreenButton = (onClick, isFullscreen) => {
     return (
       <div className = 'fullscreen-button-container'>
@@ -42,6 +42,7 @@ const CarGallery = ({ images }) => {
   }
   // State
   const [items, setItems] = useState([])
+  const [fullscreen, setFullscreen] = useState(false);
 
   useEffect(() => {
     if(images) {
@@ -58,6 +59,7 @@ const CarGallery = ({ images }) => {
       additionalClass='image-gallery-container'
       showThumbnails={false}
       items={items}
+      showFullscreenButton={showFullscreenButton}
       renderFullscreenButton={renderFullScreenButton}
       renderLeftNav={renderLeftNav}
       renderRightNav={renderRightNav}
