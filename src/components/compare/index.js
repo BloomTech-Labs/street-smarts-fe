@@ -69,7 +69,7 @@ const Compare = () => {
               five_year_cost_to_own = car.five_year_cost_to_own;
               yearlyGasSpend = car.fuel_cost / 5;
               yearlyMaintenanceCost = car.maintenance_cost;
-              yearlyTotalCost = yearlyGasSpend + yearlyMaintenanceCost;
+              yearlyTotalCost = predicted_price + yearlyGasSpend + yearlyMaintenanceCost;
               predictedCarbonEmissions = car.co2_five_year_kgs;
             }
             return (
