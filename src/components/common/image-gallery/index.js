@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
+import ImageGalleryStyled from './styles';
 
 import { Fullscreen, LeftNav, RightNav } from "./styles";
 import fullscreenIcon from "../../../assets/images/fullscreen-icon.png";
