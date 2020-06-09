@@ -1,8 +1,7 @@
-import React from 'react';
+
 import styled from 'styled-components';
 
 const ResultsStyled = styled.div`
-
   // .home-results-title {
   //   margin-top: 10;
   //   margin-bottom: 10;

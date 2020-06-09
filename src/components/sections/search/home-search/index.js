@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMakeData, fetchModelData, fetchYearData } from '../../hooks/dataFetching';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../../../hooks/dataFetching';
 import { handleMakeChanges, 
         handleModelChanges, 
         handleYearChanges, 
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-      } from '../../hooks/dropdownFunctions';
-import Dropdown from '../dropdown';
-import HomeResults from '../results/home-results';
+      } from '../../../../hooks/dropdownFunctions';
+import Dropdown from '../../../common/dropdown';
+import HomeResults from '../../results/home-results';
+import CompareResults from '../../results/compare-results';
 
-export default function Search ({ searchTitle, Results, id })  {
-
+export default function Search({ searchTitle, id })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -63,30 +63,18 @@ export default function Search ({ searchTitle, Results, id })  {
           onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
           data={carModels}/>
           
-        <Dropdown
-          showSearch
+        <Dropdown 
           defaultValue='Year'
           disabled={yearDisabled}
           onSelect={(selected) => handleYearChanges(selected, setYearSelected, )}
           onChange={() => handleClear(setYearSelected)}
           data={carYears}/>
       </div>
-
-      <div className='results'>
-        { Results ?
-        (<Results 
-          id={id} 
-          make = {makeSelected} 
-          model = {modelSelected} 
-          year = {yearSelected} />)
-      : modelSelected ? 
-      (<HomeResults
-        className='home-results'
-        make = {makeSelected} 
-        model = {modelSelected} 
-        year = {yearSelected} />)
-      : (<></>)}
-      </div>
+      { modelSelected ? (
+        <HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
+      : id ? <CompareResults id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />
+      : <></>
+      }
     </>
   );
 };

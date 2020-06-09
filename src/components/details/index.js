@@ -3,15 +3,16 @@ import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
-import HorizontalGauge from '../gauge';
-import { fetchCarDetails, fetchPredictionCarbonEmissions, fetchPredictionPrice } from '../../hooks/dataFetching';
+import HorizontalGauge from '../common/gauge';
+import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
 import CarDetailsStyles from './styles';
 
 import { detailsTransition } from '../../hooks/pageTransitions';
 import chevron from '../../assets/images/chevron.png';
-import CarGallery from '../image-gallery';
+import CarGallery from '../common/image-gallery';
+import setTitle from '../../hooks/setTitle';
 
-const MAX_CARBON_EMISSIONS = 1400;
+const MAX_CARBON_EMISSIONS = 83316;
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -23,14 +24,18 @@ const CarDetails = () => {
 
   useEffect(() => {
     fetchCarDetails(id, setCar)
-    fetchPredictionCarbonEmissions(id, (obj) => {
-      setPredictedCarbonEmissions(obj.predicted_carbon_emissions);
-    });
-    fetchPredictionPrice(id, (obj) => {
+    fetchPrediction(id, (obj) => {
+      setPredictedCarbonEmissions(obj.co2_five_year_kgs);
       setPredictedPrice(obj.five_year_cost_to_own.toLocaleString(undefined, {maximumFractionDigits: 2}));
       setCarImages(obj.list_of_imgs);
     });
   }, [id]);
+
+  useEffect(() => {
+      if (car.make && car.model) {
+          setTitle(`${car.make} ${car.model}`);
+      }
+  }, [car]);
 
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
@@ -47,7 +52,8 @@ const CarDetails = () => {
                 className='gauge'
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
-                value={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2})}/>
+                value={predictedCarbonEmissions}
+                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}/>
             <Divider className='divider' />             
             <h3>Cost of Ownership (5 years)</h3>
             <div>

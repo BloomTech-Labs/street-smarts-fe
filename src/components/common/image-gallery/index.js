@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 
-
-import { Fullscreen, LeftNav, RightNav, ImageGalleryStyled } from "./styles";
-import fullscreenIcon from "../../assets/images/fullscreen-icon.png";
-import exitFullscreen from "../../assets/images/exit-fullscreen.png";
+import { Fullscreen, LeftNav, RightNav } from "./styles";
+import fullscreenIcon from "../../../assets/images/fullscreen-icon.png";
+import exitFullscreen from "../../../assets/images/exit-fullscreen.png";
 
 const CarGallery = ({ images }) => {
   const [fullscreen, setFullscreen] = useState(false);
@@ -45,12 +44,13 @@ const CarGallery = ({ images }) => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
+    if(images) {
     images.map((img, index) => {
       if(index === 0) {
       setItems([...items, {original: img, thumbnail: img}]);
       }
-    });
-    
+    })
+  };  
   }, [images]);
 
   return (

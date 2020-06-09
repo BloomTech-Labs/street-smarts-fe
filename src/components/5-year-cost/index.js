@@ -3,16 +3,16 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { breakdownTransition } from '../../hooks/pageTransitions';
-import { fetchPredictionPrice } from '../../hooks/dataFetching';
+import { fetchPrediction } from '../../hooks/dataFetching';
 
 import PrevPage from '../../hooks/prevPage';
+import setTitle from '../../hooks/setTitle';
 
-import CompareButton from '../buttons/compare';
-import Breakdown from '../breakdown';
+import CompareButton from '../common/buttons/compare';
+import Breakdown from '../common/breakdown';
 
 const CostToOwn = () => {
     const { id } = useParams();
-    const [comparing, setComparing] = useState(false);
 
     const [totalCost, setTotalCost] = useState(0);
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -20,16 +20,31 @@ const CostToOwn = () => {
     const [yearlyGasSpend, setYearlyGasSpend] = useState(0);
     const [yearlyMaintenanceCost, setYearlyMaintenanceCost] = useState(0);
 
+    const [carMake, setCarMake] = useState();
+    const [carModel, setCarModel] = useState();
+
     useEffect(() => {
-        fetchPredictionPrice(id, (obj) => {
+        fetchPrediction(id, (obj) => {
             setTotalCost(Math.round(obj.five_year_cost_to_own));            
             setPurchasePrice(obj.predicted_price);
 
             setYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
             setYearlyGasSpend(obj.fuel_cost / 5);
             setYearlyMaintenanceCost(obj.maintenance_cost / 5);
+
+            setCarMake(obj.make);
+            setCarModel(obj.model);
         })
     }, [id]);
+
+    useEffect(() => {
+      if (carMake && carModel) {
+          setTitle(`${carMake} ${carModel}`);
+      } else {
+          setTitle();
+      }
+    }, [carMake, carModel]);
+
 
     return (
         <motion.div variants={breakdownTransition} initial='out' animate='in' exit='out'>
@@ -43,16 +58,12 @@ const CostToOwn = () => {
                         <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                     </div>          
                 </div>
-                { !comparing ? (
-                    <div className = 'compare-button-container'>
-                        <Link to = {`/compare/${id}`} onClick={() => setComparing(!comparing)}>
-                            <CompareButton />
-                        </Link>
-                    </div>
-                    ) : (
-                        <></>
-                    )
-                }
+
+                <div className = 'compare-button-container'>
+                    <Link to = {`/compare/${id}`} >
+                        <CompareButton />
+                    </Link>
+                </div>
 
             </div>
         </motion.div>
