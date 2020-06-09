@@ -15,17 +15,17 @@ export const BreakdownContainer = styled.div`
 
   .text-block-top {
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   h3 {
     font-size: 0.7rem;
   }
 
-  .text-block-bottom {
-  }
-
   .row-top {
-    margin-bottom: 8vh;
+    margin-bottom: 5%;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
@@ -38,7 +38,9 @@ export const BreakdownContainer = styled.div`
   }
 
   .vertical-divider-1 {
-    height: 50px;
+    height: calc(100% - 30px);
+    min-height: 50px;
+    margin-top: 15px;
   }
 `;
 
