@@ -40,7 +40,7 @@ const Breakdown = ({ className, purchasePrice, yearlyTotalCost, totalCost, yearl
         </div>
     </div>
     
-    </>
+    </Wrapper>
     );
 };
 
