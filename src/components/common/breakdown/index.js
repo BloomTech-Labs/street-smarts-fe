@@ -3,8 +3,6 @@ import { Divider } from "antd";
 
 import { Wrapper } from './styles';
 
-
-
 const Breakdown = ({ classes, purchasePrice, yearlyTotalCost, totalCost, yearlyGasSpend, yearlyMaintenanceCost }) => {
     return(
     <Wrapper className={classes}>
