@@ -11,6 +11,7 @@ import {
   BreakdownContainer,
   CompareCarsContainer,
   CarImg,
+  CarbonGaugeContainer,
   CarbonGauge,
 } from "./styles.jsx";
 import { MAX_CARBON_EMISSIONS } from "../../constants";
@@ -84,18 +85,21 @@ const Compare = () => {
                     yearlyMaintenanceCost={yearlyMaintenanceCost}
                   />
                 </BreakdownContainer>
-                <CarbonGauge
-                  width={100}
-                  height={20}
-                  min={0}
-                  max={MAX_CARBON_EMISSIONS}
-                  value={predictedCarbonEmissions}
-                  text={
-                    predictedCarbonEmissions.toLocaleString(undefined, {
-                      maximumFractionDigits: 2,
-                    }) + " kg"
-                  }
-                />
+                <CarbonGaugeContainer>
+                  <h3>Carbon Emissions (5 Years)</h3>
+                  <CarbonGauge
+                    width={100}
+                    height={20}
+                    min={0}
+                    max={MAX_CARBON_EMISSIONS}
+                    value={predictedCarbonEmissions}
+                    text={
+                      predictedCarbonEmissions.toLocaleString(undefined, {
+                        maximumFractionDigits: 2,
+                      }) + " kg"
+                    }
+                  />
+                </CarbonGaugeContainer>
               </React.Fragment>
             );
           })}

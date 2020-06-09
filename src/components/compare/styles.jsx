@@ -47,6 +47,13 @@ export const CarImg = styled.img`
   max-height: 100%;
 `;
 
+export const CarbonGaugeContainer = styled.div`
+  h3 {
+    text-align: center;
+    font-size: 0.7rem;
+  }
+`;
+
 export const CarbonGauge = styled(HorizontalGauge)`
   width: 250px;
   height: 75px;
