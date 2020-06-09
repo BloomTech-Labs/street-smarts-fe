@@ -57,7 +57,7 @@ const CompareStart = () => {
                             <div className = 'main-car-images-container'>
                                 <CarGallery showFullscreenButton = {false} images = {mainCar.list_of_imgs}/>
                             </div>
-                            <Breakdown className='main-car-bd' purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
+                            <Breakdown classes='main-car-bd' purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
                             <HorizontalGauge
                                 className='gauge'
                                 width={100} height={20}
