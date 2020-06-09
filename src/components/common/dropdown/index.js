@@ -20,7 +20,6 @@ const Dropdown = ({ showSearch, allowClear, disabled, onSelect, onChange, onDrop
   return (
     <DropdownStyled>
       <Select
-        
         className='dropdown'
         defaultValue={defaultValue}
         showSearch={showSearch}

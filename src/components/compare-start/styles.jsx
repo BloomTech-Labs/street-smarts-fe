@@ -4,6 +4,7 @@ export const MainContainer = styled.div`
     display: flex;
     flex-direction: column; 
     margin-top: 5em;
+
     .main-wrapper {
         display: flex;
         padding: 10em 0;     
@@ -14,19 +15,22 @@ export const MainContainer = styled.div`
     }
 
     .search-container {
-        padding: 5em;
+        padding: 10em;
         width: 50%;
     }
 
     .vertical-divider {
+        margin-top: 15em;
         margin-right: 5em;
         margin-left: 5em;
-        height: 20em;
+        height: 30em;
     }
 
     .main-car-images-container {
-        display: flex;
-        width: 100%;
+        position: relative;
+        left: 25%;
+        padding-bottom: 2em;
+        width: 150%;
     }
 
     .gauge {

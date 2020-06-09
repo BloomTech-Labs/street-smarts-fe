@@ -59,6 +59,7 @@ const CarGallery = ({ images, showFullscreenButton }) => {
     <ImageGalleryStyled>
       <ImageGallery
         startIndex={0}
+        showFullscreenButton={showFullscreenButton ? showFullscreenButton : false}
         additionalClass='image-gallery-container'
         showThumbnails={false}
         items={items}
