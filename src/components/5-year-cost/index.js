@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { breakdownTransition } from "../../hooks/pageTransitions";
 import { fetchPrediction } from "../../hooks/dataFetching";
-import CostBreakdown from "./styles";
-import { BreakdownAttributes } from "../common/breakdown/styles";
-
 import PrevPage from "../../hooks/prevPage";
 import setTitle from "../../hooks/setTitle";
-
+import CostBreakdown from "./styles";
+import { BreakdownAttributes } from "../common/breakdown/styles";
 import CompareButton from "../common/buttons/compare";
 import Breakdown from "../common/breakdown";
 

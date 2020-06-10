@@ -1,16 +1,10 @@
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by. Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/731a203f8375d97bc6fe/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/street-smarts-fe/maintainability)
 
 # Street Smarts
 https://www.streetsmarts.online/
 
 ## Folder Structure: 
-street-smarts-fe {
+street-smarts-fe 
 
     cypress > integration = All our tests
 
@@ -25,7 +19,6 @@ street-smarts-fe {
     src > components > common = All the smaller and more reusable parts of our website
 
     src > components > sections = Parts that take up big portions of our web page and are not as reusable
-}
 
 ## Contributors
 
@@ -52,15 +45,13 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 ### Key Features
 
-- feature one: Allow customer to search for details on a single car
-- feature two: Provides more information about enviromental impact of cars than competitors
-- feature three: Customer can compare up to 3 vehicles
-- feature four: 
-- feature five
+- Allows customer to search for details on a single car
+- Provides more information about environmental impact of cars than competitors
+- Customer can compare up to 3 vehicles
 
 ## Tech Stack
 
-### Front end built using:
+### Front End Built Using:
 
 #### React
 
@@ -74,17 +65,17 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 - So that the styling stays within each component to simplify alterations, instead of surrendering that organization if we were to use a different system
 
-#### chart library
+#### Chart Library
 
 - a chart library to render data visually—which my team has yet to select, but we have created a list of viable options
 
 #### Context API
 
-- It reates a light, scalable state management, as opposed to Redux which is more complex and requires more maintenance
+- It creates a light, scalable state management, as opposed to Redux which is more complex and requires more maintenance
 
 #### Front end deployed to AWS Amplify
 
-#### [Back end](https://github.com/Lambda-School-Labs/street-smarts-be) built using:
+### [Back end](https://github.com/Lambda-School-Labs/street-smarts-be) built using:
 
 #### Heroku PostgreSQL
 
@@ -107,20 +98,11 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 - We will not be accepting payments on this site
 
-## 3️⃣ Misc API here **************
+## Vehicle API
 
-🚫Replace text below with a description of the API
+The API returns values from a curated database, built by our data science team, that contains data from several external, industry standard APIs. Our API contains makes, models, years, CO<sub>2</sub> emissions, a break down of cost-to-own over 5 years, and images for over 10,000 individual vehicles.
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-
-# 3️⃣ Environment Variables ************
+# 3️⃣ Environment Variables 
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -146,13 +128,13 @@ In order for the app to function correctly, the user must set up their own envir
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 | rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
 
-# 4️⃣ Testing
+# Testing
 
-Using Jest for testing due to familiarity and because it's the default choice for Create React App.
+Using Jest due to familiarity and because it's the default choice for Create React App, and Cypress for end-to-end testing.
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
-Create React App installs several dependencies by default.  We then installed npm using "npm i" along with npm i react-router-dom, axios, styled components, Antd
+Create React App installs several dependencies by default. We then installed npm using "npm i" along with npm i react-router-dom, axios, styled components, and Ant Design.
 
 ## Other Scripts
 
@@ -167,7 +149,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-## Issue/Bug Request
+### Issue/Bug Request
 
 **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
 
@@ -198,8 +180,7 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
 
+# Documentation
 
-## Documentation
-
-See [Backend Documentation](🚫*link to your backend readme here*) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/street-smarts-be/blob/master/README.md) for details on the backend of our project.
 

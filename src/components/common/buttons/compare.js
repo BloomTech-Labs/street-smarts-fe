@@ -1,10 +1,13 @@
 import React from 'react';
+import ButtonStyled from './styles';
 
 const CompareButton = ({ onClick }) => {
   return (
-    <div className='handOnHover compare-button' onClick={onClick}>
-      <p>Compare</p>
-    </div>
+    <ButtonStyled>
+      <div className='button' onClick={onClick}>
+        <p>Compare</p>
+      </div>
+    </ButtonStyled>
   );
 };
 
