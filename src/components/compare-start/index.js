@@ -5,14 +5,11 @@ import { fetchPrediction } from '../../hooks/dataFetching';
 import { compareTransition } from '../../hooks/pageTransitions';
 import { Divider } from 'antd';
 import setTitle from '../../hooks/setTitle';
-
 import Breakdown from '../common/breakdown';
 import CompareSearch from '../sections/search/compare-search';
-import AddToCompare from '../common/buttons/addToCompare';
 import HorizontalGauge from '../common/gauge';
 import CarGallery from '../common/image-gallery';
-
-import { MainContainer } from './styles';
+import CompareStartStyled from './styles';
 
 const CompareStart = () => {
   const { id } = useParams();
@@ -47,10 +44,11 @@ const CompareStart = () => {
 
   return (
     <motion.div id='compare-start' variants={compareTransition} initial='out' animate='in' exit='out'>
-      <MainContainer>
+      <CompareStartStyled>
         <div className='compare-title'>
           <h1>What does it cost over 5 years?</h1>  
-        </div>              
+        </div>
+
         <div className = 'main-wrapper'>   
           <div className = 'compare-cars-container'>
             <div id='original-search' className = 'breakdown-container'>
@@ -66,15 +64,13 @@ const CompareStart = () => {
                 text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}/>
             </div>          
           </div>
-            <Divider type='vertical' className='vertical-divider'/>
-            <div className = 'search-container'>
-              <div className="home-results">
-                <AddToCompare />
-                <CompareSearch id ={id} searchTitle='Choose a car to compare' />
-              </div>
-            </div>
+          <Divider type='vertical' className='vertical-divider'/>
+          <div className = 'search-container'>
+            <h3 className="add-vehicle">Add Vehicle</h3>
+            <CompareSearch id ={id} searchTitle='Choose a car to compare' />
+          </div>
         </div>
-      </MainContainer>
+      </CompareStartStyled>
     </motion.div>
   );
 };

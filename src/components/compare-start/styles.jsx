@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-export const MainContainer = styled.div`
+const CompareStartStyled = styled.div`
     display: flex;
     flex-direction: column; 
     margin-top: 5em;
 
     .main-wrapper {
         display: flex;
-        padding: 10em 0;     
+        padding: 10vh 0;
+        justify-content: center;
+        align-content: center;    
     }
 
     .breakdown-container {
@@ -17,6 +19,11 @@ export const MainContainer = styled.div`
     .search-container {
         padding: 10em;
         width: 50%;
+
+        .add-vehicle {
+          color: #25D0C6;
+          text-align: right;
+        }
     }
 
     .vertical-divider {
@@ -44,3 +51,5 @@ export const MainContainer = styled.div`
 
     }
 `;
+
+export default CompareStartStyled;

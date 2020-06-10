@@ -4,16 +4,13 @@ import { motion } from "framer-motion";
 import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
-
-import AddToCompare from "../common/buttons/addToCompare";
 import Breakdown from "../common/breakdown";
-import {
-  BreakdownContainer,
-  CompareCarsContainer,
-  CarImg,
-  CarbonGaugeContainer,
-  CarbonGauge,
-} from "./styles.jsx";
+import { BreakdownContainer,
+        CompareCarsContainer,
+        CarImg,
+        CarbonGaugeContainer,
+        CarbonGauge,
+        } from "./styles.jsx";
 import { MAX_CARBON_EMISSIONS } from "../../constants";
 
 const Compare = () => {
