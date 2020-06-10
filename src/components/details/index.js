@@ -3,13 +3,13 @@ import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
-import HorizontalGauge from '../common/gauge';
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
-import CarDetailsStyles from './styles';
-
+import setTitle from '../../hooks/setTitle';
 import { detailsTransition } from '../../hooks/pageTransitions';
+import HorizontalGauge from '../common/gauge';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
+import CarDetailsStyles from './styles';
 import setTitle from '../../hooks/setTitle';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
 
@@ -40,13 +40,14 @@ const CarDetails = () => {
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
       <CarDetailsStyles className = 'detailsContainer'>
         <div className='carDetails'>
+          
           <Card
             className='carText'
             id={car.id}>
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-            <h3>CO<sub>2</sub> EMISSIONS</h3>
+              <h3>CO<sub>2</sub> EMISSIONS</h3>
               <HorizontalGauge
                 className='gauge'
                 width={100} height={20}
