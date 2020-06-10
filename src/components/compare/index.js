@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import { motion } from "framer-motion";
 import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
@@ -7,23 +7,33 @@ import setTitle from "../../hooks/setTitle";
 import { Divider } from 'antd';
 import CompareSearch from '../sections/search/compare-search';
 import Breakdown from "../common/breakdown";
-import { BreakdownContainer,
-        CompareCarsContainer,
-        CarImg,
-        CarbonGaugeContainer,
-        CarbonGauge,
-        } from "./styles.jsx";
+
+import {
+  BreakdownContainer,
+  CompareCarsContainer,
+  CompareSearchContainer,
+  CarImg,
+  CarbonGaugeContainer,
+  CarbonGauge,
+  DividerCol,
+} from "./styles.jsx";
 import { MAX_CARBON_EMISSIONS } from "../../constants";
 
 const Compare = () => {
-  const { id, carID } = useParams();
+  const { id, carID, carID2 } = useParams();
+  const baseUrl = useLocation().pathname.replace(/\/+$/, "");
   // Main car state
 
   const [ids, setIds] = useState(() => {
     const list_of_ids = [];
-    list_of_ids.push(id);
+    if(id !== undefined) {
+      list_of_ids.push(id);
+    }
     if(carID !== undefined) {
       list_of_ids.push(carID);
+    }
+    if(carID2 !== undefined) {
+      list_of_ids.push(carID2);
     }
     return list_of_ids;
   });
@@ -47,6 +57,14 @@ const Compare = () => {
 
   useEffect(() => setTitle(), []);
 
+  const getUrlWithId = (id) => {
+    if (ids.length === 0) {
+      return `${baseUrl}/${id}`;
+    } else {
+      return `${baseUrl}/to/${id}`;
+    }
+  };
+
   return (
     <motion.div
       variants={compareAfterTransition}
@@ -58,7 +76,7 @@ const Compare = () => {
           <h1>Comparing</h1>
         </div>
         <CompareCarsContainer>
-          {ids.map((carId) => {
+          {ids.map((carId, idx) => {
             let car = cars[carId];
             let image = "";
             let title = "Loading...";
@@ -80,6 +98,7 @@ const Compare = () => {
             }
             return (
               <React.Fragment key={carId}>
+                {idx !== 0 && <DividerCol type="vertical" />}
                 <CarImg src={image} />
                 <h2>{title}</h2>
                 <BreakdownContainer>
@@ -108,8 +127,13 @@ const Compare = () => {
             );
           })}    
           
-          <Divider type='vertical' className='vertical-divider'/>
-          <CompareSearch id={id} searchTitle='Choose a car to compare' />
+          { ids.length < 3 ? (<>
+          { ids.length > 0 && <DividerCol type="vertical" /> }
+          <CompareSearchContainer>
+            <CompareSearch getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
+          </CompareSearchContainer>
+          </>) : (<></>)
+          }
         </CompareCarsContainer>
       </div>
     </motion.div>
