@@ -21,4 +21,7 @@ export const ImageGalleryStyled = styled.div`
   .image-gallery-container {
     thumbnailPosition: bottom;
   }
+  img {
+    border-radius: 3px
+  }
 `;

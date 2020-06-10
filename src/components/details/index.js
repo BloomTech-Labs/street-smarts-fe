@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
 import { detailsTransition } from '../../hooks/pageTransitions';
+import { setTitle } from '../../hooks/setTitle';
 import HorizontalGauge from '../common/gauge';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
-import setTitle from '../../hooks/setTitle';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -54,8 +54,7 @@ const CarDetails = () => {
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
-                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}
-                />
+                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"} />
             <Divider className='divider' />             
               <h3>Cost of Ownership (5 years)</h3>
               <div>
@@ -64,7 +63,8 @@ const CarDetails = () => {
               <div className ='chevron-down'>              
                 <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
                   <p>5 Year Cost Breakdown</p> 
-                  <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
+                  <img src={chevron} alt= 'View cost to own' />
+                  <span className='explanation'>(Click to find more info)</span>
                 </Link>
               </div>
             <Divider className='divider' />

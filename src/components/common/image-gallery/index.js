@@ -14,9 +14,8 @@ const CarGallery = ({ images, showFullscreenButton }) => {
         <Fullscreen
           type="button"
           className={`image-gallery-fullscreen-button${isFullscreen ? "active" : ""} handOnHover`}
-          onClick={onClick}
-        >
-          <img src={fullscreen ? exitFullscreen : fullscreenIcon} alt="View fullscreen" onClick={() => setFullscreen(!fullscreen)}/>
+          onClick={onClick} >
+            <img src={fullscreen ? exitFullscreen : fullscreenIcon} alt="View fullscreen" onClick={() => setFullscreen(!fullscreen)}/>
         </Fullscreen>
       </div>
     );
@@ -27,32 +26,31 @@ const CarGallery = ({ images, showFullscreenButton }) => {
       <LeftNav
         className='image-gallery-custom-left-nav'
         disabled={disabled}
-        onClick={onClick}
-      />
+        onClick={onClick} />
     );
   };
 
   const renderRightNav = (onClick, disabled) => {
-    return(
+    return (
       <RightNav
         className='image-gallery-custom-right-nav'
         disabled={disabled}
-        onClick={onClick}
-      />
+        onClick={onClick} />
     )
-  }
+  };
+  
   // State
   const [items, setItems] = useState([])
   const [fullscreen, setFullscreen] = useState(false);
 
   useEffect(() => {
     if(images) {
-    images.map((img, index) => {
-      if(index === 0) {
-      setItems([...items, {original: img, thumbnail: img}]);
-      }
-    })
-  };  
+      images.map((img, index) => {
+        if(index === 0) {
+        setItems([...items, {original: img, thumbnail: img}]);
+        }
+      })
+    };
   }, [images]);
 
   return (
@@ -66,8 +64,7 @@ const CarGallery = ({ images, showFullscreenButton }) => {
         renderFullscreenButton={renderFullScreenButton}
         renderLeftNav={renderLeftNav}
         renderRightNav={renderRightNav}
-        showPlayButton={false}
-      />
+        showPlayButton={false} />
     </ImageGalleryStyled>
   );
 };
