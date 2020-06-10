@@ -12,6 +12,7 @@ import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import setTitle from '../../hooks/setTitle';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
+import { render } from "@testing-library/react";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const CarDetails = () => {
   const [carImages, setCarImages] = useState([]);
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [predictedPrice, setPredictedPrice] = useState(null);
+
 
   useEffect(() => {
     fetchCarDetails(id, setCar)
@@ -46,13 +48,14 @@ const CarDetails = () => {
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-            <h3>CO<sub>2</sub> EMISSIONS</h3>
+            <h3>5-YEAR CO<sub>2</sub> EMISSIONS</h3>
               <HorizontalGauge
                 className='gauge'
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
-                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}/>
+                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}
+                />
             <Divider className='divider' />             
             <h3>Cost of Ownership (5 years)</h3>
             <div>
@@ -97,7 +100,7 @@ const CarDetails = () => {
           <Card
             className='carImg'
             id={car.id}>
-            <CarGallery images = {carImages} />
+            <CarGallery showFullscreenButton={true} images = {carImages} />
           </Card>
         </div>        
 

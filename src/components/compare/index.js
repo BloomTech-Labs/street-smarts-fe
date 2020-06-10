@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
-
+import { Divider } from 'antd';
+import CompareSearch from '../sections/search/compare-search';
 import AddToCompare from "../common/buttons/addToCompare";
 import Breakdown from "../common/breakdown";
+
 import {
   BreakdownContainer,
   CompareCarsContainer,
@@ -20,7 +22,14 @@ const Compare = () => {
   const { id, carID } = useParams();
   // Main car state
 
-  const [ids, setIds] = useState([id, carID]);
+  const [ids, setIds] = useState(() => {
+    const list_of_ids = [];
+    list_of_ids.push(id);
+    if(carID !== undefined) {
+      list_of_ids.push(carID);
+    }
+    return list_of_ids;
+  });
   const [cars, setCars] = useState(() => {
     let res = {};
     for (let i of ids) {
@@ -53,7 +62,8 @@ const Compare = () => {
           <h1>Comparing</h1>
         </div>
         <CompareCarsContainer>
-          {Object.entries(cars).map(([carId, car]) => {
+          {ids.map((carId) => {
+            let car = cars[carId];
             let image = "";
             let title = "Loading...";
             let predicted_price = "";
@@ -100,9 +110,13 @@ const Compare = () => {
                     }
                   />
                 </CarbonGaugeContainer>
+   
               </React.Fragment>
             );
-          })}
+          })}    
+          
+          <Divider type='vertical' className='vertical-divider'/>
+          <CompareSearch id={id} searchTitle='Choose a car to compare' />
         </CompareCarsContainer>
       </div>
     </motion.div>
