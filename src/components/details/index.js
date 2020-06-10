@@ -10,8 +10,8 @@ import HorizontalGauge from '../common/gauge';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
-
-const MAX_CARBON_EMISSIONS = 83316;
+import setTitle from '../../hooks/setTitle';
+import { MAX_CARBON_EMISSIONS } from '../../constants';
 
 const CarDetails = () => {
   const { id } = useParams();

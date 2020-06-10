@@ -1,80 +1,109 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { motion } from 'framer-motion';
-import { fetchPrediction } from '../../hooks/dataFetching';
-import { compareAfterTransition } from '../../hooks/pageTransitions';
-import setTitle from '../../hooks/setTitle';
-// import AddToCompare from '../common/buttons/addToCompare';
-import Breakdown from '../common/breakdown';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import { motion } from "framer-motion";
+import { fetchPrediction } from "../../hooks/dataFetching";
+import { compareAfterTransition } from "../../hooks/pageTransitions";
+import setTitle from "../../hooks/setTitle";
+
+import AddToCompare from "../common/buttons/addToCompare";
+import Breakdown from "../common/breakdown";
+import {
+  BreakdownContainer,
+  CompareCarsContainer,
+  CarImg,
+  CarbonGaugeContainer,
+  CarbonGauge,
+} from "./styles.jsx";
+import { MAX_CARBON_EMISSIONS } from "../../constants";
 
 const Compare = () => {
   const { id, carID } = useParams();
-  
   // Main car state
-  const [mainCar, setMainCar] = useState([]);
-  const [totalCost, setTotalCost] = useState(0);
-  const [purchasePrice, setPurchasePrice] = useState(0);
-  const [yearlyTotalCost, setYearlyTotalCost] = useState(0);
-  const [yearlyGasSpend, setYearlyGasSpend] = useState(0);
-  const [yearlyMaintenanceCost, setYearlyMaintenanceCost] = useState(0);
 
-  // Compared car state
-  const [comparedCar, setComparedCar] = useState([]);
-  const [comparedTotalCost, setComparedTotalCost] = useState(0);
-  const [comparedPurchasePrice, setComparedPurchasePrice] = useState(0);
-  const [comparedYearlyTotalCost, setComparedYearlyTotalCost] = useState(0);
-  const [comparedYearlyGasSpend, setComparedYearlyGasSpend] = useState(0);
-  const [comparedYearlyMaintenanceCost, setComparedYearlyMaintenanceCost] = useState(0);
+  const [ids, setIds] = useState([id, carID]);
+  const [cars, setCars] = useState(() => {
+    let res = {};
+    for (let i of ids) {
+      res[i] = null;
+    }
+    return res;
+  });
 
   useEffect(() => {
-    fetchPrediction(id, (obj) => {
-      setMainCar(obj);
-      setTotalCost(Math.round(obj.five_year_cost_to_own));            
-      setPurchasePrice(obj.predicted_price);
+    for (let i of ids) {
+      fetchPrediction(i, (obj) => {
+        setCars((cars) => {
+          return { ...cars, [obj.id]: obj };
+        });
+      });
+    }
+  }, [ids]);
 
-      setYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
-      setYearlyGasSpend(obj.fuel_cost / 5);
-      setYearlyMaintenanceCost(obj.maintenance_cost / 5);
-    })
-  }, [id]);
-
-  useEffect(() => {
-    fetchPrediction(carID, (obj) => {
-      setComparedCar(obj);
-      setComparedTotalCost(Math.round(obj.five_year_cost_to_own));            
-      setComparedPurchasePrice(obj.predicted_price);
-
-      setComparedYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
-      setComparedYearlyGasSpend(obj.fuel_cost / 5);
-      setComparedYearlyMaintenanceCost(obj.maintenance_cost / 5);
-    })
-  }, [carID]);
-  
   useEffect(() => setTitle(), []);
-  
+
   return (
-    <motion.div variants={compareAfterTransition} initial='out' animate='in' exit='out'>
-      <div className = 'compare-container'>
-
-        <div className='compare-title'>
-          <h1>Comparing {mainCar.year} {mainCar.make} {mainCar.model} to {comparedCar.year} {comparedCar.make} {comparedCar.model} </h1>  
-          {/* <AddToCompare className ='handOnHover'/> */}
+    <motion.div
+      variants={compareAfterTransition}
+      initial="out"
+      animate="in"
+      exit="out"
+    >
+      <div className="compare-container">
+        <div className="compare-title">
+          <h1>Comparing</h1>
         </div>
-
-        <div className = 'compare-cars-container'>
-          <div id='original-search' className = 'breakdown-container'>
-            <h2>{mainCar.year} {mainCar.make} {mainCar.model}</h2>
-            <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
-          </div>          
-        </div>
-
-        <div className = 'compare-cars-container'>
-          <div id='compare-car-1' className = 'breakdown-container'>
-            <h2>{comparedCar.year} {comparedCar.make} {comparedCar.model}</h2>
-            <Breakdown purchasePrice={comparedPurchasePrice} yearlyTotalCost={comparedYearlyTotalCost} totalCost={comparedTotalCost} yearlyGasSpend={comparedYearlyGasSpend} yearlyMaintenanceCost={comparedYearlyMaintenanceCost} />
-          </div>          
-        </div>
-
+        <CompareCarsContainer>
+          {Object.entries(cars).map(([carId, car]) => {
+            let image = "";
+            let title = "Loading...";
+            let predicted_price = "";
+            let yearlyTotalCost = "";
+            let yearlyGasSpend = "";
+            let yearlyMaintenanceCost = "";
+            let five_year_cost_to_own = "";
+            let predictedCarbonEmissions = NaN;
+            if (car) {
+              image = car.list_of_imgs[0] || image;
+              title = `${car.year} ${car.make} ${car.model}`;
+              predicted_price = car.predicted_price;
+              five_year_cost_to_own = car.five_year_cost_to_own;
+              yearlyGasSpend = car.fuel_cost / 5;
+              yearlyMaintenanceCost = car.maintenance_cost;
+              yearlyTotalCost = predicted_price + yearlyGasSpend + yearlyMaintenanceCost;
+              predictedCarbonEmissions = car.co2_five_year_kgs;
+            }
+            return (
+              <React.Fragment key={carId}>
+                <CarImg src={image} />
+                <h2>{title}</h2>
+                <BreakdownContainer>
+                  <Breakdown
+                    purchasePrice={predicted_price}
+                    yearlyTotalCost={yearlyTotalCost}
+                    totalCost={five_year_cost_to_own}
+                    yearlyGasSpend={yearlyGasSpend}
+                    yearlyMaintenanceCost={yearlyMaintenanceCost}
+                  />
+                </BreakdownContainer>
+                <CarbonGaugeContainer>
+                  <h3>Carbon Emissions (5 Years)</h3>
+                  <CarbonGauge
+                    width={100}
+                    height={20}
+                    min={0}
+                    max={MAX_CARBON_EMISSIONS}
+                    value={predictedCarbonEmissions}
+                    text={
+                      predictedCarbonEmissions.toLocaleString(undefined, {
+                        maximumFractionDigits: 2,
+                      }) + " kg"
+                    }
+                  />
+                </CarbonGaugeContainer>
+              </React.Fragment>
+            );
+          })}
+        </CompareCarsContainer>
       </div>
     </motion.div>
   );

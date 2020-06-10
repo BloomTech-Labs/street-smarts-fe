@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Divider } from "antd";
 import { Wrapper } from './styles';
+
 
 const Breakdown = ({ classes, purchasePrice, yearlyTotalCost, totalCost, yearlyGasSpend, yearlyMaintenanceCost }) => {
   return(
