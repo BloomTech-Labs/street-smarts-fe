@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
 import { detailsTransition } from '../../hooks/pageTransitions';
-import { setTitle } from '../../hooks/setTitle';
+import setTitle from '../../hooks/setTitle';
 import HorizontalGauge from '../common/gauge';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
