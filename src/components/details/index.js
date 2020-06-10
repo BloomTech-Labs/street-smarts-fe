@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
-import setTitle from '../../hooks/setTitle';
 import { detailsTransition } from '../../hooks/pageTransitions';
+import { setTitle } from '../../hooks/setTitle';
 import HorizontalGauge from '../common/gauge';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
+// import { render } from "@testing-library/react";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const CarDetails = () => {
   const [carImages, setCarImages] = useState([]);
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [predictedPrice, setPredictedPrice] = useState(null);
+
 
   useEffect(() => {
     fetchCarDetails(id, setCar)
@@ -98,8 +100,8 @@ const CarDetails = () => {
 
           <Card
             className='carImg'
-            id={car.id} >
-              <CarGallery images = {carImages} />
+            id={car.id}>
+            <CarGallery showFullscreenButton={true} images = {carImages} />
           </Card>
         
         </div>        
