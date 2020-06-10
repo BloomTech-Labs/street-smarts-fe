@@ -74,6 +74,9 @@ export const CarbonGauge = styled(HorizontalGauge)`
 
 export const CompareSearchContainer = styled.div`
   grid-row: 1 / span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const DividerCol = styled(Divider)`

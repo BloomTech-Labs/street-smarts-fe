@@ -10,7 +10,7 @@ import { handleMakeChanges,
 import Dropdown from '../../../common/dropdown';
 import CompareResults from '../../results/compare-results';
 
-export default function CompareSearch({ searchTitle })  {
+export default function CompareSearch({ searchTitle, getUrlWithId })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -71,7 +71,7 @@ export default function CompareSearch({ searchTitle })  {
       </div>
 
       { yearSelected ? (
-        <CompareResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
+        <CompareResults make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
       : <></>}
     </>
   );
