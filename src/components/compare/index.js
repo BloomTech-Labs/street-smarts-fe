@@ -46,8 +46,7 @@ const Compare = () => {
       variants={compareAfterTransition}
       initial="out"
       animate="in"
-      exit="out"
-    >
+      exit="out" >
       <div className="compare-container">
         <div className="compare-title">
           <h1>Comparing</h1>
@@ -82,8 +81,7 @@ const Compare = () => {
                     yearlyTotalCost={yearlyTotalCost}
                     totalCost={five_year_cost_to_own}
                     yearlyGasSpend={yearlyGasSpend}
-                    yearlyMaintenanceCost={yearlyMaintenanceCost}
-                  />
+                    yearlyMaintenanceCost={yearlyMaintenanceCost} />
                 </BreakdownContainer>
                 <CarbonGaugeContainer>
                   <h3>Carbon Emissions (5 Years)</h3>
@@ -97,8 +95,7 @@ const Compare = () => {
                       predictedCarbonEmissions.toLocaleString(undefined, {
                         maximumFractionDigits: 2,
                       }) + " kg"
-                    }
-                  />
+                    } />
                 </CarbonGaugeContainer>
               </React.Fragment>
             );
