@@ -1,37 +1,37 @@
 import styled from 'styled-components';
 
 const AppStyle = styled.div`
-h1, h2, h3, p, a {
-  color: #FFFFFF;
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-}
-h1 {
-  font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-  text-transform: uppercase;
-}
-h2 {
-  font-weight: bold;
-  font-size: 1.25rem;
-  line-height: 2rem;
-  text-transform: uppercase;
-}
-h3 {
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 2rem;
-  text-transform: uppercase;
-}
-p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-a {
-  text-decoration: none!important;
-  color: #FFFFFF;
-}
+  h1, h2, h3, p, a {
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+  }
+  h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  a {
+    text-decoration: none!important;
+    color: #FFFFFF;
+  }
 
   .layout {
     box-sizing: border-box;
@@ -64,7 +64,6 @@ a {
         text-transform: uppercase;
         font-weight: bold;
       }
-  
       .menu {
         background-color: rgba(0,0,0,0);
         color: white;
@@ -75,6 +74,7 @@ a {
         }
       }
     }
+
     main {
       min-height: 90vh;
     }
@@ -87,7 +87,6 @@ a {
       border: none;
       margin: auto;
     }
-    
     .footer {
       width: 100%;
       display: flex;
@@ -102,7 +101,6 @@ a {
         font-size: .8rem
       }
     }
-
     .handOnHover {
       cursor: pointer;
     }
@@ -124,33 +122,30 @@ a {
     }
 
     .main-car-bd {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
     .row {
-        display: flex;
-        flex-direction: row;
-        align-items: space-between;
+      display: flex;
+      flex-direction: row;
+      align-items: space-between;
     }
     .top {
-        width: 200%;
-        margin-bottom: 5%;
+      width: 200%;
+      margin-bottom: 5%;
     
     }
     .bottom {
-        width: 200%;
+      width: 200%;
     }
     .text-block {
-        padding-left: 4%;
+      padding-left: 4%;
     }
-
     .vertical-divider-1 {
-        height: 5em;
-        margin-top: 1em;
+      height: 5em;
+      margin-top: 1em;
     }
   } 
-
-  }  
 `;
 
 export default AppStyle;

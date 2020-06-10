@@ -25,7 +25,6 @@ export const compareTransition = {
     opacity: 1,
     x: 0,
   },
-
   out: {
     opacity: 0,
     x: '-100vw'
@@ -37,7 +36,6 @@ export const compareAfterTransition = {
     opacity: 1,
     x: 0,
   },
-
   out: {
     opacity: 0,
     x: '100vw'

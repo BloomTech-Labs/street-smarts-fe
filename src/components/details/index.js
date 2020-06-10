@@ -3,13 +3,12 @@ import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
-import HorizontalGauge from '../common/gauge';
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
-import CarDetailsStyles from './styles';
-
 import { detailsTransition } from '../../hooks/pageTransitions';
+import HorizontalGauge from '../common/gauge';
 import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
+import CarDetailsStyles from './styles';
 import setTitle from '../../hooks/setTitle';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
 import { render } from "@testing-library/react";
@@ -33,22 +32,23 @@ const CarDetails = () => {
   }, [id]);
 
   useEffect(() => {
-      if (car.make && car.model) {
-          setTitle(`${car.make} ${car.model}`);
-      }
+    if (car.make && car.model) {
+      setTitle(`${car.make} ${car.model}`);
+    }
   }, [car]);
 
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
       <CarDetailsStyles className = 'detailsContainer'>
         <div className='carDetails'>
+          
           <Card
             className='carText'
             id={car.id}>
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-            <h3>5-YEAR CO<sub>2</sub> EMISSIONS</h3>
+              <h3>CO<sub>2</sub> EMISSIONS</h3>
               <HorizontalGauge
                 className='gauge'
                 width={100} height={20}
@@ -57,16 +57,16 @@ const CarDetails = () => {
                 text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}
                 />
             <Divider className='divider' />             
-            <h3>Cost of Ownership (5 years)</h3>
-            <div>
-              <h1 className='cto'>${predictedPrice}</h1>
-            </div>
-            <div className ='chevron-down'>              
-              <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
-                <p>5 Year Cost Breakdown</p> 
-                <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
-              </Link>
-            </div>
+              <h3>Cost of Ownership (5 years)</h3>
+              <div>
+                <h1 className='cto'>${predictedPrice}</h1>
+              </div>
+              <div className ='chevron-down'>              
+                <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
+                  <p>5 Year Cost Breakdown</p> 
+                  <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
+                </Link>
+              </div>
             <Divider className='divider' />
               <h3>MPG</h3>
               <div className='mpg'>
@@ -95,15 +95,16 @@ const CarDetails = () => {
             <Divider className='divider' />
               <h3>FUEL</h3>
               <p>{car.fueltype1}</p>
-            <Divider />          </Card>
+            <Divider />
+          </Card>
 
           <Card
             className='carImg'
             id={car.id}>
             <CarGallery showFullscreenButton={true} images = {carImages} />
           </Card>
+        
         </div>        
-
       </CarDetailsStyles>
     </motion.div>
   );

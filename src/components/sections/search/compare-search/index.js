@@ -6,7 +6,7 @@ import { handleMakeChanges,
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-      } from '../../../../hooks/dropdownFunctions';
+        } from '../../../../hooks/dropdownFunctions';
 import Dropdown from '../../../common/dropdown';
 import CompareResults from '../../results/compare-results';
 
@@ -52,7 +52,7 @@ export default function CompareSearch({ searchTitle })  {
           defaultValue='Make'
           onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
           onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
-          data={carMakes}/>
+          data={carMakes} />
           
         <Dropdown 
           showSearch
@@ -60,15 +60,16 @@ export default function CompareSearch({ searchTitle })  {
           disabled={modelDisabled}
           onSelect={(selected) => handleModelChanges(selected, setModelSelected, setYearDisabled, setYearSelected)}
           onFocus={() => disableYearDropdown(setYearDisabled, setYearSelected)}
-          data={carModels}/>
+          data={carModels} />
           
         <Dropdown 
           defaultValue='Year'
           disabled={yearDisabled}
           onSelect={(selected) => handleYearChanges(selected, setYearSelected, )}
           onChange={() => handleClear(setYearSelected)}
-          data={carYears}/>
+          data={carYears} />
       </div>
+
       { modelSelected ? (
         <CompareResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : <></>}

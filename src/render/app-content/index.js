@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-
 import CarDetails from '../../components/details';
 import Home from '../../components/home';
 import CostToOwn from '../../components/5-year-cost';
