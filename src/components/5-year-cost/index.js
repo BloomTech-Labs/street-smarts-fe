@@ -53,8 +53,7 @@ const CostToOwn = () => {
         variants={breakdownTransition}
         initial="out"
         animate="in"
-        exit="out"
-      >
+        exit="out" >
         <div className="prev-page-container">
           <PrevPage />
         </div>
@@ -68,8 +67,7 @@ const CostToOwn = () => {
                   yearlyGasSpend={yearlyGasSpend}
                   yearlyMaintenanceCost={yearlyMaintenanceCost}
                   yearlyTotalCost={yearlyTotalCost}
-                  totalCost={totalCost}
-                />
+                  totalCost={totalCost} />
               </BreakdownAttributes>
             </div>
           </div>

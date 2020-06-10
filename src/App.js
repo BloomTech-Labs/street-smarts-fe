@@ -1,11 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppStyle from './AppStyle';
-
 import AppContent from './render/app-content'
-
 import Navigation from './components/sections/header';
-
 import { Layout } from "antd";
 
 const { Content, Footer } = Layout;
@@ -30,6 +27,6 @@ function App() {
       </AppStyle>
     </Router>
   );
-}
+};
 
 export default App;
