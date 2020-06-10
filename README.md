@@ -4,7 +4,7 @@
 https://www.streetsmarts.online/
 
 ## Folder Structure: 
-street-smarts-fe {
+street-smarts-fe 
 
     cypress > integration = All our tests
 
@@ -19,7 +19,6 @@ street-smarts-fe {
     src > components > common = All the smaller and more reusable parts of our website
 
     src > components > sections = Parts that take up big portions of our web page and are not as reusable
-}
 
 ## Contributors
 
@@ -52,7 +51,7 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 ## Tech Stack
 
-### Front end built using:
+### Front End Built Using:
 
 #### React
 
@@ -76,7 +75,7 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 #### Front end deployed to AWS Amplify
 
-#### [Back end](https://github.com/Lambda-School-Labs/street-smarts-be) built using:
+### [Back end](https://github.com/Lambda-School-Labs/street-smarts-be) built using:
 
 #### Heroku PostgreSQL
 
@@ -150,7 +149,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-## Issue/Bug Request
+### Issue/Bug Request
 
 **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
 
@@ -181,7 +180,7 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
 
-## Documentation
+# Documentation
 
 See [Backend Documentation](https://github.com/Lambda-School-Labs/street-smarts-be/blob/master/README.md) for details on the backend of our project.
 
