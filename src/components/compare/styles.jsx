@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import HorizontalGauge from "../common/gauge";
+import { Divider } from 'antd';
 
 export const CompareCarsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: minmax(250px, 1fr) repeat(auto-fit, 10px minmax(250px, 1fr));
   grid-template-rows: 30vh repeat(3, auto);
   grid-auto-flow: column;
   gap: 4%;
@@ -11,17 +12,21 @@ export const CompareCarsContainer = styled.div`
 `;
 
 export const BreakdownContainer = styled.div`
-  width: 30vw;
 
   .text-block-top {
     width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   h3 {
+    line-height: 1rem;
     font-size: 0.7rem;
+  }
+
+  h1 {
+    font-size: 1rem;
   }
 
   .row-top {
@@ -35,12 +40,18 @@ export const BreakdownContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    align-items: center;
   }
 
   .vertical-divider-1 {
     height: calc(100% - 30px);
     min-height: 50px;
     margin-top: 15px;
+    margin: 0 0.5em;
+  }
+
+  .vertical.split {
+    height: 100%;
   }
 `;
 
@@ -59,4 +70,13 @@ export const CarbonGaugeContainer = styled.div`
 export const CarbonGauge = styled(HorizontalGauge)`
   width: 250px;
   height: 75px;
+`;
+
+export const CompareSearchContainer = styled.div`
+  grid-row: 1 / span 4;
+`;
+
+export const DividerCol = styled(Divider)`
+  grid-row: 2 / 5;
+  height: 100%;
 `;

@@ -70,7 +70,7 @@ export default function CompareSearch({ searchTitle })  {
           data={carYears} />
       </div>
 
-      { modelSelected ? (
+      { yearSelected ? (
         <CompareResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : <></>}
     </>

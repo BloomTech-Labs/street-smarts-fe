@@ -71,7 +71,7 @@ export default function Search({ searchTitle, id })  {
           data={carYears} />
       </div>
 
-      { modelSelected ? (
+      { yearSelected ? (
         <HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
       : id ? <CompareResults id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />
       : <></>

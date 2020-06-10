@@ -11,7 +11,6 @@ import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
 import setTitle from '../../hooks/setTitle';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
-import { render } from "@testing-library/react";
 
 const CarDetails = () => {
   const { id } = useParams();

@@ -12,9 +12,11 @@ import Breakdown from "../common/breakdown";
 import {
   BreakdownContainer,
   CompareCarsContainer,
+  CompareSearchContainer,
   CarImg,
   CarbonGaugeContainer,
   CarbonGauge,
+  DividerCol,
 } from "./styles.jsx";
 import { MAX_CARBON_EMISSIONS } from "../../constants";
 
@@ -110,13 +112,14 @@ const Compare = () => {
                     }
                   />
                 </CarbonGaugeContainer>
-   
+                <DividerCol type="vertical" />
               </React.Fragment>
             );
           })}    
           
-          <Divider type='vertical' className='vertical-divider'/>
-          <CompareSearch id={id} searchTitle='Choose a car to compare' />
+          <CompareSearchContainer>
+            <CompareSearch id={id} searchTitle='Choose a car to compare' />
+          </CompareSearchContainer>
         </CompareCarsContainer>
       </div>
     </motion.div>
