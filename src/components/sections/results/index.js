@@ -17,7 +17,7 @@ const CompareResults = ({ make, model, year, getUrlWithId }) => {
   console.log('This is SelectedCarDataByYear', results)
   
   useEffect(() => {
-    fetchSelectedCarDataByYear(make, model, year, setResults)    
+    fetchSelectedCarDataByYear(make, model, year).then(res => setResults(res.data))
   }, [make, model, year]);
 
   return (

@@ -26,20 +26,20 @@ export default function Search({ searchTitle, getUrlWithId })  {
 // WHAT LIST IS SHOWING
 // Handles Make Dropdown state
   useEffect(() => {
-    fetchMakeData(setCarMakes);
+    fetchMakeData().then(res => setCarMakes(res.data));
   }, []);
 
 // Handles Model Dropdown state
   useEffect(() => {
     if (makeSelected !== "") {
-      fetchModelData(makeSelected, setCarModels)
+      fetchModelData(makeSelected).then(res => setCarModels(res.data))
     }
   }, [makeSelected]);
   
 // Handles Year Dropdown state
   useEffect(() => {
     if (makeSelected && modelSelected !== "") {
-      fetchYearData(makeSelected, modelSelected, setCarYears)
+      fetchYearData(makeSelected, modelSelected).then(res => setCarYears(res.data))
     }
   }, [makeSelected, modelSelected]);
 
