@@ -101,7 +101,7 @@ const Compare = () => {
                 {idx !== 0 && <DividerCol type="vertical" />}
                 <CarImg src={image} />
                 <h2>{title}</h2>
-                <Cost />
+                <Cost prediction={car}/>
                 <CarbonGaugeContainer>
                   <h3>Carbon Emissions (5 Years)</h3>
                   <CarbonGauge
