@@ -24,8 +24,8 @@ const Compare = () => {
 
   // Remove `/` from the end of the base url
   const baseUrl = useLocation().pathname.replace(/\/+$/, "");
-  // Main car state
 
+  // Main car state
   const [ids, setIds] = useState(() => {
     const list_of_ids = [];
     if(id !== undefined) {
