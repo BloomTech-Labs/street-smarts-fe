@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
-import { Card, Divider } from "antd";
+import { Card, Divider } from 'antd';
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
 import { detailsTransition } from '../../hooks/pageTransitions';
 import setTitle from '../../hooks/setTitle';
@@ -38,7 +38,7 @@ const CarDetails = () => {
 
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
-      <CarDetailsStyles className = 'detailsContainer'>
+      <CarDetailsStyles className='detailsContainer'>
         <div className='carDetails'>
           
           <Card
@@ -53,9 +53,9 @@ const CarDetails = () => {
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
-                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"} />
+                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits: 2}) + " kg"} />
             <Divider className='divider' />        
-              <Cost />
+            <Cost prediction={car}/>
             <Divider className='divider' />
               <h3>MPG</h3>
               <div className='mpg'>
