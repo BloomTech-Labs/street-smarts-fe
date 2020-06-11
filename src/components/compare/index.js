@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
-import { Divider } from 'antd';
 import Search from '../sections/search';
 import Breakdown from "../common/breakdown";
 
@@ -26,7 +25,7 @@ const Compare = () => {
   const baseUrl = useLocation().pathname.replace(/\/+$/, "");
 
   // Main car state
-  const [ids, setIds] = useState(() => {
+  const [ids] = useState(() => {
     const list_of_ids = [];
     if(id !== undefined) {
       list_of_ids.push(id);
