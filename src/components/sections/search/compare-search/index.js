@@ -8,7 +8,7 @@ import { handleMakeChanges,
         disableYearDropdown, 
         } from '../../../../hooks/dropdownFunctions';
 import Dropdown from '../../../common/dropdown';
-import CompareResults from '../../results/compare-results';
+import Results from '../../results';
 
 export default function CompareSearch({ searchTitle, getUrlWithId })  {
   const [carMakes, setCarMakes] = useState([]);
@@ -71,7 +71,7 @@ export default function CompareSearch({ searchTitle, getUrlWithId })  {
       </div>
 
       { yearSelected ? (
-        <CompareResults make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
       : <></>}
     </>
   );

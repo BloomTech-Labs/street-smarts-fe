@@ -8,8 +8,7 @@ import { handleMakeChanges,
         disableYearDropdown, 
         } from '../../../../hooks/dropdownFunctions';
 import Dropdown from '../../../common/dropdown';
-import HomeResults from '../../results/home-results';
-import CompareResults from '../../results/compare-results';
+import Results from '../../results';
 
 export default function Search({ searchTitle, id })  {
   const [carMakes, setCarMakes] = useState([]);
@@ -44,6 +43,8 @@ export default function Search({ searchTitle, id })  {
     }
   }, [makeSelected, modelSelected]);
 
+  const getUrlWithId = (id) => `/details/${id}`;
+
   return (
     <>
       <div className='dropdownForm'>
@@ -72,8 +73,7 @@ export default function Search({ searchTitle, id })  {
       </div>
 
       { yearSelected ? (
-        <HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : id ? <CompareResults id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
       : <></>
       }
     </>
