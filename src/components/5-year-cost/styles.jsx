@@ -3,8 +3,12 @@ import styled from 'styled-components';
 const CostBreakdown = styled.div`
   width: 70vw;
   padding: 0;
-  margin-top: 20vh;
+  margin-top: 5vh;
   margin-bottom: 10vh;
+
+  .mainContainer {
+    padding-top: 5em;
+  }
 
   .costHeader {
     text-align: center;
@@ -23,6 +27,7 @@ const CostBreakdown = styled.div`
   .prev-page-container {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .compare-button-container {

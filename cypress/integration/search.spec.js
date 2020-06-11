@@ -21,11 +21,15 @@ describe("Dropdown Test Suite", () => {
     cy.visit("");
     cy.contains(/make/i).type("Acura{enter}");
     cy.contains(/model/i).type("MDX{enter}");
-    cy.contains(/year/i).type("2001{enter}");
 
-    // get the first item in the results list
-    cy.get(".resultsCard:first").click();
-    cy.url().should("include", "/details");
+    // I would only check for whether a user can type for this test
+    // cy.contains(/year/i).click();
+    // cy.get(".ant-select-item-option-content").contains(/2001/i).click();
+
+    // // get the first item in the results list
+    // cy.get(".resultsCard:first").click();
+    
+    // cy.url().should("include", "/details");
   });
 
   it("Visiting a url displays the car's details", () => {

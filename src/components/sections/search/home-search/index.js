@@ -64,7 +64,6 @@ export default function Search({ searchTitle, id })  {
           data={carModels} />
           
         <Dropdown 
-          showSearch
           defaultValue='Year'
           disabled={yearDisabled}
           onSelect={(selected) => handleYearChanges(selected, setYearSelected, )}
