@@ -28,7 +28,7 @@ const Cost = (props) => {
               description: `Gas $${prediction.fuel_cost.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
               color: "#80eb44" },
             { value: maintenanceFive,
-              description: `Maintenance $${maintenanceFive.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+              description: `Maintenance $${maintenanceFive}`,
               color: "#e6ff01" }
           ]} />
         
@@ -38,10 +38,10 @@ const Cost = (props) => {
           showTextUp
           data={[
             { value: prediction.fuel_cost / 5,
-              description: `Gas $${(prediction.fuel_cost / 5).toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+              description: `Gas $${(prediction.fuel_cost / 5).toLocaleString(undefined, {maximumFractionDigits:0})}`,
               color: "#80eb44" },
             { value: maintenanceFive,
-              description: `Maintenance: $${prediction.maintenance_cost.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+              description: `Maintenance: $${prediction.maintenance_cost.toLocaleString(undefined, {maximumFractionDigits:0})}`,
               color: "#e6ff01" }
           ]} />
       </div>
