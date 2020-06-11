@@ -63,7 +63,6 @@ export default function CompareSearch({ searchTitle, getUrlWithId })  {
           data={carModels} />
           
         <Dropdown 
-          showSearch
           defaultValue='Year'
           disabled={yearDisabled}
           onSelect={(selected) => handleYearChanges(selected, setYearSelected, )}
