@@ -11,50 +11,6 @@ export const CompareCarsContainer = styled.div`
   justify-items: center;
 `;
 
-export const BreakdownContainer = styled.div`
-
-  .text-block-top {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  h3 {
-    line-height: 1rem;
-    font-size: 0.7rem;
-  }
-
-  h1 {
-    font-size: 1rem;
-  }
-
-  .row-top {
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-  }
-
-  .row-bottom {
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    align-items: center;
-  }
-
-  .vertical-divider-1 {
-    height: calc(100% - 30px);
-    min-height: 50px;
-    margin-top: 15px;
-    margin: 0 0.5em;
-  }
-
-  .vertical.split {
-    height: 100%;
-  }
-`;
-
 export const CarImg = styled.img`
   max-width: 100%;
   max-height: 100%;

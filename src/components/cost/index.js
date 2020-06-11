@@ -49,7 +49,6 @@ const Cost = () => {
         <HSBar
           className='cto-chart'
           showTextUp
-          fontColor="white"
           data={[
             { value: purchasePrice, 
               description: `Purchase $${purchasePrice}`,
@@ -66,7 +65,6 @@ const Cost = () => {
         <HSBar
           className='cto-chart'
           showTextUp
-          fontColor="white"
           data={[
             { value: gasFive,
               description: `Gas: $${yearlyGasSpend}`,
