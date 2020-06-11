@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, Divider } from "antd";
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
 import { detailsTransition } from '../../hooks/pageTransitions';
 import setTitle from '../../hooks/setTitle';
 import HorizontalGauge from '../common/gauge';
-import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
+import Cost from '../cost/index';
+import Compare from '../common/buttons/compare';
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -54,18 +54,8 @@ const CarDetails = () => {
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
                 text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"} />
-            <Divider className='divider' />             
-              <h3>Cost of Ownership (5 years)</h3>
-              <div>
-                <h1 className='cto'>${predictedPrice}</h1>
-              </div>
-              <div className ='chevron-down'>              
-                <Link to={`/details/${car.id}/cost-to-own`}>
-                  <p>5 Year Cost Breakdown</p> 
-                  <img src={chevron} alt= 'View cost to own' />
-                  <span className='explanation'>(Click to find more info)</span>
-                </Link>
-              </div>
+            <Divider className='divider' />        
+              <Cost />
             <Divider className='divider' />
               <h3>MPG</h3>
               <div className='mpg'>
@@ -101,6 +91,10 @@ const CarDetails = () => {
             className='carImg'
             id={car.id}>
             <CarGallery showFullscreenButton={true} images = {carImages} />
+            <div className='compare-button'>
+              <h3>Compare to Other Vehicles</h3>
+              <Compare />
+            </div>
           </Card>
         
         </div>        
