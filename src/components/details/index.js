@@ -22,11 +22,11 @@ const CarDetails = () => {
 
 
   useEffect(() => {
-    fetchCarDetails(id, setCar)
-    fetchPrediction(id, (obj) => {
-      setPredictedCarbonEmissions(obj.co2_five_year_kgs);
-      setPredictedPrice(obj.five_year_cost_to_own.toLocaleString(undefined, {maximumFractionDigits: 2}));
-      setCarImages(obj.list_of_imgs);
+    fetchCarDetails(id).then(res => setCar(res.data))
+    fetchPrediction(id).then((res) => {
+      setPredictedCarbonEmissions(res.data.co2_five_year_kgs);
+      setPredictedPrice(res.data.five_year_cost_to_own.toLocaleString(undefined, {maximumFractionDigits: 2}));
+      setCarImages(res.data.list_of_imgs);
     });
   }, [id]);
 
