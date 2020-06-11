@@ -7,7 +7,7 @@ import { fetchPrediction } from "../../hooks/dataFetching";
 import PrevPage from "../../hooks/prevPage";
 import setTitle from "../../hooks/setTitle";
 import CostBreakdown from "./styles";
-import { BreakdownAttributes } from "../common/breakdown/styles";
+import BreakdownStyled from "../common/breakdown/styles";
 import CompareButton from "../common/buttons/compare";
 import Breakdown from "../common/breakdown";
 
@@ -59,14 +59,14 @@ const CostToOwn = () => {
           <h1 className="costHeader"> What does it cost over 5 years?</h1>
           <div className="compare-cars-container">
             <div id="original-search" className="breakdown-container">
-              <BreakdownAttributes>
+              <BreakdownStyled>
                 <Breakdown
                   purchasePrice={purchasePrice}
                   yearlyGasSpend={yearlyGasSpend}
                   yearlyMaintenanceCost={yearlyMaintenanceCost}
                   yearlyTotalCost={yearlyTotalCost}
                   totalCost={totalCost} />
-              </BreakdownAttributes>
+              </BreakdownStyled>
             </div>
           </div>
           <h3 className="compareHeader">Compare to other vehicles</h3>
