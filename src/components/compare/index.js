@@ -5,7 +5,7 @@ import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
 import { Divider } from 'antd';
-import CompareSearch from '../sections/search/compare-search';
+import Search from '../sections/search';
 import Breakdown from "../common/breakdown";
 
 import {
@@ -21,6 +21,8 @@ import { MAX_CARBON_EMISSIONS } from "../../constants";
 
 const Compare = () => {
   const { id, carID, carID2 } = useParams();
+
+  // Remove `/` from the end of the base url
   const baseUrl = useLocation().pathname.replace(/\/+$/, "");
   // Main car state
 
@@ -130,7 +132,7 @@ const Compare = () => {
           { ids.length < 3 ? (<>
           { ids.length > 0 && <DividerCol type="vertical" /> }
           <CompareSearchContainer>
-            <CompareSearch getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
+            <Search getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
           </CompareSearchContainer>
           </>) : (<></>)
           }

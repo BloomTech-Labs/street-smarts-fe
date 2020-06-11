@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMakeData, fetchModelData, fetchYearData } from '../../../../hooks/dataFetching';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../../hooks/dataFetching';
 import { handleMakeChanges, 
         handleModelChanges, 
         handleYearChanges, 
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-        } from '../../../../hooks/dropdownFunctions';
-import Dropdown from '../../../common/dropdown';
-import Results from '../../results';
+        } from '../../../hooks/dropdownFunctions';
+import Dropdown from '../../common/dropdown';
+import Results from '../results';
 
-export default function Search({ searchTitle, id })  {
+export default function Search({ searchTitle, getUrlWithId })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -43,8 +43,6 @@ export default function Search({ searchTitle, id })  {
     }
   }, [makeSelected, modelSelected]);
 
-  const getUrlWithId = (id) => `/details/${id}`;
-
   return (
     <>
       <div className='dropdownForm'>
@@ -74,8 +72,7 @@ export default function Search({ searchTitle, id })  {
 
       { yearSelected ? (
         <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
-      : <></>
-      }
+      : <></>}
     </>
   );
 };
