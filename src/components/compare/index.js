@@ -48,9 +48,9 @@ const Compare = () => {
 
   useEffect(() => {
     for (let i of ids) {
-      fetchPrediction(i, (obj) => {
+      fetchPrediction(i).then((res) => {
         setCars((cars) => {
-          return { ...cars, [obj.id]: obj };
+          return { ...cars, [res.data.id]: res.data };
         });
       });
     }

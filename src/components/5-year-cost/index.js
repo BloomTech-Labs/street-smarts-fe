@@ -24,16 +24,16 @@ const CostToOwn = () => {
   const [carModel, setCarModel] = useState();
 
   useEffect(() => {
-    fetchPrediction(id, (obj) => {
-      setTotalCost(Math.round(obj.five_year_cost_to_own));
-      setPurchasePrice(obj.predicted_price);
+    fetchPrediction(id).then((res) => {
+      setTotalCost(Math.round(res.data.five_year_cost_to_own));
+      setPurchasePrice(res.data.predicted_price);
 
-      setYearlyTotalCost(Math.round(obj.five_year_cost_to_own - obj.predicted_price) / 5);
-      setYearlyGasSpend(obj.fuel_cost / 5);
-      setYearlyMaintenanceCost(obj.maintenance_cost);
+      setYearlyTotalCost(Math.round(res.data.five_year_cost_to_own - res.data.predicted_price) / 5);
+      setYearlyGasSpend(res.data.fuel_cost / 5);
+      setYearlyMaintenanceCost(res.data.maintenance_cost);
 
-      setCarMake(obj.make);
-      setCarModel(obj.model);
+      setCarMake(res.data.make);
+      setCarModel(res.data.model);
     });
   }, [id]);
 
