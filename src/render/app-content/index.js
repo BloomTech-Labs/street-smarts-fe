@@ -3,7 +3,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import CarDetails from '../../components/details';
 import Home from '../../components/home';
-import CostToOwn from '../../components/5-year-cost';
+import Cost from '../../components/cost';
 import Compare from '../../components/compare';
 
 const AppContent = () => {
@@ -14,7 +14,7 @@ const AppContent = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/details/:id' component={CarDetails} />
-        <Route exact path='/details/:id/cost-to-own' component={CostToOwn} />
+        <Route exact path='/details/:id/cost-to-own' component={Cost} />
         <Route exact path='/compare' component={Compare} />
         <Route exact path='/compare/:id' component={Compare} />
         <Route exact path='/compare/:id/to/:carID' component={Compare} />

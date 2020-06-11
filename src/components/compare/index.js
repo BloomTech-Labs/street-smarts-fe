@@ -5,10 +5,9 @@ import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
 import Search from '../sections/search';
-import Breakdown from "../common/breakdown";
+import Cost from "../cost";
 
 import {
-  BreakdownContainer,
   CompareCarsContainer,
   CompareSearchContainer,
   CarImg,
@@ -74,7 +73,7 @@ const Compare = () => {
       exit="out" >
       <div className="compare-container">
         <div className="compare-title">
-          <h1>Comparing</h1>
+          <h1>Compare Vehicles</h1>
         </div>
         <CompareCarsContainer>
           {ids.map((carId, idx) => {
@@ -102,14 +101,7 @@ const Compare = () => {
                 {idx !== 0 && <DividerCol type="vertical" />}
                 <CarImg src={image} />
                 <h2>{title}</h2>
-                <BreakdownContainer>
-                  <Breakdown
-                    purchasePrice={predicted_price}
-                    yearlyTotalCost={yearlyTotalCost}
-                    totalCost={five_year_cost_to_own}
-                    yearlyGasSpend={yearlyGasSpend}
-                    yearlyMaintenanceCost={yearlyMaintenanceCost} />
-                </BreakdownContainer>
+                <Cost />
                 <CarbonGaugeContainer>
                   <h3>Carbon Emissions (5 Years)</h3>
                   <CarbonGauge

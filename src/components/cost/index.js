@@ -5,7 +5,7 @@ import setTitle from "../../hooks/setTitle";
 import CostStyled from "./styles";
 import HSBar from "react-horizontal-stacked-bar-chart";
 
-const Cost= () => {
+const Cost = () => {
   const { id } = useParams();
 
   const [totalCost, setTotalCost] = useState(0);
@@ -44,42 +44,39 @@ const Cost= () => {
 
   return (
     <CostStyled>
-    <div className='breakdown-div'>
-      <h3>Cost Over 5 Years: ${totalCost}</h3>
-      <HSBar
-        className='cto-chart'
-        showTextUp
-        fontColor="white"
-        data={[
-          { value: purchasePrice, 
-            description: `Purchase $${purchasePrice}`,
-            color: '#08b862' },
-          { value: gasFive,
-            description: `Gas $${gasFive}`,
-            color: "#80eb44" },
-          { value: maintenanceFive,
-            description: `Maintenance $${maintenanceFive}`,
-            color: "#e6ff01" }
-        ]} />
-      
-      <h3 className='title-per-year'>Cost per Year: ${yearlyTotalCost}</h3>
-      <HSBar
-        className='cto-chart'
-        showTextUp
-        fontColor="white"
-        data={[
-          { value: gasFive,
-            description: `Gas: $${yearlyGasSpend}`,
-            color: "#80eb44" },
-          { value: maintenanceFive,
-            description: `Maintenance: $${yearlyMaintenanceCost}`,
-            color: "#e6ff01" }
-        ]} />
-
-    </div>
-
+      <div className='breakdown-div'>
+        <h3>Cost Over 5 Years: ${totalCost}</h3>
+        <HSBar
+          className='cto-chart'
+          showTextUp
+          fontColor="white"
+          data={[
+            { value: purchasePrice, 
+              description: `Purchase $${purchasePrice}`,
+              color: '#08b862' },
+            { value: gasFive,
+              description: `Gas $${gasFive}`,
+              color: "#80eb44" },
+            { value: maintenanceFive,
+              description: `Maintenance $${maintenanceFive}`,
+              color: "#e6ff01" }
+          ]} />
+        
+        <h3 className='title-per-year'>Cost per Year: ${yearlyTotalCost}</h3>
+        <HSBar
+          className='cto-chart'
+          showTextUp
+          fontColor="white"
+          data={[
+            { value: gasFive,
+              description: `Gas: $${yearlyGasSpend}`,
+              color: "#80eb44" },
+            { value: maintenanceFive,
+              description: `Maintenance: $${yearlyMaintenanceCost}`,
+              color: "#e6ff01" }
+          ]} />
+      </div>
     </CostStyled>
-
   );
 };
 
