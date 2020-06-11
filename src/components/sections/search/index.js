@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMakeData, fetchModelData, fetchYearData } from '../../../../hooks/dataFetching';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../../hooks/dataFetching';
 import { handleMakeChanges, 
         handleModelChanges, 
         handleYearChanges, 
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-        } from '../../../../hooks/dropdownFunctions';
-import Dropdown from '../../../common/dropdown';
-import CompareResults from '../../results/compare-results';
+        } from '../../../hooks/dropdownFunctions';
+import Dropdown from '../../common/dropdown';
+import Results from '../results';
 
-export default function CompareSearch({ searchTitle, getUrlWithId })  {
+export default function Search({ searchTitle, getUrlWithId })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -71,7 +71,7 @@ export default function CompareSearch({ searchTitle, getUrlWithId })  {
       </div>
 
       { yearSelected ? (
-        <CompareResults make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
       : <></>}
     </>
   );

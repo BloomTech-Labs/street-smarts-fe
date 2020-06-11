@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { List, Card } from "antd";
-import { fetchSelectedCarDataByYear } from '../../../../hooks/dataFetching';
+import { fetchSelectedCarDataByYear } from '../../../hooks/dataFetching';
 import styled from 'styled-components';
 
-import ResultsStyled from '../home-results/styles';
+import ResultsStyled from './styles';
 
 const CompareCarList = styled(List)`
   /*this is cool and ended up being my fix for all my headache*/

@@ -34,7 +34,7 @@ describe("Dropdown Test Suite", () => {
 
   it("Visiting a url displays the car's details", () => {
     // User can select Make value
-    cy.visit("/details/Acura/MDX/17191");
+    cy.visit("/details/17191");
     cy.contains(/co2 emissions/i);
     cy.contains(/cost of ownership/i);
   });

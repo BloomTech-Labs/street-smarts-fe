@@ -60,7 +60,7 @@ const CarDetails = () => {
                 <h1 className='cto'>${predictedPrice}</h1>
               </div>
               <div className ='chevron-down'>              
-                <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
+                <Link to={`/details/${car.id}/cost-to-own`}>
                   <p>5 Year Cost Breakdown</p> 
                   <img src={chevron} alt= 'View cost to own' />
                   <span className='explanation'>(Click to find more info)</span>
