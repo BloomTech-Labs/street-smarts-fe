@@ -15,7 +15,7 @@ const Navigation = () => {
           <NavLink className="navlink" to="/">HOME</NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink className="navlink" to="/">SEARCH</NavLink>
+          <NavLink className="navlink" to="/compare">COMPARE</NavLink>
         </Menu.Item>
         <Menu.Item key="3">
           <NavLink className="navlink" to="/about">

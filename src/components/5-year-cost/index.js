@@ -28,9 +28,9 @@ const CostToOwn = () => {
       setTotalCost(Math.round(obj.five_year_cost_to_own));
       setPurchasePrice(obj.predicted_price);
 
-      setYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
+      setYearlyTotalCost(Math.round(obj.five_year_cost_to_own - obj.predicted_price) / 5);
       setYearlyGasSpend(obj.fuel_cost / 5);
-      setYearlyMaintenanceCost(obj.maintenance_cost / 5);
+      setYearlyMaintenanceCost(obj.maintenance_cost);
 
       setCarMake(obj.make);
       setCarModel(obj.model);

@@ -11,7 +11,6 @@ import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
-// import { render } from "@testing-library/react";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -61,7 +60,7 @@ const CarDetails = () => {
                 <h1 className='cto'>${predictedPrice}</h1>
               </div>
               <div className ='chevron-down'>              
-                <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
+                <Link to={`/details/${car.id}/cost-to-own`}>
                   <p>5 Year Cost Breakdown</p> 
                   <img src={chevron} alt= 'View cost to own' />
                   <span className='explanation'>(Click to find more info)</span>

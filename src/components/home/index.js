@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import HomeSearch from "../sections/search/home-search";
+import Search from "../sections/search";
 import HomeStyled from "./styles";
 import setTitle from '../../hooks/setTitle';
 
 const Home = () => {
   useEffect(() => setTitle(), []);
+
+  const getUrlWithId = (id) => `/details/${id}`;
 
   return (
     <HomeStyled>
@@ -13,7 +15,7 @@ const Home = () => {
           <h1>What car will you drive next?</h1>
           <p>Compare cost, features and CO<sub>2</sub> emissions—all in one place.</p>
           <div className="home-results">
-            <HomeSearch />
+            <Search getUrlWithId={getUrlWithId} />
           </div>
         </div>
       </section>

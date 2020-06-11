@@ -44,12 +44,8 @@ const CarGallery = ({ images, showFullscreenButton }) => {
   const [fullscreen, setFullscreen] = useState(false);
 
   useEffect(() => {
-    if(images) {
-      images.map((img, index) => {
-        if(index === 0) {
-        setItems([...items, {original: img, thumbnail: img}]);
-        }
-      })
+    if(images[0]) {
+      setItems([{original: images[0], thumbnail: images[0]}]);
     };
   }, [images]);
 

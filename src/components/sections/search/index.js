@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMakeData, fetchModelData, fetchYearData } from '../../../../hooks/dataFetching';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../../hooks/dataFetching';
 import { handleMakeChanges, 
         handleModelChanges, 
         handleYearChanges, 
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-        } from '../../../../hooks/dropdownFunctions';
-import Dropdown from '../../../common/dropdown';
-import HomeResults from '../../results/home-results';
-import CompareResults from '../../results/compare-results';
+        } from '../../../hooks/dropdownFunctions';
+import Dropdown from '../../common/dropdown';
+import Results from '../results';
 
-export default function Search({ searchTitle, id })  {
+export default function Search({ searchTitle, getUrlWithId })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -71,11 +70,9 @@ export default function Search({ searchTitle, id })  {
           data={carYears} />
       </div>
 
-      { modelSelected ? (
-        <HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : id ? <CompareResults id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />
-      : <></>
-      }
+      { yearSelected ? (
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
+      : <></>}
     </>
   );
 };
