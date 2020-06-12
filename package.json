@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-def": "react-scripts -r @cypress/instrument-cra start",
+    "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "cypress": "npx cypress open",
     "test": "react-scripts test",
