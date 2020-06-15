@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import CarDetails from '../../components/details';
 import Home from '../../components/home';
 import Cost from '../../components/cost';
 import Compare from '../../components/compare';
+import ReactGA from "react-ga";
 
 const AppContent = () => {
   let location = useLocation();
+
+  useEffect(() => {
+    ReactGA.initialize('UA-169437425-1');
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
 
   return (
     <AnimatePresence exitBeforeEnter location={location} key={location.pathname}>
