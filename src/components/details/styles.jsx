@@ -63,6 +63,9 @@ const CarDetailsStyles = styled.div`
       margin: 0;
     }
   }
+  .compare-button {
+    margin:20%;
+  }
 `;
 
 export const Fullscreen = styled.button`

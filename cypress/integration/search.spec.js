@@ -36,6 +36,6 @@ describe("Dropdown Test Suite", () => {
     // User can select Make value
     cy.visit("/details/17191");
     cy.contains(/co2 emissions/i);
-    cy.contains(/cost of ownership/i);
+    cy.contains(/cost over 5 years/i);
   });
 });
