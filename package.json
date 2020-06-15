@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-def": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "cypress": "npx cypress open",
     "test": "react-scripts test",
@@ -43,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.1",
+    "@cypress/instrument-cra": "^1.1.1",
     "cypress": "^4.7.0"
   }
 }
