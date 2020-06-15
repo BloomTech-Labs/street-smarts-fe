@@ -7,7 +7,7 @@ const Cost = (props) => {
   const { id } = useParams();
 
   const prediction = props.prediction ? props.prediction : {five_year_cost_to_own: 0, predicted_price: 0, fuel_cost: 0, maintenance_cost: 0};
-  console.log(prediction);
+
   const maintenanceFive = prediction.maintenance_cost * 5;
 
   return (
