@@ -7,7 +7,7 @@ const Cost = (props) => {
   const { id } = useParams();
 
   const prediction = props.prediction ? props.prediction : {five_year_cost_to_own: 0, predicted_price: 0, fuel_cost: 0, maintenance_cost: 0};
-
+  console.log(prediction);
   const maintenanceFive = prediction.maintenance_cost * 5;
 
   return (
@@ -41,7 +41,7 @@ const Cost = (props) => {
             { value: prediction.fuel_cost / 5,
               description: `Gas $${(prediction.fuel_cost / 5).toLocaleString(undefined, {maximumFractionDigits:0})}`,
               color: '#80eb44' },
-            { value: maintenanceFive,
+            { value: prediction.maintenance_cost,
               description: `Maintenance: $${prediction.maintenance_cost.toLocaleString(undefined, {maximumFractionDigits:0})}`,
               color: '#e6ff01' }
           ]} />
