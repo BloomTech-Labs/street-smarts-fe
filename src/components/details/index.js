@@ -18,14 +18,14 @@ const CarDetails = () => {
   const [car, setCar] = useState({});
   const [carImages, setCarImages] = useState([]);
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
-  const [predictedPrice, setPredictedPrice] = useState(null);
+  const [prediction, setPrediction] = useState(null);
 
 
   useEffect(() => {
     fetchCarDetails(id).then(res => setCar(res.data))
     fetchPrediction(id).then((res) => {
       setPredictedCarbonEmissions(res.data.co2_five_year_kgs);
-      setPredictedPrice(res.data.five_year_cost_to_own.toLocaleString(undefined, {maximumFractionDigits: 2}));
+      setPrediction(res.data);
       setCarImages(res.data.list_of_imgs);
     });
   }, [id]);
@@ -55,7 +55,7 @@ const CarDetails = () => {
                 value={predictedCarbonEmissions}
                 text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits: 2}) + " kg"} />
             <Divider className='divider' />        
-            <Cost prediction={car}/>
+              <Cost prediction={prediction}/>
             <Divider className='divider' />
               <h3>MPG</h3>
               <div className='mpg'>
