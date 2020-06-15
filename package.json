@@ -11,6 +11,7 @@
     "framer-motion": "^1.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.0.0",
     "react-horizontal-stacked-bar-chart": "^8.15.2",
     "react-image-gallery": "^1.0.7",
     "react-query-devtools": "^1.1.5",
