@@ -38,6 +38,8 @@ jobs:
         with:
           start: npm start coverage-start
           browser: chrome
+        env:
+          DEBUG: code-coverage
       - name: Archive Cypress Test Videos
         uses: actions/upload-artifact@v1
         with:
