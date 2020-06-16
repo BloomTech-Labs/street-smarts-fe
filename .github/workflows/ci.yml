@@ -44,3 +44,8 @@ jobs:
           CC_TEST_REPORTER_ID: b3baf277acc00570cddb0c6c78a7c539eb9d4391cc7611d1709ae892e7d76425
         with:
           coverageCommand: npm run coverage-report
+      - name: Archive Coverage Report
+        uses: actions/upload-artifact@v1
+        with:
+          name: code-coverage-report
+          path: coverage
