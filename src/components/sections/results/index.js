@@ -12,7 +12,7 @@ const CompareCarList = styled(List)`
 const CompareCarCard = styled(Card)`
   /*pretty much, I needed to use <List> component that we were importing from antd, but can only call <List /> once in our entire App*/
 `
-const CompareResults = ({ make, model, year, getUrlWithId }) => {
+const CompareResults = ({ make, model, year, getUrlWithId, classes }) => {
   const [results, setResults] = useState([]);
   console.log('This is SelectedCarDataByYear', results)
   
@@ -24,7 +24,8 @@ const CompareResults = ({ make, model, year, getUrlWithId }) => {
     <ResultsStyled>
       <h4>Your search: {year} {make} {model}</h4>
       <CompareCarList
-        grid={{ gutter: 16, column: 2 }}
+        className = {classes}
+        grid={{ gutter: 16, column: 1 }}
         dataSource={results}
         renderItem={(car) => (
           <CompareCarList.Item >

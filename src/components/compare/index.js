@@ -80,20 +80,11 @@ const Compare = () => {
             let car = cars[carId];
             let image = "";
             let title = "Loading...";
-            let predicted_price = "";
-            let yearlyTotalCost = "";
-            let yearlyGasSpend = "";
-            let yearlyMaintenanceCost = "";
-            let five_year_cost_to_own = "";
             let predictedCarbonEmissions = NaN;
             if (car) {
               image = car.list_of_imgs[0] || image;
               title = `${car.year} ${car.make} ${car.model}`;
-              predicted_price = car.predicted_price;
-              five_year_cost_to_own = car.five_year_cost_to_own;
-              yearlyGasSpend = car.fuel_cost / 5;
-              yearlyMaintenanceCost = car.maintenance_cost;
-              yearlyTotalCost = predicted_price + yearlyGasSpend + yearlyMaintenanceCost;
+          
               predictedCarbonEmissions = car.co2_five_year_kgs;
             }
             return (

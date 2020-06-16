@@ -58,6 +58,10 @@ const AppStyle = styled.div`
       background-color: rgb(0,0,0);
       color: white;
 
+      @media (max-width: 750px) {
+        flex-direction: column;
+      }
+
       .navlink {
         text-decoration: none!important;
         color: #FFFFFF;
@@ -92,7 +96,7 @@ const AppStyle = styled.div`
       display: flex;
       justify-content: center;
       position: sticky;
-      bottom: 0px;
+      bottom: 0;
       z-index: 1;
       text-align: center;
       color: #FFFFFF;

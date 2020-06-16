@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const HomeStyled = styled.div`
   .hero {
-    width: 100vw;
+    max-width: 100%;
     background: url(https://unsplash.com/photos/5FGqfV6UjzI);
     background-position: top;
     background-repeat: no-repeat;
