@@ -39,7 +39,7 @@ jobs:
         with:
           start: npm start coverage-start
           browser: chrome
-      - uses: paambaati/codeclimate-action@v2.2.4
+      - uses: paambaati/codeclimate-action@v2.6.0
         env:
           CC_TEST_REPORTER_ID: b3baf277acc00570cddb0c6c78a7c539eb9d4391cc7611d1709ae892e7d76425
         with:
