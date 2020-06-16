@@ -20,7 +20,9 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts -r @cypress/instrument-cra start",
+    "start": "react-scripts start",
+    "coverage-start": "react-scripts -r @cypress/instrument-cra start",
+    "coverage-report": "nyc report --reporter=lcov",
     "build": "react-scripts build",
     "cypress": "npx cypress open",
     "test": "react-scripts test",
