@@ -28,7 +28,6 @@ jobs:
           start: npm start
           browser: firefox
   coverage:
-    needs: [ cypress-run-chrome ]
     name: coverage
     runs-on: ubuntu-16.04
     steps:
