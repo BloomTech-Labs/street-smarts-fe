@@ -11,6 +11,30 @@ describe("Compare page", () => {
       return regex.test(url);
     });
   });
+
+  it("User can get to details page from car name", () => {
+    cy.visit("/compare/17191/to/31075/to/40051");
+
+    cy.contains(/acura/i).click();
+    cy.url().should("include", "/details/");
+    cy.contains(/acura/i);
+    cy.contains(/mdx/i);
+    cy.contains(/2001/i);
+    cy.go("back");
+
+    cy.contains(/vpg/i).click();
+    cy.url().should("include", "/details/");
+    cy.contains(/vpg/i);
+    cy.contains(/mv-1/i);
+    cy.contains(/2011/i);
+    cy.go("back");
+
+    cy.contains(/jaguar/i).click();
+    cy.url().should("include", "/details/");
+    cy.contains(/jaguar/i);
+    cy.contains(/f-pace/i);
+    cy.contains(/2019/i);
+  });
 });
 
 function selectCar(make, model, year) {
