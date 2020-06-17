@@ -11,9 +11,14 @@ export const CompareCarsContainer = styled.div`
   justify-items: center;
 `;
 
-export const CarImg = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+export const CarImgContainer = styled.div`
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;
 
 export const CarbonGaugeContainer = styled.div`
