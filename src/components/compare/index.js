@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fetchPrediction } from "../../hooks/dataFetching";
 import { compareAfterTransition } from "../../hooks/pageTransitions";
@@ -97,10 +98,10 @@ const Compare = () => {
               predictedCarbonEmissions = car.co2_five_year_kgs;
             }
             return (
-              <React.Fragment key={carId}>
+              <React.Fragment key={idx}>
                 {idx !== 0 && <DividerCol type="vertical" />}
                 <CarImg src={image} />
-                <h2>{title}</h2>
+                <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>
                   <h3>Carbon Emissions (5 Years)</h3>
