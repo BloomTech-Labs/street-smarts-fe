@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const AppStyle = styled.div`
-  h1, h2, h3, p, a {
+  h1, h2, h3, p, a, li {
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -24,7 +24,7 @@ const AppStyle = styled.div`
     line-height: 2rem;
     text-transform: uppercase;
   }
-  p {
+  p, li {
     font-size: 1rem;
     line-height: 1.5rem;
   }
