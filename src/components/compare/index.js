@@ -11,7 +11,7 @@ import Cost from "../cost";
 import {
   CompareCarsContainer,
   CompareSearchContainer,
-  CarImg,
+  CarImgContainer,
   CarbonGaugeContainer,
   CarbonGauge,
   DividerCol,
@@ -100,7 +100,7 @@ const Compare = () => {
             return (
               <React.Fragment key={idx}>
                 {idx !== 0 && <DividerCol type="vertical" />}
-                <CarImg src={image} />
+                <CarImgContainer><img src={image} /></CarImgContainer>
                 <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>
