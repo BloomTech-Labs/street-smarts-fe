@@ -75,7 +75,7 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 #### Front end deployed to AWS Amplify
 
-### [Back end](https://github.com/Lambda-School-Labs/street-smarts-be) built using:
+### [Back End](https://github.com/Lambda-School-Labs/street-smarts-be) Built Using:
 
 #### Heroku PostgreSQL
 
@@ -102,31 +102,11 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 The API returns values from a curated database, built by our data science team, that contains data from several external, industry standard APIs. Our API contains makes, models, years, CO<sub>2</sub> emissions, a break down of cost-to-own over 5 years, and images for over 10,000 individual vehicles.
 
-# 3️⃣ Environment Variables 
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
+# Content Licenses
 
 | Image Filename | Source / Creator | License                                                                      |
 | -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+| Car images    | Craigslist   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 
 # Testing
 
@@ -183,4 +163,3 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 # Documentation
 
 See [Backend Documentation](https://github.com/Lambda-School-Labs/street-smarts-be/blob/master/README.md) for details on the backend of our project.
-

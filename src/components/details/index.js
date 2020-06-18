@@ -20,7 +20,6 @@ const CarDetails = () => {
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [prediction, setPrediction] = useState(null);
 
-
   useEffect(() => {
     fetchCarDetails(id).then(res => setCar(res.data))
     fetchPrediction(id).then((res) => {
