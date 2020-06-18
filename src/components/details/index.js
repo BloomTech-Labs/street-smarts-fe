@@ -47,13 +47,13 @@ const CarDetails = () => {
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-              <h3>CO<sub>2</sub> EMISSIONS</h3>
+              <h3>CO<sub>2</sub> EMISSIONS: {predictedCarbonEmissions}</h3>
               <HorizontalGauge
                 className='gauge'
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
-                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits: 2}) + " kg"} />
+              />
             <Divider className='divider' />        
               <Cost prediction={prediction}/>
             <Divider className='divider' />

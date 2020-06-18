@@ -22,7 +22,6 @@ const CompareResults = ({ make, model, year, getUrlWithId, classes }) => {
 
   return (
     <ResultsStyled>
-      <h4>Your search: {year} {make} {model}</h4>
       <CompareCarList
         className = {classes}
         grid={{ gutter: 16, column: 1 }}

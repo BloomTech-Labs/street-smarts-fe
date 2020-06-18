@@ -114,7 +114,7 @@ const Compare = () => {
           { ids.length < 3 ? (<>
           { ids.length > 0 && <DividerCol type="vertical" /> }
           <CompareSearchContainer>
-            <Search getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
+            <Search classes = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
           </CompareSearchContainer>
           </>) : (<></>)
           }
