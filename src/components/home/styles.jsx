@@ -14,6 +14,33 @@ const HomeStyled = styled.div`
       width: 70vw;
       margin-top: 18vh;
       margin-bottom: 10vh;
+
+      h1 {
+        width: 19em;
+        background-color: black;
+
+        @media (max-width: 1100px) {
+          width: 19em;
+        }
+
+        @media (max-width: 750px) {
+          width: 12em;
+        }
+      }
+
+      #description {
+        width: 30em;
+        background-color: black;
+
+        @media (max-width: 1100px) {
+          width: 28em;
+        }      
+
+        @media (max-width: 750px) {
+          width: 18em;
+        }
+
+      }
     }
 
     div.dropdownForm {

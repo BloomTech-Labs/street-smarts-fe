@@ -20,6 +20,7 @@ const CarDetailsStyles = styled.div`
 
       @media (max-width: 1100px) {
         margin-bottom: 0vh;
+        margin-top: 5vh;
       }
     }
 

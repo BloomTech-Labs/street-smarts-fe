@@ -102,11 +102,7 @@ const Compare = () => {
                     min={0}
                     max={MAX_CARBON_EMISSIONS}
                     value={predictedCarbonEmissions}
-                    text={
-                      predictedCarbonEmissions.toLocaleString(undefined, {
-                        maximumFractionDigits: 2,
-                      }) + " kg"
-                    } />
+                     />
                 </CarbonGaugeContainer>
               </React.Fragment>
             );
@@ -114,8 +110,8 @@ const Compare = () => {
           
           { ids.length < 3 ? (<>
           { ids.length > 0 && <DividerCol type="vertical" /> }
-          <CompareSearchContainer>
-            <Search classes = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
+          <CompareSearchContainer className='HERERERERERERERS'>
+            <Search searchClass = 'compare-search' resultsClass = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
           </CompareSearchContainer>
           </>) : (<></>)
           }

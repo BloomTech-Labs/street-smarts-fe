@@ -92,7 +92,6 @@ const AppStyle = styled.div`
       width: 70%;
       display: flex;
       justify-content: space-evenly;
-      /* background-color: rgba(0,0,0,0); */
       color: #FFFFFF;
       border: none;
       margin: auto;      
@@ -104,7 +103,6 @@ const AppStyle = styled.div`
       width: 100%;
       display: flex;
       justify-content: center;
-
       bottom: 0;
       z-index: 1;
       text-align: center;
@@ -134,6 +132,9 @@ const AppStyle = styled.div`
         top: 9em;
     }
 
+    .compare-title {
+      margin-top: 10em;
+    }
 }
 `;
 

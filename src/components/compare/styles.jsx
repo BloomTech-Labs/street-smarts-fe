@@ -38,6 +38,12 @@ export const CompareSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .compare-search {
+      p {
+        background-color: black;
+      }
+  }
 `;
 
 export const DividerCol = styled(Divider)`
