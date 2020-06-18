@@ -91,7 +91,7 @@ const Compare = () => {
             return (
               <React.Fragment key={idx}>
                 {idx !== 0 && <DividerCol type="vertical" />}
-                <CarImgContainer><img src={image} /></CarImgContainer>
+                <CarImgContainer><img src={image} alt = 'Car' /></CarImgContainer>
                 <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>

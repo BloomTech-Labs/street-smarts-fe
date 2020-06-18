@@ -42,6 +42,7 @@ export const CompareSearchContainer = styled.div`
   .compare-search {
       p {
         background-color: black;
+        max-width: 13em;
       }
   }
 `;

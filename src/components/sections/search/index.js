@@ -45,7 +45,7 @@ export default function Search({ searchTitle, getUrlWithId, resultsClass, search
 
   return (
     <>
-      <div className={'dropdownForm', searchClass}>
+      <div className={`'dropdownForm' ${searchClass}`}>
         <p>{searchTitle ? searchTitle : 'Start your search'}</p>
         <Dropdown
           showSearch

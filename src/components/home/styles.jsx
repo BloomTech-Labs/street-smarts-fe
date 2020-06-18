@@ -51,11 +51,24 @@ const HomeStyled = styled.div`
     }
   }
 
+  .home-results {
+    @media (max-width: 750px){
+      p {
+          background-color: black;
+          width: 9em;
+      }
+  }
+}
+
   .results {
     margin-top: 5vh;
 
     .home-results {
       align-items: stretch;
+
+      p {
+        background-color: black;
+      }
     }
   }
 `;

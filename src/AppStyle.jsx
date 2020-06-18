@@ -134,6 +134,12 @@ const AppStyle = styled.div`
 
     .compare-title {
       margin-top: 10em;
+      text-align: center;
+
+      h1 {
+        background-color: black;
+        width: max-content;
+      }
     }
 }
 `;
