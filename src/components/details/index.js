@@ -11,14 +11,17 @@ import CarDetailsStyles from './styles';
 import { MAX_CARBON_EMISSIONS } from '../../constants';
 import Cost from '../cost/index';
 import Compare from '../common/buttons/compare';
+import Trees from '../common/trees';
 
 const CarDetails = () => {
   const { id } = useParams();
 
   const [car, setCar] = useState({});
+  const [trees, setTrees] = useState([]);
   const [carImages, setCarImages] = useState([]);
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
   const [prediction, setPrediction] = useState(null);
+
 
 
   useEffect(() => {
@@ -27,6 +30,7 @@ const CarDetails = () => {
       setPredictedCarbonEmissions(res.data.co2_five_year_kgs);
       setPrediction(res.data);
       setCarImages(res.data.list_of_imgs);
+      setTrees(res.data);
     });
   }, [id]);
 
@@ -54,6 +58,8 @@ const CarDetails = () => {
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
               />
+            <Divider className='divider' />
+              <Trees trees = {trees}/>
             <Divider className='divider' />        
               <Cost prediction={prediction}/>
             <Divider className='divider' />

@@ -13,6 +13,19 @@ const CarDetailsStyles = styled.div`
       flex-direction:column-reverse;
     }
 
+    #niceEmoji {
+      img {
+        width: 3em;
+        margin-left: 2em;
+      }
+    }
+
+    .emojis {
+      font-weight: bolder;
+      span { 
+        margin-left: 2em;
+      }
+    }
     .ant-card-body {
       padding: 0;
       margin-top: 10vh;
@@ -81,6 +94,16 @@ const CarDetailsStyles = styled.div`
   .compare-button {
     margin:20%;
     text-align: center;
+  }
+
+  .trees {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      text-align: center;
+    }
   }
 `;
 

@@ -7,6 +7,7 @@ import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
 import Search from '../sections/search';
 import Cost from "../cost";
+// import Trees from '../common/trees';
 
 import {
   CompareCarsContainer,

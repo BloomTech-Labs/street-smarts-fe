@@ -138,8 +138,13 @@ const AppStyle = styled.div`
 
       h1 {
         background-color: black;
-        width: max-content;
+        /* width: max-content; */
       }
+    }
+
+    .compare-container {
+      background-color: black;
+      padding-bottom: 10em;
     }
 }
 `;
