@@ -42,9 +42,6 @@ const LessFuel = () => {
         <h2>Drive less</h2>
         <p>The best way reduce fuel consumption is to drive less. Walk or bike to your destination to use no fuel and have a healthier lifestyle. Use public transit or join a car or van pool to save fuel and avoid emitting tons of air pollutants a year. Work from home when you can, because every day you telecommute reduces the amount of fuel you use by 20%.</p>
       </section>
-      
-      <figcaption> Cover photo by <a href="https://unsplash.com/@robertbye?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robert Bye</a> on <a href="applewebdata://0CE9B0C9-839B-4EAD-96B5-14BD0A2C9273/collections/10738520/streetsmarts?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
-
     </ArticleStyled>
   );
 };

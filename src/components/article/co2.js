@@ -20,8 +20,6 @@ const CO2 = () => {
           <p> From <a href='https://visual.ly?utm_source=content-embed&utm_medium=embed'>Visually</a>.</p>
         </div>
       </section>
-
-        <figcaption> Cover photo by <a href="https://unsplash.com/@jwimmerli?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deva Darshan</a> on <a href="applewebdata://1F1C6055-8A4E-4A91-9236-A907079C721A/collections/10738520/streetsmarts?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> </figcaption>
     </ArticleStyled>
   );
 };

@@ -34,9 +34,6 @@ const EcoDriving = () => {
         
         <h2>For more ways to use less fuel, <a href="/articles/less-fuel">click here.</a></h2>
       </section>
-      
-      <figcaption> Cover photo by <a href="https://unsplash.com/@jwimmerli?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deva Darshan</a> on <a href="applewebdata://1F1C6055-8A4E-4A91-9236-A907079C721A/collections/10738520/streetsmarts?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
-
     </ArticleStyled>
   );
 };

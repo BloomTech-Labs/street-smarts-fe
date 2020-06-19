@@ -44,20 +44,13 @@ const About = () => {
           {teamData.map(cog => {
           return (
           <div class="teamMember">
-              <img
-                className='member-photo'
-                src={cog.avatar} 
-                alt={cog.name} />
+              <img className='member-photo' src={cog.avatar} alt={cog.name} />
               <div class="content">
                 <h3>{cog.name}</h3>
                 <p>{cog.role}</p>
                 <div className='icons'>
-                  <a href={cog.github}>
-                    <img className='github' src="https://github.com/favicon.ico"
-                      alt="GitHub icon" /></a>
-                  <a href={cog.linkedin}>
-                    <img className='linkedin' src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" 
-                      alt="LinkedIn icon" /></a>
+                  <a href={cog.github}><img className='github' src="https://github.com/favicon.ico" alt="GitHub icon" /></a>
+                  <a href={cog.linkedin}><img className='linkedin' src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="LinkedIn icon" /></a>
                 </div>
               </div>
           </div>
@@ -65,8 +58,6 @@ const About = () => {
 
         </div>
       </section>
-
-        <figcaption> Cover photo by <a href="https://unsplash.com/@jwimmerli?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deva Darshan</a> on <a href="applewebdata://1F1C6055-8A4E-4A91-9236-A907079C721A/collections/10738520/streetsmarts?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> </figcaption>
     </ArticleStyled>
   );
 };
