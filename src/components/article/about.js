@@ -1,6 +1,7 @@
 import React from "react";
 import ArticleStyled from "./styles";
 import { Divider } from 'antd';
+import { teamData } from '../common/team-data';
 
 const About = () => {
 
@@ -37,214 +38,30 @@ const About = () => {
           <p>This puts every car on a level playing field. Obviously, individual results will vary based on actual cost of fuel, driving conditions, driving styles, actual maintenance of the vehicle, unforeseen events, and other factors.</p>
           <br />
           <p>You can learn more about this at the <a href="https://www.fueleconomy.gov/feg/Find.do?action=bt1">EPA’s Learn About the Label page</a>.</p>
-<Divider />
+      <Divider />
         <h1 className='team-title'>Meet the Team</h1>
         <div class="team">
+          {teamData.map(cog => {
+          return (
           <div class="teamMember">
               <img
                 className='member-photo'
-                src="https://ca.slack-edge.com/ESZCHB482-W0138D6R6Q0-3da4fdff22bd-512" 
-                alt="Wes Moody" />
+                src={cog.avatar} 
+                alt={cog.name} />
               <div class="content">
-                <h3>Wes Moody</h3>
-                <p>Project Lead</p>
+                <h3>{cog.name}</h3>
+                <p>{cog.role}</p>
                 <div className='icons'>
-                  <a href="">
-                    <img src="https://github.com/favicon.ico"
+                  <a href={cog.github}>
+                    <img className='github' src="https://github.com/favicon.ico"
                       alt="GitHub icon" /></a>
-                  <a href="https://www.linkedin.com/in/wesley-moody">
-                    <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" 
+                  <a href={cog.linkedin}>
+                    <img className='linkedin' src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" 
                       alt="LinkedIn icon" /></a>
                 </div>
               </div>
           </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://ca.slack-edge.com/ESZCHB482-W012X6VGP5X-f41e79b2f18c-512"
-              alt="Cornelius Hardy" />
-            <div class="content">
-              <h3>Cornelius Hardy</h3>
-              <p>UX Designer</p>
-              <div className='icons'>
-                <a href="https://www.linkedin.com/in/corneliushardy">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://avatars3.githubusercontent.com/u/49764112?s=460&u=8ab39b1438191f5f94f11f1fb042154c3e54716a&v=4"
-              alt="Mikio Harman" />
-            <div class="content">
-              <h3>Mikio Harman</h3>
-              <p>Data Scientist</p>
-              <div className='icons'>
-                <a href="https://github.com/mpHarm88">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/mikio-harman">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img 
-              className='member-photo'
-              src="https://avatars2.githubusercontent.com/u/59704644?s=460&u=63f5db90b599e70770504e2b86047dd91dc441e2&v=4"
-              alt="Jonathan Nguyen-Dang" />
-            <div class="content">
-              <h3>Jonathan Nguyen-Dang</h3>
-              <p>Data Scientist</p>
-              <div className='icons'>
-                <a href="https://github.com/JonNData">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/jonathan-nguyen">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://avatars3.githubusercontent.com/u/30095633?s=460&u=394f507349eee136ae1beec2112436b13de9609a&v=4"
-              alt="Will Stauffer-Norris" />
-            <div class="content">
-              <h3>Will Stauffer-Norris</h3>
-              <p>Data Scientist</p>
-              <div className='icons'>
-                <a href="https://github.com/willstauffernorris">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/willsn">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://ca.slack-edge.com/ESZCHB482-W012JQ3C81H-4a18f12203a6-512" 
-              alt="Gunnar Arnporsson" />
-            <div class="content">
-              <h3>Gunnar Arnporsson</h3>
-              <p>Web Developer:<br />Back End</p>
-              <div className='icons'>
-                <a href="https://github.com/gunnarthorson">
-                  <img src="https://github.com/favicon.ico" 
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/gunnar-thorson">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://ca.slack-edge.com/ESZCHB482-W012BRSJU5C-48385005a92c-512"
-              alt="Steven Wang" />
-            <div class="content">
-              <h3>Steven Wang</h3>
-              <p>Web Developer:<br />Back End</p>
-              <div className='icons'>
-                <a href="https://github.com/stevenwang2060">
-                  <img src="https://github.com/favicon.ico" 
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/steven-wang">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://avatars2.githubusercontent.com/u/2229184?s=460&u=7f43cd85a4da972dacc5b0fcb4f62816b96d771d&v=4"
-              alt="LeRoyce Pearson" />
-            <div class="content">
-              <h3>LeRoyce Pearson</h3>
-              <p>Web Developer:<br />Back End & Front End</p>
-              <div className='icons'>
-                <a href="https://github.com/leroycep">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/leroyce-pearson">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://avatars1.githubusercontent.com/u/55899345?s=460&u=6a13a00a824fb58a2e48478e9988a195f1bf5d07&v=4" 
-              alt="Issac Moreno" />
-            <div class="content">
-              <h3>Issac Moreno</h3>
-              <p>Web Developer:<br />Front End</p>
-              <div className='icons'>
-                <a href="https://github.com/issac909">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/issac-moreno">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://avatars1.githubusercontent.com/u/53796411?s=460&u=e79e83f36867f4ed187d711ab1b9eb6f89dda91a&v=4"
-              alt="Hysen Sisco" />
-            <div class="content">
-              <h3>Hysen Sisco</h3>
-              <p>Web Developer:<br />Front End</p>
-              <div className='icons'>
-                <a href="ttps://github.com/hsisco">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/hysensisco">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="teamMember">
-            <img
-              className='member-photo'
-              src="https://ca.slack-edge.com/ESZCHB482-W0138D8NFJL-e114f1c5d1c3-512"
-              alt="Brian Wardwell" />
-            <div class="content">
-              <h3>Brian Wardwell</h3>
-              <p>Web Developer:<br />Front End</p>
-              <div className='icons'>
-                <a href="https://github.com/b-dubz79">
-                  <img src="https://github.com/favicon.ico"
-                    alt="GitHub icon" /></a>
-                <a href="https://www.linkedin.com/in/brianwardwell">
-                  <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca"
-                    alt="LinkedIn icon" /></a>
-              </div>
-            </div>
-          </div>
+          )})}
 
         </div>
       </section>
