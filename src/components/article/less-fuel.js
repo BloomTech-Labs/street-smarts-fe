@@ -5,7 +5,7 @@ const LessFuel = () => {
 
   return (
     <ArticleStyled>
-      <section className='hero-less-fuel'>
+      <section className='hero'>
         <div className='hero-text'>
           <h1>More ways to use less fuel</h1>
         </div>
