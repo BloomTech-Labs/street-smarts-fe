@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import background from './assets/images/background.jpg';
 
 const AppStyle = styled.div`
   h1, h2, h3, p, a {
@@ -41,10 +42,13 @@ const AppStyle = styled.div`
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: rgb(0,0,0);
     color: #FFFFFF;
     border: none;
-
+    background-color: black;
+    background-position: center;
+    background-image: url(${background});
+    background-repeat: no-repeat;
+    background-size: 100%;
     .header {
       width: 100%;
       display: flex;
@@ -57,6 +61,11 @@ const AppStyle = styled.div`
       align-items: center;
       background-color: rgb(0,0,0);
       color: white;
+
+      @media (max-width: 750px) {
+        margin-top: 1em;
+        flex-direction: column;
+      }
 
       .navlink {
         text-decoration: none!important;
@@ -77,22 +86,24 @@ const AppStyle = styled.div`
 
     main {
       min-height: 90vh;
+
     }
     .content {
       width: 70%;
       display: flex;
       justify-content: space-evenly;
-      background-color: rgba(0,0,0,0);
       color: #FFFFFF;
       border: none;
-      margin: auto;
+      margin: auto;      
+
     }
+
+
     .footer {
       width: 100%;
       display: flex;
       justify-content: center;
-      position: sticky;
-      bottom: 0px;
+      bottom: 0;
       z-index: 1;
       text-align: center;
       color: #FFFFFF;
@@ -121,6 +132,20 @@ const AppStyle = styled.div`
         top: 9em;
     }
 
+    .compare-title {
+      margin-top: 10em;
+      text-align: center;
+
+      h1 {
+        background-color: black;
+        /* width: max-content; */
+      }
+    }
+
+    .compare-container {
+      background-color: black;
+      padding-bottom: 10em;
+    }
 }
 `;
 

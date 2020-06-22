@@ -7,6 +7,7 @@ import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
 import Search from '../sections/search';
 import Cost from "../cost";
+// import Trees from '../common/trees';
 
 import {
   CompareCarsContainer,
@@ -81,26 +82,17 @@ const Compare = () => {
             let car = cars[carId];
             let image = "";
             let title = "Loading...";
-            let predicted_price = "";
-            let yearlyTotalCost = "";
-            let yearlyGasSpend = "";
-            let yearlyMaintenanceCost = "";
-            let five_year_cost_to_own = "";
             let predictedCarbonEmissions = NaN;
             if (car) {
               image = car.list_of_imgs[0] || image;
               title = `${car.year} ${car.make} ${car.model}`;
-              predicted_price = car.predicted_price;
-              five_year_cost_to_own = car.five_year_cost_to_own;
-              yearlyGasSpend = car.fuel_cost / 5;
-              yearlyMaintenanceCost = car.maintenance_cost;
-              yearlyTotalCost = predicted_price + yearlyGasSpend + yearlyMaintenanceCost;
+          
               predictedCarbonEmissions = car.co2_five_year_kgs;
             }
             return (
               <React.Fragment key={idx}>
                 {idx !== 0 && <DividerCol type="vertical" />}
-                <CarImgContainer><img src={image} /></CarImgContainer>
+                <CarImgContainer><img src={image} alt = 'Car' /></CarImgContainer>
                 <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>
@@ -111,11 +103,7 @@ const Compare = () => {
                     min={0}
                     max={MAX_CARBON_EMISSIONS}
                     value={predictedCarbonEmissions}
-                    text={
-                      predictedCarbonEmissions.toLocaleString(undefined, {
-                        maximumFractionDigits: 2,
-                      }) + " kg"
-                    } />
+                     />
                 </CarbonGaugeContainer>
               </React.Fragment>
             );
@@ -123,8 +111,8 @@ const Compare = () => {
           
           { ids.length < 3 ? (<>
           { ids.length > 0 && <DividerCol type="vertical" /> }
-          <CompareSearchContainer>
-            <Search getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
+          <CompareSearchContainer className='HERERERERERERERS'>
+            <Search searchClass = 'compare-search' resultsClass = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
           </CompareSearchContainer>
           </>) : (<></>)
           }

@@ -2,15 +2,39 @@ import styled from 'styled-components';
 
 const CarDetailsStyles = styled.div`
   .carDetails {
-    width: 70vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: rgb(0,0,0);
     border: none;
+    @media (max-width: 1100px) {
+      width: 200%;
+      justify-content: center;
+      flex-direction:column-reverse;
+    }
+
+    #niceEmoji {
+      img {
+        width: 3em;
+        margin-left: 2em;
+      }
+    }
+
+    .emojis {
+      font-weight: bolder;
+      span { 
+        margin-left: 2em;
+      }
+    }
     .ant-card-body {
       padding: 0;
       margin-top: 10vh;
       margin-bottom: 10vh;
+
+      @media (max-width: 1100px) {
+        margin-bottom: 0vh;
+        margin-top: 5vh;
+      }
     }
 
     .carText {
@@ -29,6 +53,10 @@ const CarDetailsStyles = styled.div`
       background-color: rgba(0,0,0,0);
       border: none;
       padding: 0px;
+
+      @media (max-width: 1100px) {
+        width: 50%;
+      }
 
       svg {
         width: 100%;
@@ -65,6 +93,17 @@ const CarDetailsStyles = styled.div`
   }
   .compare-button {
     margin:20%;
+    text-align: center;
+  }
+
+  .trees {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      text-align: center;
+    }
   }
 `;
 
@@ -73,6 +112,11 @@ export const Fullscreen = styled.button`
     border: none;
     width: 22%;
     height: 16%;
+
+    @media (max-width: 1100px) {
+      right: 15%;
+      height: 50px;
+    }
 `;
 
 export default CarDetailsStyles;

@@ -38,6 +38,13 @@ export const CompareSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .compare-search {
+      p {
+        background-color: black;
+        max-width: 13em;
+      }
+  }
 `;
 
 export const DividerCol = styled(Divider)`
