@@ -58,16 +58,19 @@ const AppStyle = styled.div`
       background-color: rgb(0,0,0);
       color: white;
 
-      .navlink {
-        text-decoration: none!important;
-        color: #FFFFFF;
-        text-transform: uppercase;
-        font-weight: bold;
-      }
       .menu {
         background-color: rgba(0,0,0,0);
         color: white;
         border: none;
+        display: flex;
+        .navlink {
+          align-items: center;
+
+          text-decoration: none!important;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
         li {
           padding: 0;
           margin-left: 3vw;
