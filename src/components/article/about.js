@@ -7,7 +7,7 @@ const About = () => {
 
   return (
     <ArticleStyled>
-      <section className='hero' style={{ backgroundImage: `url(require("src/assets/images/deva-darshan-2XUfjLp7HYY-unsplash.jpg"))` }}>
+      <section className='hero'>
         <div className='hero-text'>
           <h1>About</h1>
           <h3>The What, Why and How of Streetsmarts</h3>
@@ -31,12 +31,12 @@ const About = () => {
               <li>Electricity costs $0.12 kW/hr</li>
               <li>Compressed natural gas costs $2.05 per gasoline gallon equivalent</li>
               <li>Hydrogen costs $5.55 per kg</li>
-              <li>Gasoline costs $3.95 per gallon with an added <a href="https://www.epa.gov/fueleconomy/gas-guzzler-tax">Gas Guzzler Tax</a> </li>
+              <li>Gasoline costs $3.95 per gallon with an added <a href="https://www.epa.gov/fueleconomy/gas-guzzler-tax" rel="noopener noreferrer" target="_blank">Gas Guzzler Tax</a> </li>
             </ul>
           <br />
           <p>This puts every car on a level playing field. Obviously, individual results will vary based on actual cost of fuel, driving conditions, driving styles, actual maintenance of the vehicle, unforeseen events, and other factors.</p>
           <br />
-          <p>You can learn more about this at the <a href="https://www.fueleconomy.gov/feg/Find.do?action=bt1">EPA’s Learn About the Label page</a>.</p>
+          <p>You can learn more about this at the <a href="https://www.fueleconomy.gov/feg/Find.do?action=bt1" rel="noopener noreferrer" target="_blank">EPA’s Learn About the Label page</a>.</p>
       <Divider />
         <h1 className='team-title'>Meet the Team</h1>
         <div class="team">
@@ -48,8 +48,8 @@ const About = () => {
                 <h3>{cog.name}</h3>
                 <p>{cog.role}</p>
                 <div className='icons'>
-                  <a href={cog.github}><img className='github' src="https://github.com/favicon.ico" alt="GitHub icon" /></a>
-                  <a href={cog.linkedin}><img className='linkedin' src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="LinkedIn icon" /></a>
+                  <a href={cog.github} rel="noopener noreferrer" target="_blank"><img className='github' src="https://github.com/favicon.ico" alt="GitHub icon" /></a>
+                  <a href={cog.linkedin} rel="noopener noreferrer" target="_blank"><img className='linkedin' src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="LinkedIn icon" /></a>
                 </div>
               </div>
           </div>
