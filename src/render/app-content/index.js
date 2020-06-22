@@ -5,7 +5,11 @@ import CarDetails from '../../components/details';
 import Home from '../../components/home';
 import Cost from '../../components/cost';
 import Compare from '../../components/compare';
-import ReactGA from "react-ga";
+import About from '../../components/article/about'
+import EcoDriving from '../../components/article/eco-driving';
+import CO2 from '../../components/article/co2';
+import LessFuel from '../../components/article/less-fuel';
+import ReactGA from 'react-ga';
 
 const AppContent = () => {
   let location = useLocation();
@@ -25,6 +29,10 @@ const AppContent = () => {
         <Route exact path='/compare/:id' component={Compare} />
         <Route exact path='/compare/:id/to/:carID' component={Compare} />
         <Route exact path='/compare/:id/to/:carID/to/:carID2' component={Compare} />
+        <Route exact path='/articles/about' component={About} />
+        <Route exact path='/articles/eco-driving' component={EcoDriving} />
+        <Route exact path='/articles/co2' component={CO2} />
+        <Route exact path='/articles/less-fuel' component={LessFuel} />
       </Switch>
     </AnimatePresence>
   )

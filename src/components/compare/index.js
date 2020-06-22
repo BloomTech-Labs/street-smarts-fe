@@ -96,7 +96,8 @@ const Compare = () => {
                 <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>
-                  <h3>Carbon Emissions (5 Years)</h3>
+                  <h3>Carbon Emissions</h3>
+                  <h4>5 years</h4>
                   <CarbonGauge
                     width={100}
                     height={20}
