@@ -9,6 +9,7 @@ export const CompareCarsContainer = styled.div`
   grid-auto-flow: column;
   gap: 4%;
   justify-items: center;
+  margin-bottom: 18vh;
 `;
 
 export const CarImg = styled.img`
@@ -17,14 +18,19 @@ export const CarImg = styled.img`
 `;
 
 export const CarbonGaugeContainer = styled.div`
+  color: white;
+  width: 100%;
   h3 {
-    text-align: center;
-    font-size: 0.7rem;
+    font-size: 1.15em;
+    padding: 10px;
+  }
+  h4 {
+    color: white;
   }
 `;
 
 export const CarbonGauge = styled(HorizontalGauge)`
-  width: 250px;
+  width: 90%;
   height: 75px;
 `;
 

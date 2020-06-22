@@ -103,7 +103,7 @@ const Compare = () => {
                 <h2>{title}</h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>
-                  <h3>Carbon Emissions</h3>
+                  <h3>CO<sub>2</sub> EMISSIONS</h3>
                   <h4>5 years</h4>
                   <CarbonGauge
                     width={100}
