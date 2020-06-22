@@ -149,6 +149,17 @@ const AppStyle = styled.div`
     .compare-container {
       background-color: black;
       padding-bottom: 10em;
+    } 
+         
+    .disclaimer {
+       font-size: 0.7rem;
+       text-align: center;
+    }
+
+    .disclaimer-container {
+      position: relative;
+      top:50px;
+      width: 100%;
     }
 }
 `;

@@ -16,15 +16,11 @@ const CarDetailsStyles = styled.div`
     #niceEmoji {
       img {
         width: 3em;
-        margin-left: 2em;
       }
     }
 
     .emojis {
       font-weight: bolder;
-      span { 
-        margin-left: 2em;
-      }
     }
     .ant-card-body {
       padding: 0;
@@ -105,6 +101,11 @@ const CarDetailsStyles = styled.div`
       text-align: center;
     }
   }
+  .disclaimer-container {
+    position: absolute;
+    width: 100%;
+  }
+
 `;
 
 export const Fullscreen = styled.button`

@@ -77,6 +77,7 @@ const Compare = () => {
       <div className="compare-container">
         <div className="compare-title">
           <h1>Compare Vehicles</h1>
+          <p className = 'disclaimer'>Based on averages over 5 years</p>
         </div>
         <CompareCarsContainer>
           {ids.map((carId, idx) => {
@@ -102,7 +103,7 @@ const Compare = () => {
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>                
                 
-                  <h3>Carbon Emissions (5 Years): {predictedCarbonEmissions} </h3>
+                  <h3>Carbon Emissions (5 Years): {predictedCarbonEmissions} kgs </h3>
                   <CarbonGauge
                     width={100}
                     height={20}
