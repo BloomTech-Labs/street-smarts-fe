@@ -11,20 +11,6 @@ const ArticleStyled = styled.div`
     justify-content: center;
     align-items: center;}
 
-  // .hero {
-  //   height: 25vh;
-  //   display: flex:
-  //   padding: 0;
-  //   background-color: black;}
-
-    // .hero-less-fuel {
-    //   background-image: url("https://unsplash.com/photos/tG36rvCeqng");
-    //   opacity: 0.5;
-    //   width: 70vw;
-    //   background-repeat: no-repeat;
-    //   background-attachment: fixed;
-    //   background-position: center;}
-
     .hero-text {
       z-index: 4;
       padding: 9%;
@@ -35,7 +21,15 @@ const ArticleStyled = styled.div`
     .article-text {
       background-color: white;
       color: black;
-      padding: 5%;}
+      padding: 5%;
+    
+      .visually-embed {
+        display: flex:
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+      }}
     
     h2 {
       padding-top: 3vh;
@@ -82,6 +76,7 @@ const ArticleStyled = styled.div`
         height: 25px;
         margin: 1vh;}
     }
+
 `;
 
 export default ArticleStyled;
