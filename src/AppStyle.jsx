@@ -33,7 +33,9 @@ const AppStyle = styled.div`
     text-decoration: none!important;
     color: #FFFFFF;
   }
-
+  .home {
+    background-image: url(${background});
+  }
   .layout {
     box-sizing: border-box;
     width: 100%;
@@ -46,9 +48,9 @@ const AppStyle = styled.div`
     border: none;
     background-color: black;
     background-position: center;
-    background-image: url(${background});
     background-repeat: no-repeat;
     background-size: 100%;
+
     .header {
       width: 100%;
       display: flex;

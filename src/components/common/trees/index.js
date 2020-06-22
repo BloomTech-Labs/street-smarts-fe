@@ -16,7 +16,15 @@ const Trees = ({ trees }) => {
             🏭😷
           </span>
         </p>
-      ) : trees.number_of_trees_to_offset >= 350 ? (
+      ) : trees.number_of_trees_to_offset >= 475 ? (
+        <p className="emojis">
+          {trees.number_of_trees_to_offset}
+          <span role="img" aria-label="string">
+            🙁
+          </span>
+        </p>
+      )
+      : trees.number_of_trees_to_offset >= 350 ? (
         <p className="emojis">
           {trees.number_of_trees_to_offset}
           <span role="img" aria-label="string">
