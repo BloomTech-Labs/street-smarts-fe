@@ -10,7 +10,7 @@ const { Content, Footer } = Layout;
 function App() {
   return (
     <Router>
-      <AppStyle>
+      <AppStyle className = 'main-container'>
         <Layout className='layout home'>
 
           <Navigation className='header' />

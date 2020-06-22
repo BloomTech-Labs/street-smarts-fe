@@ -1,10 +1,9 @@
 import React from "react";
-import { useParams } from 'react-router';
+
 import CostStyled from './styles';
 import HSBar from 'react-horizontal-stacked-bar-chart';
 
 const Cost = (props) => {
-  const { id } = useParams();
 
   const prediction = props.prediction ? props.prediction : {five_year_cost_to_own: 0, predicted_price: 0, fuel_cost: 0, maintenance_cost: 0};
 

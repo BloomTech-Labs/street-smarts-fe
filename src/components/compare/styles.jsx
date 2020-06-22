@@ -14,9 +14,14 @@ export const CompareCarsContainer = styled.div`
   margin-bottom: 18vh;
 `;
 
-export const CarImg = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+export const CarImgContainer = styled.div`
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;
 
 export const CarbonGaugeContainer = styled.div`
@@ -43,6 +48,13 @@ export const CompareSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .compare-search {
+      p {
+        background-color: black;
+        max-width: 13em;
+      }
+  }
 `;
 
 export const DividerCol = styled(Divider)`

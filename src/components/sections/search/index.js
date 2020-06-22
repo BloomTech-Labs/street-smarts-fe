@@ -10,7 +10,7 @@ import { handleMakeChanges,
 import Dropdown from '../../common/dropdown';
 import Results from '../results';
 
-export default function Search({ searchTitle, getUrlWithId })  {
+export default function Search({ searchTitle, getUrlWithId, resultsClass, searchClass })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -45,7 +45,7 @@ export default function Search({ searchTitle, getUrlWithId })  {
 
   return (
     <>
-      <div className='dropdownForm'>
+      <div className={`'dropdownForm' ${searchClass}`}>
         <p>{searchTitle ? searchTitle : 'Start your search'}</p>
         <Dropdown
           showSearch
@@ -71,7 +71,7 @@ export default function Search({ searchTitle, getUrlWithId })  {
       </div>
 
       { yearSelected ? (
-        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} />)
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} resultsClass = {resultsClass}  />)
       : <></>}
     </>
   );
