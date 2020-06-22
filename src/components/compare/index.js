@@ -96,7 +96,7 @@ const Compare = () => {
                 <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
                 <Cost prediction={car}/>
                 <CarbonGaugeContainer>
-                  <h3>Carbon Emissions (5 Years)</h3>
+                  <h3>Carbon Emissions (5 Years): {predictedCarbonEmissions} </h3>
                   <CarbonGauge
                     width={100}
                     height={20}
@@ -111,7 +111,7 @@ const Compare = () => {
           
           { ids.length < 3 ? (<>
           { ids.length > 0 && <DividerCol type="vertical" /> }
-          <CompareSearchContainer className='HERERERERERERERS'>
+          <CompareSearchContainer>
             <Search searchClass = 'compare-search' resultsClass = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
           </CompareSearchContainer>
           </>) : (<></>)
