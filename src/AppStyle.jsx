@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import background from './assets/images/background.jpg';
 
 const AppStyle = styled.div`
-  h1, h2, h3, p, a {
+  h1, h2, h3, p, a, li {
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -25,7 +25,7 @@ const AppStyle = styled.div`
     line-height: 2rem;
     text-transform: uppercase;
   }
-  p {
+  p, li {
     font-size: 1rem;
     line-height: 1.5rem;
   }
@@ -69,16 +69,18 @@ const AppStyle = styled.div`
         flex-direction: column;
       }
 
-      .navlink {
-        text-decoration: none!important;
-        color: #FFFFFF;
-        text-transform: uppercase;
-        font-weight: bold;
-      }
       .menu {
         background-color: rgba(0,0,0,0);
         color: white;
         border: none;
+        display: flex;
+        .navlink {
+          align-items: center;
+          text-decoration: none!important;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
         li {
           padding: 0;
           margin-left: 3vw;

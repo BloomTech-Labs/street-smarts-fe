@@ -2,6 +2,8 @@ import styled from "styled-components";
 import HorizontalGauge from "../common/gauge";
 import { Divider } from 'antd';
 
+
+
 export const CompareCarsContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(250px, 1fr) repeat(auto-fit, 10px minmax(250px, 1fr));
@@ -9,6 +11,7 @@ export const CompareCarsContainer = styled.div`
   grid-auto-flow: column;
   gap: 4%;
   justify-items: center;
+  margin-bottom: 18vh;
 `;
 
 export const CarImgContainer = styled.div`
@@ -22,15 +25,22 @@ export const CarImgContainer = styled.div`
 `;
 
 export const CarbonGaugeContainer = styled.div`
+  color: white;
+  width: 100%;
   h3 {
-    text-align: center;
-    font-size: 0.7rem;
+    font-size: 1.15em;
+    padding-left: 10px;
+  }
+  h4 {
+    color: white;
+    padding-left: 10px;
+    font-weight: bold;
   }
 `;
 
 export const CarbonGauge = styled(HorizontalGauge)`
-  width: 250px;
-  height: 75px;
+  width: 90%;
+  height: 70px;
 `;
 
 export const CompareSearchContainer = styled.div`
