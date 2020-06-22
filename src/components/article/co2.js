@@ -8,7 +8,6 @@ const CO2 = () => {
       <section className='hero' style={{ backgroundImage: `url(require("src/assets/images/deva-darshan-2XUfjLp7HYY-unsplash.jpg"))` }}>
         <div className='hero-text'>
           <h1>What is CO<sub>2</sub>?</h1>
-          <h3>Fuel-efficient driving techniques</h3>
         </div>
       </section>
 

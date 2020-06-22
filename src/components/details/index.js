@@ -43,10 +43,10 @@ const CarDetails = () => {
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
       <CarDetailsStyles className='detailsContainer'>
-        <div className='carDetails'>
+        <div className='car-details'>
           
           <Card
-            className='carText'
+            className='car-text'
             id={car.id}>
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
@@ -94,12 +94,15 @@ const CarDetails = () => {
           </Card>
 
           <Card
-            className='carImg'
+            className='car-img'
             id={car.id}>
             <CarGallery showFullscreenButton={true} images = {carImages} />
             <div className='compare-button'>
               <h3>Compare to Other Vehicles</h3>
               <Compare />
+            </div>
+            <div className='eco-driving-link'>
+              <a href="/articles/eco-driving"><h3>Decrease your CO<sub>2</sub> with<h2>eco-driving</h2>Learn how</h3></a>
             </div>
           </Card>
         
