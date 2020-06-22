@@ -154,12 +154,15 @@ const AppStyle = styled.div`
     .disclaimer {
        font-size: 0.7rem;
        text-align: center;
+       padding-bottom:1em;
     }
 
     .disclaimer-container {
-      position: relative;
-      top:50px;
-      width: 100%;
+      .disclaimer {
+        position: relative;
+        top:50px;
+        width: 100%;
+      }
     }
 }
 `;
