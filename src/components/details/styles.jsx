@@ -50,7 +50,10 @@ const CarDetailsStyles = styled.div`
         border: 2px solid #25D0C6;
         border-radius: 25px;
         margin: 10vw;
-        margin-top: 20vh;
+        margin-top: 25vh;
+        a {
+          margin: 5%;
+        }
       }
     }
   }
