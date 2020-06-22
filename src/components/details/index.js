@@ -102,7 +102,7 @@ const CarDetails = () => {
               <Compare />
             </div>
             <div className='eco-driving-link'>
-              <a href="/articles/eco-driving"><h3>Decrease your CO<sub>2</sub> with<h2>eco-driving</h2>Learn how</h3></a>
+              <a href="/articles/eco-driving" rel="noopener noreferrer" target="_blank"><h3>Decrease your CO<sub>2</sub> with<h2>eco-driving</h2>Learn how</h3></a>
             </div>
           </Card>
         
