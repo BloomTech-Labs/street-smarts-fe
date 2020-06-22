@@ -65,6 +65,7 @@ const CarDetailsStyles = styled.div`
   }
   .compare-button {
     margin:20%;
+    text-align: center;
   }
 `;
 
