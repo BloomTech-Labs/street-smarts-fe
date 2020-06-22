@@ -7,7 +7,7 @@ import { Divider } from 'antd';
 export const CompareCarsContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(250px, 1fr) repeat(auto-fit, 10px minmax(250px, 1fr));
-  grid-template-rows: 30vh repeat(3, auto);
+  grid-template-rows: 30vh repeat(4, auto);
   grid-auto-flow: column;
   gap: 4%;
   justify-items: center;
@@ -58,6 +58,23 @@ export const CompareSearchContainer = styled.div`
 `;
 
 export const DividerCol = styled(Divider)`
-  grid-row: 2 / 5;
+  grid-row: 2 / 6;
   height: 100%;
 `;
+
+export const TreesContainer = styled.div`
+  text-align:center;
+  #niceEmoji {
+      img {
+        width: 3em;
+        margin-left: 2em;
+      }
+    }
+
+    .emojis {
+      font-weight: bolder;
+      span { 
+        margin-left: 2em;
+      }
+    }
+`

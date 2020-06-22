@@ -7,7 +7,7 @@ import { compareAfterTransition } from "../../hooks/pageTransitions";
 import setTitle from "../../hooks/setTitle";
 import Search from '../sections/search';
 import Cost from "../cost";
-// import Trees from '../common/trees';
+import Trees from '../common/trees';
 
 import {
   CompareCarsContainer,
@@ -16,6 +16,7 @@ import {
   CarbonGaugeContainer,
   CarbonGauge,
   DividerCol,
+  TreesContainer
 } from "./styles.jsx";
 import { MAX_CARBON_EMISSIONS } from "../../constants";
 
@@ -93,11 +94,15 @@ const Compare = () => {
               <React.Fragment key={idx}>
                 {idx !== 0 && <DividerCol type="vertical" />}
                 <CarImgContainer><img src={image} alt = 'Car' /></CarImgContainer>
+                
                 <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
+                <TreesContainer>
+                  {car ? <Trees trees = {car} /> : <></>}
+                </TreesContainer>
                 <Cost prediction={car}/>
-                <CarbonGaugeContainer>
-                  <h3>CO<sub>2</sub> EMISSIONS</h3>
-                  <h4>5 years</h4>
+                <CarbonGaugeContainer>                
+                
+                  <h3>Carbon Emissions (5 Years): {predictedCarbonEmissions} </h3>
                   <CarbonGauge
                     width={100}
                     height={20}
@@ -112,7 +117,7 @@ const Compare = () => {
           
           { ids.length < 3 ? (<>
           { ids.length > 0 && <DividerCol type="vertical" /> }
-          <CompareSearchContainer className='HERERERERERERERS'>
+          <CompareSearchContainer>
             <Search searchClass = 'compare-search' resultsClass = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
           </CompareSearchContainer>
           </>) : (<></>)
