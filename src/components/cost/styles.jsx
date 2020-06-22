@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 const CostStyled = styled.div`
   padding: 0;
-  // margin-top: 5vh;
-  // margin-bottom: 10vh;
   color: white;
   .breakdown-div {
     padding: 0;

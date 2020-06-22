@@ -21,7 +21,6 @@ const About = () => {
         <br />
         <h3>So where are we getting our data?</h3>
           <p>We use industry standard practices to calculate an estimated individual vehicle’s future cost and emissions.</p>
-
           <h3>How do we know it’s reliable?</h3>
           <p>The Environmental Protection Agency (EPA) has a catalogue of every car driven within the United States, even foreign-made and lesser-known makes. The EPA calculations are based on these assumptions:</p>
           <br />
@@ -55,7 +54,6 @@ const About = () => {
               </div>
           </div>
           )})}
-
         </div>
       </section>
     </ArticleStyled>
