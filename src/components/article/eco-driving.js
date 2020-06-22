@@ -5,7 +5,7 @@ const EcoDriving = () => {
 
   return (
     <ArticleStyled>
-      <section className='hero' style={{ backgroundImage: `url(require("src/assets/images/deva-darshan-2XUfjLp7HYY-unsplash.jpg"))` }}>
+      <section className='hero'>
         <div className='hero-text'>
           <h1>Eco-Driving</h1>
           <h3>Fuel-efficient driving techniques</h3>
