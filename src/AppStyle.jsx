@@ -65,7 +65,6 @@ const AppStyle = styled.div`
         display: flex;
         .navlink {
           align-items: center;
-
           text-decoration: none!important;
           color: #FFFFFF;
           text-transform: uppercase;
