@@ -5,32 +5,47 @@ import { Layout, Menu } from "antd";
 const { Header } = Layout;
 
 const Navigation = () => {
+  const nav = document.querySelector('.menu');
+
+  const handleClick = () => {
+    nav.classList.toggle('nav-active');
+  }
+
+
+
   return (
     <Header className="header">
       <NavLink to="/">
         <h2 className="logo">StreetSmarts</h2>
       </NavLink>
-      <Menu className="menu" mode="horizontal">
-        <Menu.Item key="1">
+      <ul className="menu">
+        <li>
           <NavLink className="navlink" to="/">HOME</NavLink>
-        </Menu.Item>
-        <Menu.Item key="2">
+        </li>
+        <li>
           <NavLink className="navlink" to="/compare">COMPARE</NavLink>
-        </Menu.Item>
-        <Menu.Item key="3">
+        </li>
+        <li>
           <NavLink className="navlink" to="/articles/about">
             ABOUT
           </NavLink>
-        </Menu.Item>
-        <Menu.Item key="4">
+        </li>
+        <li key="4">
           <NavLink className="navlink" to="/articles/co2">
             WHAT IS CO<sub>2</sub>?
           </NavLink>
-        </Menu.Item>
-        <Menu.Item key="5">
+        </li>
+        <li key="5">
           <NavLink className="navlink" to="/contact">Contact</NavLink>
-        </Menu.Item>
-      </Menu>
+        </li>
+      </ul>
+    {}
+
+      <div className = 'burger' onClick = {handleClick}>
+        <div className = 'line1'></div>
+        <div className = 'line2'></div>
+        <div className = 'line3'></div>
+      </div>
     </Header>
   );
 };
