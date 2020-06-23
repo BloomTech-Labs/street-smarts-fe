@@ -11,6 +11,8 @@
     "framer-motion": "^1.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.0.0",
+    "react-horizontal-stacked-bar-chart": "^8.15.2",
     "react-image-gallery": "^1.0.7",
     "react-query-devtools": "^1.1.5",
     "react-router": "^5.2.0",
@@ -20,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "cypress": "npx cypress open",
     "test": "react-scripts test",
@@ -41,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.1",
+    "@cypress/instrument-cra": "^1.1.1",
     "cypress": "^4.7.0"
   }
 }

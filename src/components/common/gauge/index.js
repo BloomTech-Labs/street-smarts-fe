@@ -15,9 +15,9 @@ export default (props) => {
     ...props,
   };
 
-  if (!props.text) {
-      props.text = "" + props.value;
-  }
+  // if (!props.text) {
+  //     props.text = "" + props.value;
+  // }
 
   // Calculate the value as a percentage from 0 (min) to 100 (max)
   function calcAxisPos(val) {

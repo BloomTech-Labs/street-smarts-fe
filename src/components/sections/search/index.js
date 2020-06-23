@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMakeData, fetchModelData, fetchYearData } from '../../../../hooks/dataFetching';
+import { fetchMakeData, fetchModelData, fetchYearData } from '../../../hooks/dataFetching';
 import { handleMakeChanges, 
         handleModelChanges, 
         handleYearChanges, 
         handleClear, 
         disableOtherDropdown, 
         disableYearDropdown, 
-        } from '../../../../hooks/dropdownFunctions';
-import Dropdown from '../../../common/dropdown';
-import HomeResults from '../../results/home-results';
-import CompareResults from '../../results/compare-results';
+        } from '../../../hooks/dropdownFunctions';
+import Dropdown from '../../common/dropdown';
+import Results from '../results';
 
-export default function Search({ searchTitle, id })  {
+export default function Search({ searchTitle, getUrlWithId, resultsClass, searchClass })  {
   const [carMakes, setCarMakes] = useState([]);
   const [makeSelected, setMakeSelected] = useState("");
 
@@ -27,26 +26,26 @@ export default function Search({ searchTitle, id })  {
 // WHAT LIST IS SHOWING
 // Handles Make Dropdown state
   useEffect(() => {
-    fetchMakeData(setCarMakes);
+    fetchMakeData().then(res => setCarMakes(res.data));
   }, []);
 
 // Handles Model Dropdown state
   useEffect(() => {
     if (makeSelected !== "") {
-      fetchModelData(makeSelected, setCarModels)
+      fetchModelData(makeSelected).then(res => setCarModels(res.data))
     }
   }, [makeSelected]);
   
 // Handles Year Dropdown state
   useEffect(() => {
     if (makeSelected && modelSelected !== "") {
-      fetchYearData(makeSelected, modelSelected, setCarYears)
+      fetchYearData(makeSelected, modelSelected).then(res => setCarYears(res.data))
     }
   }, [makeSelected, modelSelected]);
 
   return (
     <>
-      <div className='dropdownForm'>
+      <div className={`'dropdownForm' ${searchClass}`}>
         <p>{searchTitle ? searchTitle : 'Start your search'}</p>
         <Dropdown
           showSearch
@@ -71,11 +70,9 @@ export default function Search({ searchTitle, id })  {
           data={carYears} />
       </div>
 
-      { modelSelected ? (
-        <HomeResults make = {makeSelected} model = {modelSelected} year = {yearSelected} />)
-      : id ? <CompareResults id={id} make = {makeSelected} model = {modelSelected} year = {yearSelected} />
-      : <></>
-      }
+      { yearSelected ? (
+        <Results make = {makeSelected} model = {modelSelected} year = {yearSelected} getUrlWithId={getUrlWithId} resultsClass = {resultsClass}  />)
+      : <></>}
     </>
   );
 };

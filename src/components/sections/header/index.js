@@ -15,14 +15,19 @@ const Navigation = () => {
           <NavLink className="navlink" to="/">HOME</NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink className="navlink" to="/">SEARCH</NavLink>
+          <NavLink className="navlink" to="/compare">COMPARE</NavLink>
         </Menu.Item>
         <Menu.Item key="3">
-          <NavLink className="navlink" to="/about">
-            WHAT IS CO<sub>2</sub>?
+          <NavLink className="navlink" to="/articles/about">
+            ABOUT
           </NavLink>
         </Menu.Item>
         <Menu.Item key="4">
+          <NavLink className="navlink" to="/articles/co2">
+            WHAT IS CO<sub>2</sub>?
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="5">
           <NavLink className="navlink" to="/contact">Contact</NavLink>
         </Menu.Item>
       </Menu>

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import background from './assets/images/background.jpg';
 
 const AppStyle = styled.div`
-  h1, h2, h3, p, a {
+  h1, h2, h3, p, a, li {
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -24,7 +25,7 @@ const AppStyle = styled.div`
     line-height: 2rem;
     text-transform: uppercase;
   }
-  p {
+  p, li {
     font-size: 1rem;
     line-height: 1.5rem;
   }
@@ -32,7 +33,9 @@ const AppStyle = styled.div`
     text-decoration: none!important;
     color: #FFFFFF;
   }
-
+  .home {
+    background-image: url(${background});
+  }
   .layout {
     box-sizing: border-box;
     width: 100%;
@@ -41,9 +44,12 @@ const AppStyle = styled.div`
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: rgb(0,0,0);
     color: #FFFFFF;
     border: none;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 
     .header {
       width: 100%;
@@ -58,16 +64,23 @@ const AppStyle = styled.div`
       background-color: rgb(0,0,0);
       color: white;
 
-      .navlink {
-        text-decoration: none!important;
-        color: #FFFFFF;
-        text-transform: uppercase;
-        font-weight: bold;
+      @media (max-width: 750px) {
+        margin-top: 1em;
+        flex-direction: column;
       }
+
       .menu {
         background-color: rgba(0,0,0,0);
         color: white;
         border: none;
+        display: flex;
+        .navlink {
+          align-items: center;
+          text-decoration: none!important;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
         li {
           padding: 0;
           margin-left: 3vw;
@@ -77,22 +90,24 @@ const AppStyle = styled.div`
 
     main {
       min-height: 90vh;
+
     }
     .content {
       width: 70%;
       display: flex;
       justify-content: space-evenly;
-      background-color: rgba(0,0,0,0);
       color: #FFFFFF;
       border: none;
-      margin: auto;
+      margin: auto;      
+
     }
+
+
     .footer {
       width: 100%;
       display: flex;
       justify-content: center;
-      position: sticky;
-      bottom: 0px;
+      bottom: 0;
       z-index: 1;
       text-align: center;
       color: #FFFFFF;
@@ -121,31 +136,35 @@ const AppStyle = styled.div`
         top: 9em;
     }
 
-    .main-car-bd {
-      display: flex;
-      flex-direction: column;
+    .compare-title {
+      margin-top: 10em;
+      text-align: center;
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      align-items: space-between;
+      h1 {
+        background-color: black;
+        /* width: max-content; */
+      }
     }
-    .top {
-      width: 200%;
-      margin-bottom: 5%;
-    
+
+    .compare-container {
+      background-color: black;
+      padding-bottom: 10em;
+    } 
+         
+    .disclaimer {
+       font-size: 0.7rem;
+       text-align: center;
+       padding-bottom:1em;
     }
-    .bottom {
-      width: 200%;
+
+    .disclaimer-container {
+      .disclaimer {
+        position: relative;
+        top:50px;
+        width: 100%;
+      }
     }
-    .text-block {
-      padding-left: 4%;
-    }
-    .vertical-divider-1 {
-      height: 5em;
-      margin-top: 1em;
-    }
-  } 
+}
 `;
 
 export default AppStyle;

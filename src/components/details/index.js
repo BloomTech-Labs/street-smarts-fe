@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
 import { motion } from 'framer-motion';
-import { Card, Divider } from "antd";
+import { Card, Divider } from 'antd';
 import { fetchCarDetails, fetchPrediction } from '../../hooks/dataFetching';
-import setTitle from '../../hooks/setTitle';
 import { detailsTransition } from '../../hooks/pageTransitions';
+import setTitle from '../../hooks/setTitle';
 import HorizontalGauge from '../common/gauge';
-import chevron from '../../assets/images/chevron.png';
 import CarGallery from '../common/image-gallery';
 import CarDetailsStyles from './styles';
-
-const MAX_CARBON_EMISSIONS = 83316;
+import { MAX_CARBON_EMISSIONS } from '../../constants';
+import Cost from '../cost/index';
+import Compare from '../common/buttons/compare';
+import Trees from '../common/trees';
 
 const CarDetails = () => {
   const { id } = useParams();
 
   const [car, setCar] = useState({});
+  const [trees, setTrees] = useState([]);
   const [carImages, setCarImages] = useState([]);
   const [predictedCarbonEmissions, setPredictedCarbonEmissions] = useState(NaN);
-  const [predictedPrice, setPredictedPrice] = useState(null);
+  const [prediction, setPrediction] = useState(null);
+
+
 
   useEffect(() => {
-    fetchCarDetails(id, setCar)
-    fetchPrediction(id, (obj) => {
-      setPredictedCarbonEmissions(obj.co2_five_year_kgs);
-      setPredictedPrice(obj.five_year_cost_to_own.toLocaleString(undefined, {maximumFractionDigits: 2}));
-      setCarImages(obj.list_of_imgs);
+    fetchCarDetails(id).then(res => setCar(res.data))
+    fetchPrediction(id).then((res) => {
+      setPredictedCarbonEmissions(res.data.co2_five_year_kgs);
+      setPrediction(res.data);
+      setCarImages(res.data.list_of_imgs);
+      setTrees(res.data);
     });
   }, [id]);
 
@@ -38,33 +42,29 @@ const CarDetails = () => {
 
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
-      <CarDetailsStyles className = 'detailsContainer'>
+      <div className = 'disclaimer-container'>
+        <p className = 'disclaimer'>Based on averages over 5 years</p>
+      </div>
+      <CarDetailsStyles className='detailsContainer'>
         <div className='carDetails'>
-          
+
           <Card
             className='carText'
             id={car.id}>
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-              <h3>CO<sub>2</sub> EMISSIONS</h3>
+              <h3>CO<sub>2</sub> EMISSIONS: {predictedCarbonEmissions} kgs</h3>
               <HorizontalGauge
                 className='gauge'
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
                 value={predictedCarbonEmissions}
-                text={predictedCarbonEmissions.toLocaleString(undefined, {maximumFractionDigits:2}) + " kg"}/>
-            <Divider className='divider' />             
-              <h3>Cost of Ownership (5 years)</h3>
-              <div>
-                <h1 className='cto'>${predictedPrice}</h1>
-              </div>
-              <div className ='chevron-down'>              
-                <Link to={`/details/${car.make}/${car.model}/${car.id}/cost-to-own`}>
-                  <p>5 Year Cost Breakdown</p> 
-                  <img src={chevron} alt= 'View cost to own' />  <span className='explaination'>(Click to find more info)</span>
-                </Link>
-              </div>
+              />
+            <Divider className='divider' />
+              <Trees trees = {trees}/>
+            <Divider className='divider' />        
+              <Cost prediction={prediction}/>
             <Divider className='divider' />
               <h3>MPG</h3>
               <div className='mpg'>
@@ -99,7 +99,14 @@ const CarDetails = () => {
           <Card
             className='carImg'
             id={car.id}>
-            <CarGallery images = {carImages} />
+            <CarGallery showFullscreenButton={true} images = {carImages} />
+            <div className='compare-button'>
+              <h3>Compare to Other Vehicles</h3>
+              <Compare />
+            </div>
+            <div className='eco-driving-link'>
+              <a href="/articles/eco-driving" rel="noopener noreferrer" target="_blank"><h3>Decrease your CO<sub>2</sub> with<h2>eco-driving</h2>Learn how</h3></a>
+            </div>
           </Card>
         
         </div>        

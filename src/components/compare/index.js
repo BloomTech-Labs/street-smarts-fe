@@ -1,80 +1,129 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { motion } from 'framer-motion';
-import { fetchPrediction } from '../../hooks/dataFetching';
-import { compareAfterTransition } from '../../hooks/pageTransitions';
-import setTitle from '../../hooks/setTitle';
-// import AddToCompare from '../common/buttons/addToCompare';
-import Breakdown from '../common/breakdown';
+import React, { useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fetchPrediction } from "../../hooks/dataFetching";
+import { compareAfterTransition } from "../../hooks/pageTransitions";
+import setTitle from "../../hooks/setTitle";
+import Search from '../sections/search';
+import Cost from "../cost";
+import Trees from '../common/trees';
+
+import {
+  CompareCarsContainer,
+  CompareSearchContainer,
+  CarImgContainer,
+  CarbonGaugeContainer,
+  CarbonGauge,
+  DividerCol,
+  TreesContainer
+} from "./styles.jsx";
+import { MAX_CARBON_EMISSIONS } from "../../constants";
 
 const Compare = () => {
-  const { id, carID } = useParams();
-  
+  const { id, carID, carID2 } = useParams();
+
+  // Remove `/` from the end of the base url
+  const baseUrl = useLocation().pathname.replace(/\/+$/, "");
+
   // Main car state
-  const [mainCar, setMainCar] = useState([]);
-  const [totalCost, setTotalCost] = useState(0);
-  const [purchasePrice, setPurchasePrice] = useState(0);
-  const [yearlyTotalCost, setYearlyTotalCost] = useState(0);
-  const [yearlyGasSpend, setYearlyGasSpend] = useState(0);
-  const [yearlyMaintenanceCost, setYearlyMaintenanceCost] = useState(0);
-
-  // Compared car state
-  const [comparedCar, setComparedCar] = useState([]);
-  const [comparedTotalCost, setComparedTotalCost] = useState(0);
-  const [comparedPurchasePrice, setComparedPurchasePrice] = useState(0);
-  const [comparedYearlyTotalCost, setComparedYearlyTotalCost] = useState(0);
-  const [comparedYearlyGasSpend, setComparedYearlyGasSpend] = useState(0);
-  const [comparedYearlyMaintenanceCost, setComparedYearlyMaintenanceCost] = useState(0);
-
-  useEffect(() => {
-    fetchPrediction(id, (obj) => {
-      setMainCar(obj);
-      setTotalCost(Math.round(obj.five_year_cost_to_own));            
-      setPurchasePrice(obj.predicted_price);
-
-      setYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
-      setYearlyGasSpend(obj.fuel_cost / 5);
-      setYearlyMaintenanceCost(obj.maintenance_cost / 5);
-    })
-  }, [id]);
+  const [ids] = useState(() => {
+    const list_of_ids = [];
+    if(id !== undefined) {
+      list_of_ids.push(id);
+    }
+    if(carID !== undefined) {
+      list_of_ids.push(carID);
+    }
+    if(carID2 !== undefined) {
+      list_of_ids.push(carID2);
+    }
+    return list_of_ids;
+  });
+  const [cars, setCars] = useState(() => {
+    let res = {};
+    for (let i of ids) {
+      res[i] = null;
+    }
+    return res;
+  });
 
   useEffect(() => {
-    fetchPrediction(carID, (obj) => {
-      setComparedCar(obj);
-      setComparedTotalCost(Math.round(obj.five_year_cost_to_own));            
-      setComparedPurchasePrice(obj.predicted_price);
+    for (let i of ids) {
+      fetchPrediction(i).then((res) => {
+        setCars((cars) => {
+          return { ...cars, [res.data.id]: res.data };
+        });
+      });
+    }
+  }, [ids]);
 
-      setComparedYearlyTotalCost(Math.round(obj.five_year_cost_to_own) / 5);
-      setComparedYearlyGasSpend(obj.fuel_cost / 5);
-      setComparedYearlyMaintenanceCost(obj.maintenance_cost / 5);
-    })
-  }, [carID]);
-  
   useEffect(() => setTitle(), []);
-  
+
+  const getUrlWithId = (id) => {
+    if (ids.length === 0) {
+      return `${baseUrl}/${id}`;
+    } else {
+      return `${baseUrl}/to/${id}`;
+    }
+  };
+
   return (
-    <motion.div variants={compareAfterTransition} initial='out' animate='in' exit='out'>
-      <div className = 'compare-container'>
-
-        <div className='compare-title'>
-          <h1>Comparing {mainCar.year} {mainCar.make} {mainCar.model} to {comparedCar.year} {comparedCar.make} {comparedCar.model} </h1>  
-          {/* <AddToCompare className ='handOnHover'/> */}
+    <motion.div
+      variants={compareAfterTransition}
+      initial="out"
+      animate="in"
+      exit="out" >
+      <div className="compare-container">
+        <div className="compare-title">
+          <h1>Compare Vehicles</h1>
+          <p className = 'disclaimer'>Based on averages over 5 years</p>
         </div>
-
-        <div className = 'compare-cars-container'>
-          <div id='original-search' className = 'breakdown-container'>
-            <h2>{mainCar.year} {mainCar.make} {mainCar.model}</h2>
-            <Breakdown purchasePrice={purchasePrice} yearlyTotalCost={yearlyTotalCost} totalCost={totalCost} yearlyGasSpend={yearlyGasSpend} yearlyMaintenanceCost={yearlyMaintenanceCost} />
-          </div>          
-        </div>
-
-        <div className = 'compare-cars-container'>
-          <div id='compare-car-1' className = 'breakdown-container'>
-            <h2>{comparedCar.year} {comparedCar.make} {comparedCar.model}</h2>
-            <Breakdown purchasePrice={comparedPurchasePrice} yearlyTotalCost={comparedYearlyTotalCost} totalCost={comparedTotalCost} yearlyGasSpend={comparedYearlyGasSpend} yearlyMaintenanceCost={comparedYearlyMaintenanceCost} />
-          </div>          
-        </div>
-
+        <CompareCarsContainer>
+          {ids.map((carId, idx) => {
+            let car = cars[carId];
+            let image = "";
+            let title = "Loading...";
+            let predictedCarbonEmissions = NaN;
+            if (car) {
+              image = car.list_of_imgs[0] || image;
+              title = `${car.year} ${car.make} ${car.model}`;
+          
+              predictedCarbonEmissions = car.co2_five_year_kgs;
+            }
+            return (
+              <React.Fragment key={idx}>
+                {idx !== 0 && <DividerCol type="vertical" />}
+                <CarImgContainer><img src={image} alt = 'Car' /></CarImgContainer>
+                
+                <h2><Link to={`/details/${carId}`}>{title}</Link></h2>
+                <TreesContainer>
+                  {car ? <Trees trees = {car} /> : <></>}
+                </TreesContainer>
+                <Cost prediction={car}/>
+                <CarbonGaugeContainer>                
+                
+                  <h3>Carbon Emissions (5 Years): {predictedCarbonEmissions} kgs </h3>
+                  <CarbonGauge
+                    width={100}
+                    height={20}
+                    min={0}
+                    max={MAX_CARBON_EMISSIONS}
+                    value={predictedCarbonEmissions}
+                     />
+                </CarbonGaugeContainer>
+              </React.Fragment>
+            );
+          })}    
+          
+          { ids.length < 3 ? (<>
+          { ids.length > 0 && <DividerCol type="vertical" /> }
+          <CompareSearchContainer>
+            <Search searchClass = 'compare-search' resultsClass = 'compare-results' getUrlWithId={getUrlWithId} searchTitle='Choose a car to compare' />
+          </CompareSearchContainer>
+          </>) : (<></>)
+          }
+        </CompareCarsContainer>
       </div>
     </motion.div>
   );
