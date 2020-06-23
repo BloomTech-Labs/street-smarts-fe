@@ -12,7 +12,7 @@ const Trees = ({ trees }) => {
 
 function Emojis({ number_of_trees_to_offset }) {
   return (
-    <p className="emojis">
+    <p id='niceEmoji' className="emojis">
       CO<sub>2</sub> emitted 
       <br></br>= <br></br>
       {number_of_trees_to_offset} trees burned
@@ -31,11 +31,11 @@ function Emojis({ number_of_trees_to_offset }) {
 function getEmojiForNumTrees(number_of_trees_to_offset) {
   if (number_of_trees_to_offset >= 600) {
     return "🏭😷";
-  } else if (number_of_trees_to_offset >= 475) {
+  } else if (number_of_trees_to_offset >= 400) {
     return "🙁";
   } else if (number_of_trees_to_offset >= 100) {
     return "😐";
-  } else if (number_of_trees_to_offset >= 0) {
+  } else if (number_of_trees_to_offset >= 1) {
     return "🙂";
   } else {
     return "😀";

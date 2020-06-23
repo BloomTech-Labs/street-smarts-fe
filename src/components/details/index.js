@@ -97,7 +97,7 @@ const CarDetails = () => {
           </Card>
 
           <Card
-            className='car-img'
+            className='carImg'
             id={car.id}>
             <CarGallery showFullscreenButton={true} images = {carImages} />
             <div className='compare-button'>
