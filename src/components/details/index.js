@@ -49,7 +49,7 @@ const CarDetails = () => {
         <div className='carDetails'>
 
           <Card
-            className='car-text'
+            className='carText'
             id={car.id}>
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
