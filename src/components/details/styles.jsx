@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const CarDetailsStyles = styled.div`
-  .car-details {
-    width: 70vw;
+  .carDetails {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: rgb(0,0,0);
@@ -16,15 +16,11 @@ const CarDetailsStyles = styled.div`
     #niceEmoji {
       img {
         width: 3em;
-        margin-left: 2em;
       }
     }
 
     .emojis {
       font-weight: bolder;
-      span { 
-        margin-left: 2em;
-      }
     }
     .ant-card-body {
       padding: 0;
@@ -37,7 +33,7 @@ const CarDetailsStyles = styled.div`
       }
     }
 
-    .car-text {
+    .carText {
       width: 45%;
       background-color: rgba(0,0,0,0);
       border: none;
@@ -48,14 +44,11 @@ const CarDetailsStyles = styled.div`
       }
     }
 
-    .car-img {
+    .carImg {
       width: 45%;
       background-color: rgba(0,0,0,0);
       border: none;
       padding: 0px;
-      display: flex;
-      justify-content: center;
-      text-align: center;
 
       @media (max-width: 1100px) {
         width: 50%;
@@ -67,21 +60,9 @@ const CarDetailsStyles = styled.div`
       rect {
         width: 100%
       }
+
       .cto {
         font-size: 2rem;
-      }
-      .compare-button {
-        margin: 20%;
-      }
-      .eco-driving-link {
-        width: 25vw;
-        border: 2px solid #25D0C6;
-        border-radius: 25px;
-        margin: 10vw;
-        margin-top: 25vh;
-        a {
-          margin: 5%;
-        }
       }
     }
   }
@@ -107,12 +88,12 @@ const CarDetailsStyles = styled.div`
     }
   }
   .compare-button {
-    margin: 20%;
+    margin:20%;
     text-align: center;
   }
 
   .trees {
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -120,6 +101,11 @@ const CarDetailsStyles = styled.div`
       text-align: center;
     }
   }
+
+  .eco-driving-link {
+    text-align: center;
+  }
+
 `;
 
 export const Fullscreen = styled.button`

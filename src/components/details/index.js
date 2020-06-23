@@ -42,16 +42,19 @@ const CarDetails = () => {
 
   return (
     <motion.div variants={detailsTransition} initial='out' animate='in' exit='out'>
+      <div className = 'disclaimer-container'>
+        <p className = 'disclaimer'>Based on averages over 5 years</p>
+      </div>
       <CarDetailsStyles className='detailsContainer'>
-        <div className='car-details'>
-          
+        <div className='carDetails'>
+
           <Card
-            className='car-text'
+            className='carText'
             id={car.id}>
             <h1>{`${car.make} ${car.model}`}</h1>
             <h3>{`${car.year}`}</h3>
             <Divider className='divider' />
-              <h3>CO<sub>2</sub> EMISSIONS: {predictedCarbonEmissions}</h3>
+              <h3>CO<sub>2</sub> EMISSIONS: {predictedCarbonEmissions} kgs</h3>
               <HorizontalGauge
                 className='gauge'
                 width={100} height={20}
@@ -94,7 +97,7 @@ const CarDetails = () => {
           </Card>
 
           <Card
-            className='car-img'
+            className='carImg'
             id={car.id}>
             <CarGallery showFullscreenButton={true} images = {carImages} />
             <div className='compare-button'>
