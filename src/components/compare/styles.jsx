@@ -67,14 +67,10 @@ export const TreesContainer = styled.div`
   #niceEmoji {
       img {
         width: 3em;
-        margin-left: 2em;
       }
     }
 
     .emojis {
       font-weight: bolder;
-      span { 
-        margin-left: 2em;
-      }
     }
 `
