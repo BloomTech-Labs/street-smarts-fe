@@ -19,6 +19,7 @@ const ResultsStyled = styled.div`
   
     li.year {
       font-size: 1.1rem;
+      color: black;
     }
   }
 `;
