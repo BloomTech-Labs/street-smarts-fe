@@ -4,21 +4,28 @@
 https://www.streetsmarts.online/
 
 ## Folder Structure: 
-street-smarts-fe 
+#### street-smarts-fe 
 
-    cypress > integration = All our tests
+#### cypress > integration
+- All our tests
 
-    src > assets = images or other external medias
+#### src > assets
+- Images or other external medias
 
-    src > hooks = reusable functions and custom hooks
+#### src > hooks
+- Reusable functions and custom hooks
 
-    src > render > app-content = The main routes, sets up use of browser history and transition animation controller
+#### src > render > app-content
+- The main routes, sets up use of browser history and transition animation controller
 
-    src > components = Everything thats not 'common' or 'sections' folder is essentially a page on our website
+#### src > components
+- Everything thats not 'common' or 'sections' folder is essentially a page on our website
 
-    src > components > common = All the smaller and more reusable parts of our website
+#### src > components > common
+- All the smaller and more reusable parts of our website
 
-    src > components > sections = Parts that take up big portions of our web page and are not as reusable
+#### src > components > sections
+- Parts that take up big portions of our web page and are not as reusable
 
 ## Contributors
 
@@ -30,10 +37,8 @@ street-smarts-fe
 
 
 <br>
-<br>
 
-
-## Project Overview
+# Project Overview
 
 [Trello Board](https://trello.com/b/B5GkoOPo/labs-24-street-smarts)
 
@@ -41,37 +46,29 @@ street-smarts-fe
 
 [UX Design files](https://www.figma.com/file/ecy8WiINQoYzjhkueSwa2a/Street-Smarts%2C-Cornelius?node-id=210%3A0)
 
-StreetSmarts (name might change in production) is a tool to impartially compare the overall cost and emissions during ownership across the spectrum of internal combustion engines to electric vehicles. We make our calculations using the industry standard set by the EPA. Users can search cars by make, model, year and trim package to determine which car is best for their next purchase based on their needs.
+Street Smarts is a tool to impartially compare the overall cost and emissions during ownership across the spectrum of internal combustion engines to electric vehicles. We make our calculations using the industry standard set by the EPA. Users can search cars by make, model, year and trim package to determine which car is best for their next purchase based on their needs.
 
-### Key Features
+## Key Features
 
-- Allows customer to search for details on a single car
+- Allows customer to search for details of a single car
 - Provides more information about environmental impact of cars than competitors
 - Customer can compare up to 3 vehicles
 
-## Tech Stack
+# Tech Stack
 
 ### Front End Built Using:
 
 #### React
 
-- It has extensive features and the ability to work with other technologies
+- It has extensive features and the ability to work with other technologies.
 
 #### Ant Design
 
-- This robust library saves time and is easy to manipulate, rather than a different library because it is widely trusted and the UX team preferred it
+- This robust library saves time and is easy to manipulate, rather than a different library because it is widely trusted and the UX team preferred it.
 
 #### Styled Components
 
-- So that the styling stays within each component to simplify alterations, instead of surrendering that organization if we were to use a different system
-
-#### Chart Library
-
-- a chart library to render data visually—which my team has yet to select, but we have created a list of viable options
-
-#### Context API
-
-- It creates a light, scalable state management, as opposed to Redux which is more complex and requires more maintenance
+- So that the styling stays within each component to simplify alterations, instead of surrendering that organization if we were to use a different system.
 
 #### Front end deployed to AWS Amplify
 
@@ -79,26 +76,26 @@ StreetSmarts (name might change in production) is a tool to impartially compare 
 
 #### Heroku PostgreSQL
 
-- Maintains a robust, relational database
+- Maintains a robust, relational database.
 
 #### NodeJS, Express, and knex
 
-- The industry standard combination of technologies that defines HTTP servers and connects to Postgres databases
+- The industry standard combination of technologies that defines HTTP servers and connects to Postgres databases.
 
 #### RESTful API
-- It interacts with the server simply and safely
+- It interacts with the server simply and safely.
 
 # APIs
 
-## Authentication API here
+### Authentication API
 
-- We will not be using Authentication
+- We will not be using authentication.
 
-## Payment API here
+### Payment API
 
-- We will not be accepting payments on this site
+- We will not be accepting payments.
 
-## Vehicle API
+### Vehicle API
 
 The API returns values from a curated database, built by our data science team, that contains data from several external, industry standard APIs. Our API contains makes, models, years, CO<sub>2</sub> emissions, a break down of cost-to-own over 5 years, and images for over 10,000 individual vehicles.
 
@@ -116,7 +113,7 @@ Using Jest due to familiarity and because it's the default choice for Create Rea
 
 Create React App installs several dependencies by default. We then installed npm using "npm i" along with npm i react-router-dom, axios, styled components, and Ant Design.
 
-## Other Scripts
+# Other Scripts
 
     "start": "react-scripts start",
     "build": "react-scripts build",
