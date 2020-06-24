@@ -7,7 +7,7 @@ https://www.streetsmarts.online/
 #### street-smarts-fe 
 
 #### cypress > integration
-- All our tests
+- All tests
 
 #### src > assets
 - Images or other external medias
@@ -16,16 +16,16 @@ https://www.streetsmarts.online/
 - Reusable functions and custom hooks
 
 #### src > render > app-content
-- The main routes, sets up use of browser history and transition animation controller
+- Main routes: browser history and transition animation controller
 
 #### src > components
-- Everything thats not 'common' or 'sections' folder is essentially a page on our website
+- All components and individual pages
 
 #### src > components > common
-- All the smaller and more reusable parts of our website
+- Smaller and more reusable components
 
 #### src > components > sections
-- Parts that take up big portions of our web page and are not as reusable
+- Larger and less reusable components
 
 ## Contributors
 
