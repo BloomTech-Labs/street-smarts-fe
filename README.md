@@ -40,7 +40,7 @@ https://www.streetsmarts.online/
 <br>
 
 
-## Project Overview
+# Project Overview
 
 [Trello Board](https://trello.com/b/B5GkoOPo/labs-24-street-smarts)
 
@@ -50,13 +50,13 @@ https://www.streetsmarts.online/
 
 Street Smarts is a tool to impartially compare the overall cost and emissions during ownership across the spectrum of internal combustion engines to electric vehicles. We make our calculations using the industry standard set by the EPA. Users can search cars by make, model, year and trim package to determine which car is best for their next purchase based on their needs.
 
-### Key Features
+## Key Features
 
 - Allows customer to search for details of a single car
 - Provides more information about environmental impact of cars than competitors
 - Customer can compare up to 3 vehicles
 
-## Tech Stack
+# Tech Stack
 
 ### Front End Built Using:
 
@@ -89,15 +89,15 @@ Street Smarts is a tool to impartially compare the overall cost and emissions du
 
 # APIs
 
-## Authentication API
+### Authentication API
 
 - We will not be using authentication.
 
-## Payment API
+### Payment API
 
 - We will not be accepting payments.
 
-## Vehicle API
+### Vehicle API
 
 The API returns values from a curated database, built by our data science team, that contains data from several external, industry standard APIs. Our API contains makes, models, years, CO<sub>2</sub> emissions, a break down of cost-to-own over 5 years, and images for over 10,000 individual vehicles.
 
@@ -115,7 +115,7 @@ Using Jest due to familiarity and because it's the default choice for Create Rea
 
 Create React App installs several dependencies by default. We then installed npm using "npm i" along with npm i react-router-dom, axios, styled components, and Ant Design.
 
-## Other Scripts
+# Other Scripts
 
     "start": "react-scripts start",
     "build": "react-scripts build",
