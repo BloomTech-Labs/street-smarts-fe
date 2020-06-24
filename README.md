@@ -37,8 +37,6 @@ https://www.streetsmarts.online/
 
 
 <br>
-<br>
-
 
 # Project Overview
 
