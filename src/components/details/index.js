@@ -59,9 +59,7 @@ const CarDetails = () => {
                 className='gauge'
                 width={100} height={20}
                 min={0} max={MAX_CARBON_EMISSIONS}
-                value={predictedCarbonEmissions}
-              />
-            <Divider className='divider' />
+                value={predictedCarbonEmissions}/>
               <Trees trees = {trees}/>
             <Divider className='divider' />        
               <Cost prediction={prediction}/>

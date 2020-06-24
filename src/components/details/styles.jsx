@@ -97,9 +97,6 @@ const CarDetailsStyles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    p {
-      text-align: center;
-    }
   }
 
   .eco-driving-link {
