@@ -25,7 +25,7 @@ const ResultsStyled = styled.div`
     list-style-type: none;
     padding: 0;
   
-    li.year {
+    li {
       font-size: 1.1rem;
       color: black;
     }
