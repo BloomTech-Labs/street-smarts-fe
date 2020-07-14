@@ -50,6 +50,7 @@ const AppStyle = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+    overflow-x: hidden;
 
     .header {
       width: 100%;
@@ -66,7 +67,7 @@ const AppStyle = styled.div`
 
       @media (max-width: 750px) {
         margin-top: 1em;
-        flex-direction: column;
+        
       }
 
       .menu {
@@ -74,19 +75,62 @@ const AppStyle = styled.div`
         color: white;
         border: none;
         display: flex;
+
+        @media (max-width: 1100px) {
+          position: absolute;
+          right: 0px;
+          height: 35em;
+          top: 8vh;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+          width: 100%;
+          transform: translateX(100%);
+          transition: transform 0.5s ease-in;
+          background: linear-gradient(212deg, #189c94, #cae0de);
+        }
         .navlink {
           align-items: center;
           text-decoration: none!important;
           color: #FFFFFF;
           text-transform: uppercase;
           font-weight: bold;
+    
         }
         li {
           padding: 0;
           margin-left: 3vw;
+          list-style: none;
+          @media (max-width: 1100px) {
+            border: 2px solid black;
+            border-radius: 100px;
+            padding: 0.6em 1em;
+            background-color: black;
+          }
         }
       }
+    .nav-active {
+      transform: translateX(0%);
     }
+
+      .burger {
+        display: none;
+        cursor: pointer; 
+
+        @media (max-width: 1100px) {
+          display: block;
+        }
+      }
+      
+      .burger div{
+          width: 25px;
+          height:5px;
+          margin: 5px;
+          background-color: #25D0C6;
+      }
+    }
+
+
 
     main {
       min-height: 90vh;
@@ -99,9 +143,7 @@ const AppStyle = styled.div`
       color: #FFFFFF;
       border: none;
       margin: auto;      
-
     }
-
 
     .footer {
       width: 100%;
@@ -112,6 +154,8 @@ const AppStyle = styled.div`
       text-align: center;
       color: #FFFFFF;
       background-color: rgb(0,0,0);
+
+      margin-top: 10em;
       p {
         font-size: .8rem
       }
@@ -149,6 +193,11 @@ const AppStyle = styled.div`
     .compare-container {
       background-color: black;
       padding-bottom: 10em;
+
+      @media (max-width:1500) {
+        display: flex;
+        flex-direction: column;
+      }
     } 
          
     .disclaimer {
@@ -165,6 +214,8 @@ const AppStyle = styled.div`
       }
     }
 }
+
+
 `;
 
 export default AppStyle;

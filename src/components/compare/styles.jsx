@@ -12,6 +12,20 @@ export const CompareCarsContainer = styled.div`
   gap: 4%;
   justify-items: center;
   margin-bottom: 18vh;
+  
+  @media (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+    height: 350vh;
+    margin: auto;
+  }
+
+  h2 {
+    text-align: center;
+  }
 `;
 
 export const CarImgContainer = styled.div`
@@ -27,6 +41,13 @@ export const CarImgContainer = styled.div`
 export const CarbonGaugeContainer = styled.div`
   color: white;
   width: 100%;
+
+  @media (max-width: 1100px) {
+
+    padding-bottom: 2em;
+    border-bottom: 2px solid white;
+  }
+
   h3 {
     font-size: 1.15em;
     padding-left: 10px;
@@ -63,7 +84,17 @@ export const DividerCol = styled(Divider)`
 `;
 
 export const TreesContainer = styled.div`
+  width: 22em;
   text-align:center;
+  background-color: white;
+  border: 2px solid #25D0C6;
+  padding: 0 1.5em 0 1.5em;
+
+  
+  p {
+    color: black;
+  }
+
   #niceEmoji {
       img {
         width: 3em;

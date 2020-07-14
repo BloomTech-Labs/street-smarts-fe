@@ -51,7 +51,7 @@ export default function Search({ searchTitle, getUrlWithId, resultsClass, search
           showSearch
           defaultValue='Make'
           onSelect={(selected) => handleMakeChanges(selected, setMakeSelected, setModelDisabled, setYearSelected)}
-          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled)}
+          onFocus={() => disableOtherDropdown(setModelDisabled, setModelSelected, setYearDisabled, setYearSelected)}
           data={carMakes} />
           
         <Dropdown 

@@ -102,7 +102,6 @@ const CarDetailsStyles = styled.div`
   .eco-driving-link {
     text-align: center;
   }
-
 `;
 
 export const Fullscreen = styled.button`
